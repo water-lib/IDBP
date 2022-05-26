@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>合格率</title>
+    <script type="text/javascript" src="/static/js/echart_for_qualification_rate.js"></script>
+    <link rel="stylesheet" href="/static/css/NavigationBar.css" />
+    <link rel="stylesheet" href="/static/css/qualification_rate.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+</head>
+<body>
+
+<!--导航条-->
+<navigation>
+    <ul>
+        <li><a href="">首页</a></li>
+        <li><a href="/history_energy_consumption.html">电量</a></li>
+        <li><a href="/order.html">订单</a></li>
+        <li><a href="/qualification_rate.html">合格率</a></li>
+        <li><a href="">退出</a></li>
+    </ul>
+</navigation>
+
+<!--合格率-->
+    <div type="text/javascript" id="pie1">
+        <script type="text/javascript">
+            history_rate()
+        </script>
+    </div>
+    <div type="text/javascript" id="pie2">
+        <script type="text/javascript">
+            current_rate()
+        </script>
+    </div>
+
+</body>
+</html>

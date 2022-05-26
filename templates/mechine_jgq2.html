@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="../static/css/header.css" />
+    <script type="text/javascript" src="../static/js/line-simple.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+</head>
+<body>
+
+<!--这里是头条-->
+    <header>
+        <div id="backheader">
+
+            <ul id="navigation">
+                <li><a href='e_parm.html' style="font-size: 20px">电参数</a></li>
+                <li><a href='index.html' style="font-size: 20px">回到首页</a></li>
+            </ul>
+            <h id="meacheine_name">数控车床</h>
+            <div id="datetime">
+                <script>
+//setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式。
+//getElementById() 方法可返回对拥有指定 ID 的第一个对象的引用。这里🆔id为datetime
+//这里
+                    setInterval("document.getElementById('datetime').innerHTML=new Date().toLocaleString();", 1000);
+                </script>
+            </div>
+        </div>
+    </header>
+
+<!--这里是饼图-->
+    <pie id="pie">
+        <div type="text/javascript" id="pie1">
+            <script type="text/javascript">
+               pie_alltime()
+            </script>
+        </div>
+        <div type="text/javascript" id="pie2">
+            <script type="text/javascript">
+                pie_worktime()
+            </script>
+        </div>
+    </pie>
+
+<!--这里是工艺参数-->
+<!--这里是表面质量-->
+
+        <div id="surf_list">
+            <script type="text/javascript">
+                surface_list()
+            </script>
+        </div>
+
+<!--这里是表面质量合格率-->
+        <div  id="surf_rate">
+            <script type="text/javascript">
+                surface_rate()
+            </script>
+        </div>
+<!--这里是已加工工件个数-->
+        <count id="count">
+            <h style="position: absolute;left: 5%";id="coumt_txt">已加工<h id="count_num">0</h>个</h>
+		<script>
+
+			//数字自增到某一值动画参数（目标元素,自定义配置）
+			function NumAutoPlusAnimation(targetEle, options) {
+
+				/*可以自己改造下传入的参数，按照自己的需求和喜好封装该函数*/
+				//不传配置就把它绑定在相应html元素的data-xxxx属性上吧
+				options = options || {};
+
+				var $this = document.getElementById(targetEle),
+					time = options.time || $this.data('time'), //总时间--毫秒为单位
+					finalNum = options.num || $this.data('value'), //要显示的真实数值
+					regulator = options.regulator || 100, //调速器，改变regulator的数值可以调节数字改变的速度
+
+					step = finalNum / (time / regulator),/*每30ms增加的数值--*/
+					count = 0, //计数器
+					initial = 0;
+
+				var timer = setInterval(function() { //通过重复30ms的调用来实现动态增加并展示
+
+					count = count + step;
+
+					if(count >= finalNum) {
+						clearInterval(timer);
+						count = finalNum;
+					}
+					//t未发生改变的话就直接返回
+					//避免调用text函数，提高DOM性能
+					var t = Math.floor(count);
+					if(t == initial) return;
+
+					initial = t;
+
+					$this.innerHTML = initial;
+				}, 30);
+			}
+
+			NumAutoPlusAnimation("count_num", {
+				time: 3000,
+				num: 14000,
+				regulator: 50
+			})
+
+		</script>
+
+        </count>
+
+
+<!--这里是刀具使用时间-->
+        <div  id="timetool">
+            <script type="text/javascript">
+                timeoftool()
+            </script>
+        </div>
+
+<!--这里是刀具健康-->
+<div  id="toolhealth">
+    <script type="text/javascript">
+        toolhealth()
+    </script>
+</div>
+
+
+<!--这里是按钮-->
+<div class="demo">
+    <a href="#" class="button green small" onclick="zhengdong()" id="zhengdong">振动</a>
+    <a href="#" class="button green small" onclick="Pchart()" id="gonghao">功耗</a>
+</div>
+
+<!--这里是功率与振动图表-->
+    <data>
+<!--
+        <div class="container1">
+
+
+
+            <ul id="leftNav">
+                <script>one()</script>
+                <li><a onclick="zhengdong()" id="zhengdong" class=>振动</a></li>
+                <li><a onclick="Pchart()" id="gonghao">功耗</a></li>
+
+            </ul>
+        </div>
+
+-->
+
+        <div id="lintable1">
+            <script type="text/javascript" id="lin_table">
+                lin_simple1()
+            </script>
+        </div>
+
+        <div id="lintable2">
+            <script type="text/javascript">
+                lin_simple2()
+            </script>
+        </div>
+    </data>
+
+
+
+
+
+</body>
+
+</html>

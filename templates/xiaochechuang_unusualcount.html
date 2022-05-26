@@ -1,0 +1,33 @@
+{% extends "basecount.html" %}
+{% block styles %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Workpiece Information Manage{% endblock %}
+
+{% block page_content %}
+    <div style="font-size: 20px;position:absolute;top: 10%;left: 80%;color: grey">
+        当前显示为总有功功率>200的数据统计
+    </div>
+    <table class="table table-bordered">
+    <tr>
+        <th>采集次数</th>
+        <th>时间</th>
+        <th>平均电压</th>
+        <th>平均电流</th>
+        <th>总有功功率</th>
+        <th>总有功因素</th>
+    </tr>
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

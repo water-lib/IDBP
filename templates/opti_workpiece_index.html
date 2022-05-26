@@ -1,0 +1,21 @@
+{% extends "basepredict.html" %}
+{% import 'wtf.html' as wtf %}
+{% block title %}{% endblock %}
+{% block styles %}
+    <link href="../static/css/com_have_backgound.css" rel='stylesheet' type='text/css' media="screen and (min-width: 480px)">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/phone_no_background.css" rel='stylesheet' type='text/css' media="screen and (max-width: 479px)">
+{% endblock %}
+{% block page_content %}
+<body>
+<div class="page-header">
+    <h1>工件加工质量优化</h1>
+</div>
+<div class="col-md-4">
+    {{ wtf.quick_form(form) }}
+</div>
+    <div id="atten">
+        注意：此页面选择的是加工不同工件时使用的不同的机床，
+        因此请选择好当前加工工件的设备名，并在下个页面输入参数进行质量优化。
+    </div>
+{% endblock %}

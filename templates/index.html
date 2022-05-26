@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>工业大数据平台</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=1500, initial-scale=0.2 ,minimum-scale=0.1,maximum-scale=1.0,user-scalable=no">
+   <meta charset="UTF-8" >
+   <link rel="stylesheet" href="../static/css/nav.css" />
+   <style type="text/css">
+	   .divposreadmore{
+		   position: absolute;
+		   top: 1310px;
+		   left: 80%;
+	   }
+	   .divposreadmore1{
+		   position: absolute;
+		   top: 1320px;
+		   left: 81%; 	   }
+	   .divposul{
+		   position: absolute;
+		   max-height: 200px;
+		   max-width: 1800px;
+		   top: 140px;
+           left: 20px;
+	   }
+	   .container{
+		   position: absolute;
+		   height: 1500px;
+		   width: 100%;
+		   margin-top:auto;
+           {#top: 149.8%; <!--网页端是149.8% 34-->#}
+           left: 0%;
+
+	   }
+	   .container1{
+		   position: absolute;
+		   height: 1500px;
+		   width: 100%;
+		   top: 100%;
+           left: 0%;
+	   }
+	   .container2{
+		   position: absolute;
+		   height: 1500px;
+		   width: 100%;
+		   top: 200%;
+           left: 0%;
+	   }
+	   .container3{
+		   position: absolute;
+		   height: 1000px;
+		   width: 100%;
+		   top: 100%;
+           left: 0%;
+	   }
+
+	   .fdh-t-ename {
+		   font-size: 50px;
+	   		}
+	   .fdh-t-search {
+		   width: 180px;
+		   height: 20px;
+		   float: right; }
+	   .fdh-t-link {
+		   text-align: right;
+		   font-size: 30px;
+		   height: 40px;
+		   margin: -120px 0 180px 0; }
+	   @media only screen and (min-width: 2400px) and (max-width: 3799px) {
+		   .fdh-t-link {
+					width: 2600px;
+		   }
+	   }
+	    @media only screen and (min-width: 3800px)  {
+		   .fdh-t-link {
+				font-size: 40px;
+			   width: 3800px;
+		   }
+	   }
+	   .daohanglang{
+		   width: 380px;
+		   height: 88px;
+		   font-size: 40px
+
+	   }
+	   .fdh-t-login{
+		   width: px
+	   }
+	   .body{
+		   background-size:100%;
+		   background-image: url("../static/img/大门.jpg");
+		   background-repeat:no-repeat;
+	   }
+	   .body1{
+		  	<img src="../static/img/大门%20.png" style="width:100%;height:100%">
+	   }
+      /*图片的绝对位置*/
+      .zsj {
+		  position: absolute;
+		  left:15%;
+		  top:22%;
+		 }
+
+	  .zsj1 {
+		  position: absolute;
+		  left:15%;
+		  top:24%;
+	  }
+	   @media only screen and (min-width: 3800px) {
+		   .zsj1 {
+			   left: 29%;
+		   }
+	   }
+	    @media only screen and (min-width: 2400px) and (max-width: 3799px) {
+		   .zsj1 {
+			   left: 25%;
+		   }
+	   }
+	  .zsj2{
+		  position: absolute;
+		  left:15%;
+		  top:25%;
+	  }
+
+	  .zsj3{
+			position: absolute;
+		  left:26%;
+		  top:25%;
+	  }
+	  .zsj4{
+			position: absolute;
+		  left:42%;
+		  top:25%;
+	  }
+	  .zsj5{
+		  position: absolute;
+		  left:58%;
+		  top:25%;
+	  }
+	  .zsj6{
+		  position: absolute;
+		  left:76%;
+		  top:25%;
+	  }
+
+	/*zsj图片的宽度和高度*/
+      .zsj img
+      {
+         width: 1300px;
+         height:600px;
+      } 
+      .NavigationBar{
+         z-index: 10;
+      }
+	  .tt{
+		  position: relative;
+		  z-index: -1;
+	  }
+	 /*弹窗页面布局*/ 
+	 .box{
+		 position: absolute;
+		 z-index: 100;
+	     width:1600px; top:430px; left: 10%; margin:auto; padding:40px;
+	     height:900px; border:1px #111 solid;
+		 background-color: darkgray;
+	     display:none;            /* 默认对话框隐藏 */
+	 }
+	 .box.show{display:block;} 
+	 .form-group1{float: left;margin-left: 10px;margin-top: 10px;}
+	 .form-group2{float: left;margin-left: 200px;}
+	 .form-group3{position: absolute;float: left;margin-left: 10px;margin-top: 130px;}
+	 .box .y{margin-top: 1%;text-align: center;}
+	 .box .x{ font-size:18px; text-align:right; display:block;margin-top: auto;}
+	 .anniu{
+		 position: absolute;
+		 margin-left: 50%;
+		 margin-top: 200px;
+	 }
+	  .biaoge{
+		 position: absolute;
+		 margin-left: 1%;
+		  margin-top: 20%
+	 }
+	 .box input{width:70%; font-size:18px; margin-top:10px;}
+	 /* 下拉菜单的样式 */
+	 .NavigationBar1 ul li{
+		 display:block;
+		 width: 100%;
+		 height: 40px;
+		 background-color: #47385f;
+	 }
+	 .NavigationBar1{
+		 width: 360px;
+		 height: 80px;
+		 font-size: 35px
+	 }
+	 .NavigationBar2{
+		 width: 300px;
+		 height: 80px;
+		 font-size: 40px
+	 }
+	 .NavigationBar3{
+		 width: 280px;
+		 height: 80px;
+		 font-size: 40px
+	 }
+		.NavigationBar4{
+		 width: 280px;
+		 height: 80px;
+		 font-size: 40px
+	 }
+		.NavigationBar5{
+		 width: 300px;
+		 height: 80px;
+		 font-size: 40px
+	 }
+		.NavigationBar6{
+		 width: 280px;
+		 height: 80px;
+		 font-size: 40px
+	 }
+
+
+	 .NavigationBar1 ul li a {
+		 color: white;
+		 font-size: 14px;
+	 }
+	 .NavigationBar1 ul li a:hover{
+		 color: red;
+	 }
+	 .NavigationBar2 ul li{
+		 display:block;
+		 width: 100%;
+		 height: 40px;
+		 background-color: #47385f;
+	 }
+	 .NavigationBar2 ul li input {
+		 color: white;
+		 font-size: 14px;
+	 }
+	 .NavigationBar2 ul li input:hover{
+		 color: red;
+	 }
+	 .NavigationBar3 ul li{
+		 display:block;
+		 width: 100%;
+		 height: 40px;
+		 background-color: #47385f;
+	 }
+	 .NavigationBar3 ul li input {
+		 color: white;
+		 font-size: 14px;
+	 }
+	 .NavigationBar3 ul li input:hover{
+		 color: red;
+	 }
+	 .NavigationBar4 ul li{
+		 display:block;
+		 width: 100%;
+		 height: 40px;
+		 background-color: #47385f;
+	 }
+	 .NavigationBar4 ul li input {
+		 color: white;
+		 font-size: 14px;
+	 }
+	 .NavigationBar4 ul li input:hover{
+		 color: red;
+	 }
+	 .NavigationBar5 ul li{
+		 display:block;
+		 width: 100%;
+		 height: 40px;
+		 background-color: #47385f;
+	 }
+	 .NavigationBar5 ul li input {
+		 color: white;
+		 font-size: 14px;
+	 }
+	 .NavigationBar5 ul li input:hover{
+		 color: red;
+	 }
+	 .NavigationBar6 ul li{
+		 display:block;
+		 width: 100%;
+		 height: 40px;
+		 background-color: #47385f;
+	 }
+	 .NavigationBar6 ul li a {
+		 color: white;
+		 font-size: 14px;
+	 }
+	 .NavigationBar6 ul li a:hover{
+		 color: red;
+	 }
+	 .context{
+
+	 }
+	 @media only screen and (min-width:3800px){
+		 .context{
+			 margin-left: 25%;
+		 }
+	 }
+	 @media only screen and (min-width: 2400px) and (max-width: 3799px){
+		 .context{
+			 margin-left: 12%;
+		 }
+	 }
+	   .biaogetext{
+	   	font-size:40px
+	   }
+	   .biaoinput{
+		   width: 350px;
+		   height: 40px
+	   }
+	   .box form div button{
+			height: 60px;
+			width: 80px;
+			font-size: 35px
+					}
+
+    /* 工件信息管理页面 */
+    #inputbox1 {
+		background-color: #1d305a;
+	}
+	#inputbox1 h2 {
+		color: #01bef1;
+	}
+	#inputbox1 a {
+		color: #17c8f8;
+	}
+	#inputbox1 a:hover{
+		color: red;
+	}
+	#inputbox1 div label {
+		color:white;
+	}
+	#inputbox1 .biaoge {
+		color: white;
+	}
+	#inputbox1 .anniu button{
+		background-color:#01bef1;
+		border: 2px solid #01bef1;
+	}
+	#inputbox1 .anniu button:hover{
+		color: red;
+	}
+	/* 设备信息管理页面 */
+	#inputbox2 {
+		background-color: #1d305a;
+	}
+	#inputbox2 h2 {
+		color: #01bef1;
+	}
+	#inputbox2 a {
+		color: #17c8f8;
+	}
+	#inputbox2 a:hover{
+		color: red;
+	}
+	#inputbox2 div label {
+		color:white;
+	}
+	#inputbox2 .biaoge {
+		color: white;
+	}
+	#inputbox2 .anniu button{
+		background-color:#01bef1;
+		border: 2px solid #01bef1;
+	}
+	#inputbox2 .anniu button:hover{
+		color: red;
+	}
+	/* 订单信息管理页面 */
+	#inputbox3 {
+		background-color: #1d305a;
+	}
+	#inputbox3 h2 {
+		color: #01bef1;
+	}
+	#inputbox3 a {
+		color: #17c8f8;
+	}
+	#inputbox3 a:hover{
+		color: red;
+	}
+	#inputbox3 div label {
+		color:white;
+	}
+	#inputbox3 .biaoge {
+		color: white;
+	}
+	#inputbox3 .anniu button{
+		background-color:#01bef1;
+		border: 2px solid #01bef1;
+	}
+	#inputbox3 .anniu button:hover{
+		color: red;
+	}
+	/* 生产异常统计页面 */
+	#inputbox4 {
+		background-color: #1d305a;
+	}
+	#inputbox4 h2 {
+		color: #01bef1;
+	}
+	#inputbox4 a {
+		color: #17c8f8;
+	}
+	#inputbox4 a:hover{
+		color: red;
+	}
+	#inputbox4 .tiaojianxuanze {
+		color: white;
+	}
+	#inputbox4 .daterange h4 {
+		color: white;
+	}
+	#inputbox4 .form-inline input:hover{
+		color: red;
+	}
+	#inputbox4 .anniu button {
+		background-color:#01bef1;
+		border: 2px solid #01bef1;
+	}
+	#inputbox4 .anniu button:hover{
+		color: red;
+	}
+	#inputbox4 .biaoge {
+		color: white;
+	}
+	/* 工件产量统计 */
+	#inputbox5 {
+		background-color: #1d305a;
+	}
+	#inputbox5 h2 {
+		color: #01bef1;
+	}
+	#inputbox5 a {
+		color: #17c8f8;
+	}
+	#inputbox5 a:hover{
+		color: red;
+	}
+	#inputbox5 .tiaojianxuanze {
+		color: white;
+	}
+	#inputbox5 .daterange h4 {
+		color: white;
+	}
+	#inputbox5 .form-inline input:hover{
+		color: red;
+	}
+	#inputbox5 .anniu button {
+		background-color:#01bef1;
+		border: 2px solid #01bef1;
+	}
+	#inputbox5 .anniu button:hover{
+		color: red;
+	}
+	#inputbox5 .biaoge {
+		color: white;
+	}
+	#inputbox5 .tubiao {
+		color: white;
+	}
+	/* 设备故障统计 */
+	#inputbox6 {
+		background-color: #1d305a;
+	}
+	#inputbox6 h2 {
+		color: #01bef1;
+	}
+	#inputbox6 a {
+		color: #17c8f8;
+	}
+	#inputbox6 a:hover{
+		color: red;
+	}
+	#inputbox6 .tiaojianxuanze {
+		color: white;
+	}
+	#inputbox6 .daterange h4 {
+		color: white;
+	}
+	#inputbox6 .form-inline input:hover{
+		color: red;
+	}
+	#inputbox6 .anniu button {
+		background-color:#01bef1;
+		border: 2px solid #01bef1;
+	}
+	#inputbox6 .anniu button:hover{
+		color: red;
+	}
+	#inputbox6 .biaoge {
+		color: white;
+	}
+	#inputbox6 .tubiao {
+		color: white;
+	}
+	/* 设备故障预警 */
+	#inputbox7 {
+		background-color: #1d305a;
+	}
+	#inputbox7 h2 {
+		color: #01bef1;
+	}
+	#inputbox7 a {
+		color: #17c8f8;
+	}
+	#inputbox7 a:hover{
+		color: red;
+	}
+	#inputbox7 .daterange h4 {
+		color: white;
+	}
+	#inputbox7 .form-inline input:hover{
+		color: red;
+	}
+	#inputbox7 .anniu button {
+		background-color:#01bef1;
+		border: 2px solid #01bef1;
+	}
+	#inputbox7 .anniu button:hover{
+		color: red;
+	}
+	#inputbox7 .biaoge {
+		color: white;
+	}
+	#inputbox7 .tubiao {
+		color: white;
+	}
+	/* 工件加工质量预测 */
+	#inputbox8 {
+		background-color: #1d305a;
+	}
+	#inputbox8 h2 {
+		color: #01bef1;
+	}
+	#inputbox8 a {
+		color: #17c8f8;
+	}
+	#inputbox8 a:hover{
+		color: red;
+	}
+	#inputbox8 .form-group1 {
+		color: white;
+	}
+	#inputbox8 .form-group2 {
+		color: white;
+	}
+	#inputbox8 .anniu button {
+		background-color:#01bef1;
+		border: 2px solid #01bef1;
+	}
+	#inputbox8 .anniu button:hover{
+		color: red;
+	}
+	#inputbox8 .biaoge {
+		color: white;
+	}
+	/* 数据库备份 */
+	#inputbox9 {
+		background-color: #1d305a;
+	}
+	#inputbox9 h2 {
+		color: #01bef1;
+	}
+	#inputbox9 a {
+		color: #17c8f8;
+	}
+	#inputbox9 a:hover{
+		color: red;
+	}
+	#inputbox9 .form-group {
+		color: white;
+	}
+	#inputbox9 .anniu button {
+		background-color:#01bef1;
+		border: 2px solid #01bef1;
+	}
+	#inputbox9 .anniu button:hover{
+		color: red;
+	}
+	/* 数据库备份 */
+	#inputbox10 {
+		background-color: #1d305a;
+	}
+	#inputbox10 h2 {
+		color: #01bef1;
+	}
+	#inputbox10 a {
+		color: #17c8f8;
+	}
+	#inputbox10 a:hover{
+		color: red;
+	}
+	#inputbox10 .form-group {
+		color: white;
+	}
+	#inputbox10 .anniu button {
+		background-color:#01bef1;
+		border: 2px solid #01bef1;
+	}
+	#inputbox10 .anniu button:hover{
+		color: red;
+	}
+
+   </style>
+   <script>
+       function msgbox1(n){
+           document.getElementById('inputbox1').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+       }
+	   function msgbox2(n){
+	       document.getElementById('inputbox2').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+	   }
+	   function msgbox3(n){
+	       document.getElementById('inputbox3').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+	   }
+	   function msgbox4(n){
+	       document.getElementById('inputbox4').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+	   }
+	   function msgbox5(n){
+	       document.getElementById('inputbox5').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+	   }
+	   function msgbox6(n){
+	       document.getElementById('inputbox6').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+	   }
+	   function msgbox7(n){
+	       document.getElementById('inputbox7').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+	   }
+	   function msgbox8(n){
+	       document.getElementById('inputbox8').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+	   }
+	   function msgbox9(n){
+	       document.getElementById('inputbox9').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+	   }
+	   function msgbox10(n){
+	       document.getElementById('inputbox10').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+	   }
+    </script>
+
+
+
+</head>
+<body class="body" >
+	<div  style="margin-top:auto ;height: 1100px;width: 1800px">
+			<img style="margin-left: 100px" width="1000" class="fdh-t-ename" src="../static/img/福州大学1.png">
+		<div class="fdh-t-link" >
+            <span>
+                <img src="../static/img/电话红色.png" alt=" 工业大数据平台 "  title="工业大数据平台" height="40px" width="40px">
+            </span>
+            <span><font color="#f5deb3" style="font-size: 25px">
+                {{ current_user.phonenumber }}
+            </font></span>
+            <span>
+                <img src="../static/img/红色邮箱.png" alt=" 工业大数据平台 "  title="工业大数据平台" height="40px" width="40px">
+            </span>
+            <span><font color="#f5deb3">
+                FZU@email.com
+            </font></span>
+{#			<span><a href="../templates/Login_modify.html" style="color: wheat">用户登录</a></span>#}
+			<span><font color="#f5deb3">Hello,{% if current_user.is_authenticated %} <!--已登录的账户可以用currentuser来表示，currentuser.username或者就可以使用数据库信息-->
+                {{ current_user.username }}
+                {% else %}
+                 Stranger
+			{% endif %} </font></span>
+		</div>
+		<div class="divposul">
+   <!--导航条的文字跳转链接-->
+      	<ul class="context">
+			<li class="NavigationBar1" >设备运行及监控显示
+            <ul>
+               <li style="height: 62px;margin-top: 8%"><a href="../templates/mechine_skc1.html" style="font-size: 30px">数控车床CKD6140</a></li>
+			   <li style="height: 62px;"><a href="../templates/mechine_skc2.html" style="font-size: 30px">数控车床CAK3665</a></li>
+               <li style="height: 62px;"><a href="../templates/mechine.html" style="font-size: 30px;">立式加工中心VMC850E</a></li>
+               <li style="height: 62px;"><a href="../templates/mechine_jgq1.html" style="font-size: 30px">激光切割HL-1390</a></li>
+               <li style="height: 62px;"><a href="../templates/mechine_jgq2.html" style="font-size: 30px">激光切割ZT-J-6060M</a></li>
+               <li style="height: 62px;"><a href="../templates/mechine_tz.html" style="font-size: 30px">台钻Z3050×16</a></li>
+            </ul>
+         	</li>
+			<li class="NavigationBar2">生产信息管理
+            <ul>
+               <li style="height: 66px;margin-top: 10%"><input type="button" onClick="window.location.href='../templates/workpieceim_main_add.html'" value="工件信息管理" style="font-size: 30px;background-color: #47385f;border:1px solid #47385f;"></li>
+               <li style="height: 66px"><input type="button" onClick="window.location.href='../templates/equipmentim_main_add.html'" value="设备信息管理" style="font-size: 30px;background-color: #47385f;border:1px solid #47385f;"></li>
+				<li style="height: 66px"><input type="button" onClick="window.location.href='../templates/ordersim_main_add.html'" value="订单信息管理" style="font-size: 30px;background-color: #47385f;border:1px solid #47385f;"></li>
+            </ul>
+         </li>
+			<li class="NavigationBar3">数据统计
+            <ul>
+               <li style="height: 66px;margin-top: 10%"><input type="button" onClick="window.location.href='../templates/equipment_unusualcount_query.html'" value="生产异常数据统计" style="font-size: 32px;background-color: #47385f;border:1px solid #47385f;"></li>
+               <li style="height: 66px;"><input type="button" onClick="window.location.href='../templates/workpiece_unusual_count.html'" value="工件产量数据统计" style="font-size: 32px;background-color: #47385f;border:1px solid #47385f;"></li>
+                <li style="height: 66px;"><input type="button" onClick="window.location.href='../templates/equipment_history_query.html'" value="设备运行数据统计" style="font-size: 32px;background-color: #47385f;border:1px solid #47385f;"></li>
+            </ul>
+         </li>
+			<li class="NavigationBar4">设备信息监控
+				<ul><!--文本类型的按钮，常用于导航栏中-->
+					<li style="height: 66px;margin-top: 10%"><input type="button" onClick="window.location.href='../templates/warnning_workpiece_index.html'" value="设备故障实时报警" style="font-size: 32px;background-color: #47385f;border:1px solid #47385f;"></li>
+		         <li style="height: 66px"><input type="button" onClick="window.location.href='../templates/predict_workpiece_index.html'" value="工件质量实时预测" style="font-size: 32px;background-color: #47385f;border:1px solid #47385f;"></li>
+				</ul>
+			</li>
+{#			<li class="NavigationBar5">数据统计#}
+{#            <ul>#}
+{#               <li style="height: 66px;margin-top: 10%"><input type="button" onClick="msgbox9(1)" value="数据库备份" style="font-size: 32px;background-color: #47385f;border:1px solid #47385f;"></li>#}
+{#               <li style="height: 66px"><input type="button" onClick="msgbox10(1)" value="数据库恢复" style="font-size: 32px;background-color: #47385f;border:1px solid #47385f;"></li>#}
+{#            </ul>#}
+{#         </li>#}
+            <li class="NavigationBar6">人员信息管理
+            <ul>
+               <li style="height: 66px;margin-top: 11%"><a style="font-size: 31px" href="/xiougaimima_modify.html">修改密码</a></li>
+               <li style=" height: 66px"><a style="font-size: 31px" href="../templates/Login_modify.html">重新登录</a></li>
+               <li style=" height: 66px"><a style="font-size: 31px" href="../templates/{{ current_user.username }}">操作员信息</a></li>
+               <li style=" height: 66px"><a style="font-size: 31px" href="../templates/gangweiquanxianYes.html">权限修改</a></li>
+               <li style=" height: 66px"><a style="font-size: 31px" href="../templates/order.html">系统日志</a></li>
+               <li style="height: 66px"><a style="font-size: 31px" href="../templates/order.html">系统主页</a></li>
+            </ul>
+         </li>
+      </ul>
+		</div >
+	</div>
+
+<!--读取图片zsj、nzw的位置-->
+<!--<div class="zsj" width="100%">
+   <img src="../static/img/zsj1.png"  width="100%" alt="page1"/>
+</div>
+{#<!--工件数据查询页面-->#}
+{#<div id='inputbox1' class="box"> <!--生成一个长1000宽480的div块，并设置背景色，相对位置-->#}
+{#				<h2 class='y' href=''style="font-size:60px" ;>工件信息管理</h2>#}
+{#		        <a class='x' href=''; onclick="msgbox(0); return false;"style="position: absolute;right: 1px;top: 1px;">关闭</a>#}
+{#				<form action="index.html" method="post">#}
+{#				    <div class="form-group1">#}
+{#						<label for="username" style="font-size:40px" >工件编号:</label>#}
+{#						<input style="width: 350px;height: 40px" type="text" name="empgjbh" id="empgjbh" /><br />#}
+{#						<label for="username" style="font-size:40px">工件类型:</label>#}
+{#						<input style="width: 350px;height: 40px" type="text" name="empgjlx" id="empgjlx" /><br />#}
+{#						<label for="checkcode" style="font-size:40px">工件材质:</label>#}
+{#						<input style="width: 350px;height: 40px" type="text" name="empgjcz" id="empgjcz"/><br />#}
+{#						<label for="password" style="font-size:40px">生产工艺:</label>#}
+{#						<input style="width: 350px;height: 40px" type="text" name="empgjcz" id="empgjcz"/><br />#}
+{#					</div>#}
+{#					<div class="form-group2">#}
+{#					    <label for="password" style="font-size:40px">工件名称:</label>#}
+{#					    <input style="width: 350px;height: 40px" type="text" name="empgjmc"  id="empgjmc" /><br />#}
+{#						<label for="password" style="font-size:40px">工件数量:</label>#}
+{#						<input style="width: 350px;height: 40px" type="text" name="empgjsl"  id="empgjsl" /><br />#}
+{#						<label for="password" style="font-size:40px">加工设备:</label>#}
+{#						<input style="width: 350px;height: 40px" type="text" name="empjgsb"  id="empjgsb" /><br />#}
+{#					</div>#}
+{##}
+{#					<div class="anniu" style="position: absolute;margin-top: 15%">#}
+{#						<button id="addEmpButton1" type="button" οnclick="" style="height: 60px;width: 80px;font-size: 35px">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">删除</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">导出</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">查询</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">全表</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">返回</button>#}
+{#					</div>#}
+{#					<div class="biaoge" style="position: absolute;">#}
+{#						<h3 class='y' href=''; style="font-size: 40px;">工件信息管理表</h2>#}
+{#						<table id="gjxxglb" style="position:absolute;top: 30%;left: 20%;" border="1" >#}
+{#							<tr>#}
+{#								<th style="font-size: 35px;">工件编号</th>#}
+{#								<th style="font-size: 35px;">工件名称</th>#}
+{#								<th style="font-size: 35px;">工件类型</th>#}
+{#								<th style="font-size: 35px;">工件数量</th>#}
+{#								<th style="font-size: 35px;">工件材质</th>#}
+{#								<th style="font-size: 35px;">加工设备</th>#}
+{#								<th width="280px" style="font-size: 35px;">加工工艺</th>#}
+{#							</tr>#}
+{#						</table>#}
+{#					</div>#}
+{#				</form>#}
+{#</div>#}
+{#<script>#}
+{#	//工件信息管理#}
+{#	var addEmpButton1 = document.getElementById("addEmpButton1");#}
+{#	addEmpButton1.onclick = function(){#}
+{#		//获取用户填写的工件信息#}
+{#		var gjbh = document.getElementById("empgjbh").value;#}
+{#		var gjmc = document.getElementById("empgjmc").value;#}
+{#		var gjlx = document.getElementById("empgjlx").value;#}
+{#		var gjsl = document.getElementById("empgjsl").value;#}
+{#		var gjcz = document.getElementById("empgjcz").value;#}
+{#		var jgsb = document.getElementById("empjgsb").value;#}
+{#		var scgy = document.getElementById("empscgy").value;#}
+{#		//#}
+{#		var tr1 = document.createElement("tr")#}
+{#		//#}
+{#		tr1.innerHTML = "<th>"+gjbh+"<th>"+"<th>"+gjmc+"<th>"+"<th>"+gjlx+"<th>"+"<th>"+gjsl+"<th>"+"<th>"+gjcz+"<th>"+"<th>"+jgsb+"<th>"+"<th>"+scgy+"<th>";#}
+{#	    //#}
+{#		var gjxxglb = document.getElementById("gjxxglb");#}
+{#		var tbody = gjxxglb.getElementsByTagName("tbody")[0];#}
+{#		tbody.appendChild(tr1)#}
+{#	};#}
+{#	//设备信息管理#}
+{#	var addEmpButton2 = document.getElementById("addEmpButton2");#}
+{#	addEmpButton2.onclick = function(){#}
+{#		//获取用户填写的工件信息#}
+{#		var sbbh = document.getElementById("empgjbh").value;#}
+{#		var sbmc = document.getElementById("empsbmc").value;#}
+{#		var sbzk = document.getElementById("empsbzk").value;#}
+{#		var jgfw = document.getElementById("empjgfw").value;#}
+{#		var jgjd = document.getElementById("empjgjd").value;#}
+{#		//#}
+{#		var tr2 = document.createElement("tr")#}
+{#		//#}
+{#		tr2.innerHTML = "<th>"+sbbh+"<th>"+"<th>"+sbmc+"<th>"+"<th>"+sbzk+"<th>"+"<th>"+jgfw+"<th>"+"<th>"+jgjd+"<th>";#}
+{#	    //#}
+{#		var gjxxglb = document.getElementById("sbxxglb");#}
+{#		var tbody = gjxxglb.getElementsByTagName("tbody")[0];#}
+{#		tbody.appendChild(tr2)#}
+{#	};#}
+{#	//订单管理#}
+{#	var addEmpButton3 = document.getElementById("addEmpButton3");#}
+{#	addEmpButton3.onclick = function(){#}
+{#		//获取用户填写的订单信息#}
+{#		var pch = document.getElementById("emppch").value;#}
+{#		var cpmc = document.getElementById("empcpmc").value;#}
+{#		var cplx = document.getElementById("empcplx").value;#}
+{#		var jhq = document.getElementById("empjh1").value;#}
+{#		var js = document.getElementById("empjs").value;#}
+{#		var ddzt = document.getElementById("empddzt").value;#}
+{#		//#}
+{#		var tr3 = document.createElement("tr")#}
+{#		//#}
+{#		tr3.innerHTML = "<th>"+pch+"<th>"+"<th>"+cpmc+"<th>"+"<th>"+cplx+"<th>"+"<th>"+jhq+"<th>"+"<th>"+js+"<th>"+"<th>"+ddzt+"<th>";#}
+{#	    //#}
+{#		var ddglb = document.getElementById("ddglb");#}
+{#		var tbody = gjxxglb.getElementsByTagName("tbody")[0];#}
+{#		tbody.appendChild(tr3)#}
+{#	};#}
+{#</script>#}
+{#<!--设备信息管理页面-->#}
+{#<div id='inputbox2' class="box">#}
+{#				<h2 class='y' href=''style="font-size:45px" ;>设备信息管理</h2>#}
+{#		        <a class='x' href=''; onclick="msgbox(0); return false;" style="position: absolute;right: 1px;top: 1px;">关闭</a>#}
+{#				<form action="index.html" method="post">#}
+{#				    <div class="form-group1">#}
+{#						<label class="biaogetext" for="username" >设备编号:</label>#}
+{#						<input style="width: 350px;height: 40px" type="text" name="empsbbh" placeholder="" οnchange="chkname()" id="empsbbh" /><br />#}
+{#						<label class="biaogetext" for="username" >设备名称:</label>#}
+{#						<input style="width: 350px;height: 40px" type="text" name="empsbmc" placeholder="" οnchange="chkname()" id="empsbmc" /><br />#}
+{#						<label for="checkcode" style="font-size: 40px">设备状况:</label>#}
+{#						<input style="width: 350px;height: 40px" type="text" name="checkcode" placeholder="" οnchange="chkcode()" id="empsbzk"/><br /><br />#}
+{#					</div>#}
+{#					<div class="form-group2">#}
+{#					    <label for="password" style="font-size: 40px">加工范围:</label>#}
+{#					    <input style="width: 350px;height: 40px" type="password" name="password"  placeholder="" οnchange="chkpassword()" id="empjgfw" /><br />#}
+{#						<label for="password" style="font-size: 40px">加工精度:</label>#}
+{#						<input style="width: 350px;height: 40px" type="password" name="password"  placeholder="" οnchange="chkpassword()" id="empjgjd" /><br />#}
+{#					</div>#}
+{#					<div class="anniu" >#}
+{#						<button id="addEmpButton2" type="button" οnclick="check()" >添加</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >删除</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >导出</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >查询</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()">全表</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >返回</button>#}
+{#					</div>#}
+{#					<div class="biaoge">#}
+{#						<h3 class='y' href=''; style="font-size: 40px">设备信息管理表</h2>#}
+{#						<table id="sbxxglb" border="1" >#}
+{#							<tr>#}
+{#								<th style="font-size: 35px">设备编号</th>#}
+{#								<th style="font-size: 35px" >设备名称</th>#}
+{#								<th width="150px" style="font-size: 35px">加工范围</th>#}
+{#								<th width="150px" style="font-size: 35px">加工精度</th>#}
+{#								<th width="300px" style="font-size: 35px">设备状况</th>#}
+{#							</tr>#}
+{#							<tr>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#							</tr>#}
+{#						</table>#}
+{#					</div>#}
+{#				</form>#}
+{#</div>#}
+{#<!--订单管理页面-->#}
+{#<div id='inputbox3' class="box">#}
+{#				<h2 class='y' href='';>订单管理</h2>#}
+{#		        <a class='x' href=''; onclick="msgbox(0); return false;" style="position: absolute;right: 1px;top: 1px;">关闭</a>#}
+{#				<form action="index.html" method="post">#}
+{#				    <div class="form-group1">#}
+{#						<label class="biaogetext"  for="username">批次号数:</label>&nbsp;&nbsp;&nbsp;#}
+{#						<input style="width: 350px;height: 40px" type="text" name="username" placeholder="" οnchange="chkname()" id="pch" /><br />#}
+{#						<label class="biaogetext"  for="username">产品名称:</label>#}
+{#						<input style="width: 350px;height: 40px" type="text" name="username" placeholder="" οnchange="chkname()" id="cpmc" /><br />#}
+{#						<label class="biaogetext" for="checkcode">产品类型:</label>#}
+{#						<input style="width: 350px;height: 40px" type="text" name="checkcode" placeholder="" οnchange="chkcode()" id="cplx"/><br />#}
+{#						<label class="biaogetext" for="password">备用产品:</label>#}
+{#					    <input style="width: 350px;height: 40px" type="text" name="empscgy"  id="empscgy" style="width: 70%;height: 30px;"/>#}
+{#					</div>#}
+{#					<div class="form-group2">#}
+{#					    <label class="biaogetext"  for="password">交货日期:</label>#}
+{#					    <input style="width: 350px;height: 40px" type="password" name="password"  placeholder="" οnchange="chkpassword()" id="jhq" /><br />#}
+{#						<label class="biaogetext" for="password">订单件数:</label>#}
+{#						<input style="width: 350px;height: 40px" class="biaogetext"  type="password" name="password"  placeholder="" οnchange="chkpassword()" id="js" /><br />#}
+{#						<label class="biaogetext" for="password">订单状态:</label>#}
+{#						<input style="width: 350px;height: 40px" type="password" name="password"  placeholder="" οnchange="chkpassword()" id="ddzt" /><br />#}
+{#					</div>#}
+{#					<div class="form-group3" >#}
+{##}
+{#					</div>#}
+{#					<div class="anniu" >#}
+{#						<button type="button" οnclick="check()" >添加</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >删除</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >导出</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >查询</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >全表</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >返回</button>#}
+{#					</div>#}
+{#					<div class="biaoge">#}
+{#						<h3 class='y' href=''; style="font-size: 40px">订单管理表</h2>#}
+{#						<table class="ddglb" border="1" >#}
+{#							<tr>#}
+{#								<th style="font-size: 35px">批次号</th>#}
+{#								<th style="font-size: 35px">产品名称</th>#}
+{#								<th width="150px" style="font-size: 35px">产品类型</th>#}
+{#								<th width="120px" style="font-size: 35px">交货期</th>#}
+{#								<th width="300px" style="font-size: 35px">件数</th>#}
+{#							</tr>#}
+{#							<tr>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#							</tr>#}
+{#							<tr>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#							</tr>#}
+{#						</table>#}
+{#					</div>#}
+{#				</form>#}
+{#</div>#}
+{#<!--生产异常统计页面-->#}
+{#<div id='inputbox4' class="box">#}
+{#	<h2 class='y' href=''; style="font-size: 45px">生产异常统计</h2>#}
+{#	<a class='x' href=''; onclick="msgbox(0); return false;" style="position: absolute;right: 1px;top: 1px;">关闭</a>#}
+{#	<form action="/plus/diy.php" enctype="multipart/form-data" method="post">#}
+{#		<div class="tiaojianxuanze" style="float: left;margin-left: 20px;margin-top: 40px;">#}
+{#			<input type="hidden" name="action" value="post" />#}
+{#			<input type="hidden" name="diyid" value="1" />#}
+{#			<input type="hidden" name="do" value="2" />#}
+{#			<table style="width:97%;" cellpadding="0" cellspacing="1">#}
+{#			<tr>#}
+{#			<td  style="font-size: 40px">选择工序：</td>#}
+{#			<td ><select name='fl' style="width: 350px;height: 40px"><option value='加工孔'>加工孔</option>#}
+{#			<option value='加工直线'>加工直线</option>#}
+{#			<option value='加工圆角'>加工圆角</option>#}
+{#			</select>#}
+{#			</td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#			<td  style="font-size: 40px">设备类型：</td>#}
+{#			<td><select name='fl' style="width: 350px;height: 40px"><option value='半自动龙门铣床'>半自动龙门铣床</option>#}
+{#			<option value='数控龙门铣床'>数控龙门铣床</option>#}
+{#			<option value='光纤激光切割机'>光纤激光切割机</option>#}
+{#			</select>#}
+{#			</td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#			<td   style="font-size: 40px">故障原因：</td>#}
+{#			<td><select name='fl' style="width: 350px;height: 40px"><option value='工件加持不合理'>工件加持不合理</option>#}
+{#			<option value='工艺参数错误'>工艺参数错误</option>#}
+{#			<option value='电气异常'>电气异常</option>#}
+{#			</select>#}
+{#			</td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#			<td   style="font-size: 40px">异常数量：</td>#}
+{#			<td><select name='fl' style="width: 350px;height: 40px"><option value=''></option>#}
+{#			</select>#}
+{#			</td>#}
+{#			</tr>#}
+{#			<input type="hidden" name="dede_fields" value="fl,select" />#}
+{#			<input type="hidden" name="dede_fieldshash" value="db5f139909450665fd4b641fff161416" /></table>#}
+{#		</div>#}
+{#		<div class="daterange" style="float: left;margin-left: 80px;margin-top: 30px;">#}
+{#			<!-- form class属性设置为form-inline内联表 使内部的控件呈水平排列 -->#}
+{#			<form name="begin_date" class="form-inline" >#}
+{#			 <h4 class="block-title"  style="font-size: 40px">Start Date: </h4>#}
+{#			 <select id="begin_year" name="YYYY" οnchange="YYYYDD(this.value)" class="form-control input-sm m-b-10" style="width: 100px;height: 40px">#}
+{#			 </select>#}
+{#			 <select id="begin_month" name="MM" οnchange="MMDD(this.value)" class="form-control input-sm m-b-10" style="width: 100px;height: 40px">#}
+{#			 </select>#}
+{#			 <select id="begin_day" name="DD" class="form-control input-sm m-b-10" style="width:80px;height: 30px;">#}
+{#			 </select>#}
+{#			 </form>#}
+{#			<form name="end_date" class="form-inline" >#}
+{#			 <h4 class="block-title"  style="font-size: 40px"> EndOf Date:  </h4>#}
+{#			 <select id="end_year" name="YYYY" οnchange="YYYYDD(this.value)" class="form-control input-sm m-b-10" style="width: 100px;height: 40px">#}
+{#			 </select>#}
+{#			 <select id="end_month" name="MM" οnchange="MMDD(this.value)" class="form-control input-sm m-b-10" style="width: 100px;height: 40px">#}
+{#			 </select>#}
+{#			 <select id="end_day" name="DD" class="form-control input-sm m-b-10" style="width: 100px;height: 40px">#}
+{#			 </select>#}
+{#			 <!--搜索按键--><!-- 按键type设置为buttton 使点击按键时不会重新加载网页-->#}
+{#			 <input type="button" value="Search" class="btn btn-primary" οnclick="GetDate1()" style="width: 100px;height: 40px">#}
+{#			</form>#}
+{#			<form name="one_date" class="form-inline" >#}
+{#			 <h4 class="block-title"  style="font-size: 40px">Select Date: </h4>#}
+{#			 <select id="one_year" name="YYYY" οnchange="YYYYDD(this.value)" class="form-control input-sm m-b-10" style="width: 100px;height: 40px">#}
+{#			 </select>#}
+{#			 <select id="one_month" name="MM" οnchange="MMDD(this.value)" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#			 </select>#}
+{#			 <select id="one_day" name="DD" class="form-control input-sm m-b-10" style="width: 100px;height: 40px">#}
+{#			 </select>#}
+{#			 <!--搜索按键-->#}
+{#			 <input type="button" value="Search" class="btn btn-primary" οnclick="GetDate2()" style="width: 100px;height: 40px">#}
+{#			</form>#}
+{#		</div>#}
+{#		<div class="anniu" style="margin-left: 60%;margin-top: 350px;">#}
+{#			<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">统计</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#			<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">导出excel</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#			<button type="button" οnclick="chesck()" style="height: 60px;width: 80px;font-size: 35px">返回</button>#}
+{#		</div>#}
+{#		<div class="biaoge" style="margin-top: 500px;">#}
+{#			<h3 class='y' href='';>生产异常统计表</h2>#}
+{#			<table class="" border="1" >#}
+{#				<tr>#}
+{#					<th>  </th>#}
+{#					<th style="font-size: 35px;">异常工序</th>#}
+{#					<th style="font-size: 35px;">设备类型</th>#}
+{#					<th width="150px" style="font-size: 35px;">故障原因</th>#}
+{#					<th width="150px" style="font-size: 35px;">异常数量</th>#}
+{#					<th width="300px" style="font-size: 35px;">异常时间</th>#}
+{#				</tr>#}
+{#				<tr>#}
+{#					<th style="font-size: 35px;">1</th>#}
+{#					<th style="font-size: 35px;"></th>#}
+{#					<th style="font-size: 35px;"></th>#}
+{#					<th style="font-size: 35px;"></th>#}
+{#					<th style="font-size: 35px;"></th>#}
+{#					<th style="font-size: 35px;"></th>#}
+{#				</tr>#}
+{#				<tr>#}
+{#					<th style="font-size: 35px;">2</th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#				</tr>#}
+{#				<tr>#}
+{#					<th style="font-size: 35px;">3</th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#				</tr>#}
+{#			</table>#}
+{#		</div>#}
+{#	</form>#}
+{#</div>#}
+{#<!--工件产量统计页面-->#}
+{#<div id='inputbox5' class="box">#}
+{#	<h2 class='y' href=''; style="font-size: 45px">工件产量统计</h2>#}
+{#	<a class='x' href=''; onclick="msgbox(0); return false;" style="position: absolute;right: 1px;top: 1px;">关闭</a>#}
+{#	<form action="/plus/diy.php" enctype="multipart/form-data" method="post">#}
+{#		<div class="tiaojianxuanze" style="float: left;margin-left: 20px;margin-top: 60px;">#}
+{#			<input type="hidden" name="action" value="post" />#}
+{#			<input type="hidden" name="diyid" value="1" />#}
+{#			<input type="hidden" name="do" value="2" />#}
+{#			<table style="width:97%;" cellpadding="0" cellspacing="1">#}
+{#			<tr>#}
+{#			<td style="font-size: 40px">工件编号：</td>#}
+{#			<td><select name='fl' style="width: 350px;height: 40px"><option value=''>1</option>#}
+{#			<option value='2' >2</option>#}
+{#			<option value='3'>3</option>#}
+{#			</select>#}
+{#			</td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#			<td style="font-size: 40px">工件名称：</td>#}
+{#			<td><select name='fl' style="width: 350px;height: 40px"><option value=''></option>#}
+{#			<option value=''></option>#}
+{#			<option value=''></option>#}
+{#			</select>#}
+{#			</td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#			<td style="font-size: 40px">工件类型：</td>#}
+{#			<td><select name='fl' style="width: 350px;height: 40px"><option value=''></option>#}
+{#			<option value=''></option>#}
+{#			<option value=''></option>#}
+{#			</select>#}
+{#			</td>#}
+{#			</tr>#}
+{#			<input type="hidden" name="dede_fields" value="fl,select" />#}
+{#			<input type="hidden" name="dede_fieldshash" value="db5f139909450665fd4b641fff161416" /></table>#}
+{#		</div>#}
+{#		<div class="daterange" style="float: left;margin-left: 80px;margin-top: 30px;">#}
+{#			<!-- form class属性设置为form-inline内联表 使内部的控件呈水平排列 -->#}
+{#			<form name="begin_date" class="form-inline" >#}
+{#			 <h4 class="block-title" style="font-size: 40px">Start Date: </h4>#}
+{#			 <select id="begin_year" name="YYYY" οnchange="YYYYDD(this.value)" class="form-control input-sm m-b-10" style="width:80px;height: 30px;">#}
+{#			 </select>#}
+{#			 <select id="begin_month" name="MM" οnchange="MMDD(this.value)" class="form-control input-sm m-b-10" style="width:80px;height: 30px;">#}
+{#			 </select>#}
+{#			 <select id="begin_day" name="DD" class="form-control input-sm m-b-10" style="width:80px;height: 30px;">#}
+{#			 </select>#}
+{#			 </form>#}
+{#			<form name="end_date" class="form-inline" >#}
+{#			 <h4 class="block-title" style="font-size: 40px"> EndOf Date:  </h4>#}
+{#			 <select id="end_year" name="YYYY" οnchange="YYYYDD(this.value)" class="form-control input-sm m-b-10" style="width:80px;height: 30px;">#}
+{#			 </select>#}
+{#			 <select id="end_month" name="MM" οnchange="MMDD(this.value)" class="form-control input-sm m-b-10" style="width:80px;height: 30px;">#}
+{#			 </select>#}
+{#			 <select id="end_day" name="DD" class="form-control input-sm m-b-10" style="width:80px;height: 30px;">#}
+{#			 </select>#}
+{#			 <!--搜索按键--><!-- 按键type设置为buttton 使点击按键时不会重新加载网页-->#}
+{#			 <input type="button" value="Search" class="btn btn-primary" οnclick="GetDate1()" style="height: 30px;width: 80px;">#}
+{#			</form>#}
+{#			<form name="one_date" class="form-inline" >#}
+{#			 <h4 class="block-title" style="font-size: 40px">Select Date: </h4>#}
+{#			 <select id="one_year" name="YYYY" οnchange="YYYYDD(this.value)" class="form-control input-sm m-b-10" style="width:80px;height: 30px;">#}
+{#			 </select>#}
+{#			 <select id="one_month" name="MM" οnchange="MMDD(this.value)" class="form-control input-sm m-b-10" style="width:80px;height: 30px;">#}
+{#			 </select>#}
+{#			 <select id="one_day" name="DD" class="form-control input-sm m-b-10" style="width:80px;height: 30px;">#}
+{#			 </select>#}
+{#			 <!--搜索按键-->#}
+{#			 <input type="button" value="Search" class="btn btn-primary" οnclick="GetDate2()" style="height: 30px;width: 80px;">#}
+{#			</form>#}
+{#		</div>#}
+{#		<div class="anniu" style="margin-left: 60%;margin-top: 350px;">#}
+{#			<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px"">统计</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#			<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">导出excel</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#			<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">返回</button>#}
+{#		</div>#}
+{#		<div class="biaoge" style="float: left;margin-top: 380px;">#}
+{#			<h3 class='y' href=''; style="font-size: 35px;">工件产量统计表</h2>#}
+{#			<table class="" border="1" >#}
+{#				<tr>#}
+{#					<th>  </th>#}
+{#					<th style="font-size: 35px;">工件编号</th>#}
+{#					<th style="font-size: 35px;">工件名称</th>#}
+{#					<th width="150px" style="font-size: 35px;">工件类型</th>#}
+{#					<th width="150px" style="font-size: 35px;">加工时间</th>#}
+{#				</tr>#}
+{#				<tr>#}
+{#					<th style="font-size: 35px;">1</th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#				</tr>#}
+{#				<tr>#}
+{#					<th style="font-size: 35px;">2</th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#				</tr>#}
+{#				<tr>#}
+{#					<th>3</th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#				</tr>#}
+{#			</table>#}
+{#		</div>#}
+{#		<div style="float: left;margin-left: 70%;margin-top: 90px;">#}
+{#			<h3 class='y' href=''; style="color: white;font-size: 35px;">工件产量统计图</h2>#}
+{##}
+{#		</div>#}
+{#	</form>#}
+{#</div>#}
+{#<!--设备故障统计页面-->#}
+{#<div id='inputbox6' class="box">#}
+{#	<h2 class='y' href=''; style="font-size: 45px;">设备故障统计</h2>#}
+{#	<a class='x' href=''; onclick="msgbox(0); return false;" style="position: absolute;right: 1px;top: 1px;">关闭</a>#}
+{#	<form action="/plus/diy.php" enctype="multipart/form-data" method="post">#}
+{#		<div class="tiaojianxuanze" style="float: left;margin-left: 20px;margin-top: 60px;">#}
+{#			<input type="hidden" name="action" value="post" />#}
+{#			<input type="hidden" name="diyid" value="1" />#}
+{#			<input type="hidden" name="do" value="2" />#}
+{#			<table style="width:97%;" cellpadding="0" cellspacing="1">#}
+{#			<tr>#}
+{#			<td style="font-size: 40px">设备编号：</td>#}
+{#			<td><select name='fl' style="width: 350px;height: 40px"><option value=''>1</option>#}
+{#			<option value='2'>2</option>#}
+{#			<option value='3'>3</option>#}
+{#			</select>#}
+{#			</td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#			<td style="font-size: 40px">设备名称：</td>#}
+{#			<td><select name='fl' style="width: 350px;height: 40px"><option value='半自动龙门铣床'>半自动龙门铣床</option>#}
+{#			<option value='数控龙门铣床'>数控龙门铣床</option>#}
+{#			<option value='光纤激光切割机'>光纤激光切割机</option>#}
+{#			</select>#}
+{#			</td>#}
+{#			</tr>#}
+{#			<tr>#}
+{#			<td style="font-size: 40px">停工工序：</td>#}
+{#			<td><select name='fl' style="width: 350px;height: 40px"><option value=''></option>#}
+{#			<option value=''></option>#}
+{#			<option value=''></option>#}
+{#			</select>#}
+{#			</td>#}
+{#			</tr>#}
+{#			<input type="hidden" name="dede_fields" value="fl,select" />#}
+{#			<input type="hidden" name="dede_fieldshash" value="db5f139909450665fd4b641fff161416" /></table>#}
+{#		</div>#}
+{#		<div class="daterange" style="float: left;margin-left: 80px;margin-top: 30px;">#}
+{#			<!-- form class属性设置为form-inline内联表 使内部的控件呈水平排列 -->#}
+{#			<form name="begin_date" class="form-inline" >#}
+{#			 <h4 class="block-title" style="font-size: 40px">Start Date: </h4>#}
+{#			 <select id="begin_year" name="YYYY" οnchange="YYYYDD(this.value)" class="form-control input-sm m-b-10" style="width:100px;height: 40px;">#}
+{#			 </select>#}
+{#			 <select id="begin_month" name="MM" οnchange="MMDD(this.value)" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#			 </select>#}
+{#			 <select id="begin_day" name="DD" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#			 </select>#}
+{#			 </form>#}
+{#			<form name="end_date" class="form-inline" >#}
+{#			 <h4 class="block-title" style="font-size: 40px"> EndOf Date:  </h4>#}
+{#			 <select id="end_year" name="YYYY" οnchange="YYYYDD(this.value)" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#			 </select>#}
+{#			 <select id="end_month" name="MM" οnchange="MMDD(this.value)" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#			 </select>#}
+{#			 <select id="end_day" name="DD" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#			 </select>#}
+{#			 <!--搜索按键--><!-- 按键type设置为buttton 使点击按键时不会重新加载网页-->#}
+{#			 <input type="button" value="Search" class="btn btn-primary" οnclick="GetDate1()" style="width:100px;height: 40px">#}
+{#			</form>#}
+{#			<form name="one_date" class="form-inline" >#}
+{#			 <h4 class="block-title" style="font-size: 40px">Select Date: </h4>#}
+{#			 <select id="one_year" name="YYYY" οnchange="YYYYDD(this.value)" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#			 </select>#}
+{#			 <select id="one_month" name="MM" οnchange="MMDD(this.value)" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#			 </select>#}
+{#			 <select id="one_day" name="DD" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#			 </select>#}
+{#			 <!--搜索按键-->#}
+{#			 <input type="button" value="Search" class="btn btn-primary" οnclick="GetDate2()" style="width:100px;height: 40px">#}
+{#			</form>#}
+{#		</div>#}
+{#		<div class="anniu" style="margin-left: 60%;margin-top: 350px;">#}
+{#			<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">统计</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#			<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">导出excel</button>&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#			<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">返回</button>#}
+{#		</div>#}
+{#		<div class="biaoge" style="float: left;margin-top: 350px;">#}
+{#			<h3 class='y' href=''; style="font-size: 40px">设备故障统计表</h2>#}
+{#			<table class="" border="1" >#}
+{#				<tr>#}
+{#					<th>  </th>#}
+{#					<th style="font-size: 35px">停工工序</th>#}
+{#					<th style="font-size: 35px">设备名称</th>#}
+{#					<th width="" style="font-size: 35px">设备编号</th>#}
+{#					<th width="" style="font-size: 35px">操作员</th>#}
+{#					<th width="150px" style="font-size: 35px">故障原因</th>#}
+{#					<th width="240px" style="font-size: 35px">故障发生时间</th>#}
+{#				</tr>#}
+{#				<tr>#}
+{#					<th style="font-size: 35px">1</th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#				</tr>#}
+{#				<tr>#}
+{#					<th style="font-size: 35px">2</th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#				</tr>#}
+{#				<tr>#}
+{#					<th style="font-size: 35px">3</th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#					<th></th>#}
+{#				</tr>#}
+{#			</table>#}
+{#		</div>#}
+{#		<div style="float: left;margin-left: 80%;margin-top: 90px;">#}
+{#			<h3 class='y' href=''; style="color: white;font-size: 35px">设备故障统计图</h2>#}
+{#		</div>#}
+{#	</form>#}
+{#</div>#}
+{#<!--设备故障预警页面-->#}
+{#<div id='inputbox7' class="box">#}
+{#				<h2 class='y' href=''; style="font-size: 45px">设备故障预警</h2>#}
+{#		        <a class='x' href=''; onclick="msgbox(0); return false;" style="position: absolute;right: 1px;top: 1px;">关闭</a>#}
+{#				<form action="" method="post">#}
+{#				    <div class="" style="margin-left: 70%; ">#}
+{#						<form name="begin_date" class="form-inline" >#}
+{#						 <h4 class="block-title" style="color:white; font-size: 40px">Start Date: </h4>#}
+{#						 <select id="begin_year" name="YYYY" οnchange="YYYYDD(this.value)" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#						 </select>#}
+{#						 <select id="begin_month" name="MM" οnchange="MMDD(this.value)" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#						 </select>#}
+{#						 <select id="begin_day" name="DD" class="form-control input-sm m-b-10" style="width:100px;height: 40px">#}
+{#						 </select>#}
+{#						 </form>#}
+{#						<form name="end_date" class="form-inline" >#}
+{#						 <h4 class="block-title" style="color:white; font-size: 40px"> EndOf Date:  </h4>#}
+{#						 <select id="end_year" name="YYYY" οnchange="YYYYDD(this.value)" class="form-control input-sm m-b-10" style="width:100px;height: 40px;">#}
+{#						 </select>#}
+{#						 <select id="end_month" name="MM" οnchange="MMDD(this.value)" class="form-control input-sm m-b-10" style="width:100px;height: 40px;">#}
+{#						 </select>#}
+{#						 <select id="end_day" name="DD" class="form-control input-sm m-b-10" style="width:100px;height: 40px;">#}
+{#						 </select>#}
+{#						 <!--搜索按键--><!-- 按键type设置为buttton 使点击按键时不会重新加载网页-->#}
+{#						 <input type="button" value="Search" class="btn btn-primary" οnclick="GetDate1()" style="width:100px;height: 40px;">#}
+{#						</form>#}
+{#				    </div>#}
+{#					<div class="anniu" style="position:absolute; margin-top: 5px;margin-left:65%;">#}
+{#						<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">导入</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">预警</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">导出</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" style="height: 60px;width: 80px;font-size: 35px">返回</button>#}
+{#					</div>#}
+{#					<div class="biaoge" style="float: left;top:1%;margin-left: 1%;">#}
+{#						<h3 class='y' href=''; style="font-size: 40px">设备故障预警表</h2>#}
+{#						<table border="1">#}
+{#							<tr>#}
+{#								<th>  </th>#}
+{#								<th style="font-size: 40px">停工工序</th>#}
+{#								<th style="font-size: 40px">设备名称</th>#}
+{#								<th width="160px" style="font-size: 40px">设备编号</th>#}
+{#								<th width="130px" style="font-size: 40px">操作员</th>#}
+{#								<th width="140px" style="font-size: 40px">故障原因</th>#}
+{#								<th width="200px" style="font-size: 40px">故障发生时间</th>#}
+{#							</tr>#}
+{#							<tr>#}
+{#								<th style="font-size: 40px">1</th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#							</tr>#}
+{#							<tr>#}
+{#								<th style="font-size: 40px">2</th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#							</tr>#}
+{#							<tr>#}
+{#								<th style="font-size: 40px">3</th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#							</tr>#}
+{#						</table>#}
+{#					</div>#}
+{#				</form>#}
+{#</div>#}
+{#<!--加工质量预测页面-->#}
+{#<div id='inputbox8' class="box" >#}
+{#				<h2 class='y' href=''; style="font-size: 45px">加工质量预测</h2>#}
+{#		        <a class='x' href=''; onclick="msgbox(0); return false;" style="position: absolute;right: 1px;top: 1px;">关闭</a>#}
+{#				<form action="" method="post">#}
+{#					<div class="form-group1" style="float: left;">#}
+{#						<label for="username" style="font-size: 40px">加工产品:</label>#}
+{#						<input type="text" name="username" placeholder="" οnchange="chkname()" id="username" style="width: 300px;height: 40px"/><br />#}
+{#						<label for="username" style="font-size: 40px">加工工序:</label>#}
+{#						<input type="text" name="username" placeholder="" οnchange="chkname()" id="username" style="width: 300px;height: 40px"/><br />#}
+{#						<label for="checkcode" style="font-size: 40px">加工设备:</label>#}
+{#						<input type="text" name="checkcode" placeholder="" οnchange="chkcode()" id="checkcode" style="width: 300px;height: 40px"/><br />#}
+{#					</div>#}
+{#					<div class="form-group2" style="float: left;">#}
+{#					    <label for="password" style="font-size: 40px">操作员:</label>&nbsp;&nbsp;&nbsp;#}
+{#					    <input type="password" name="password"  placeholder="" οnchange="chkpassword()" id="password" style="width: 300px;height: 40px"/><br />#}
+{#						<label for="password" style="font-size: 40px">工艺参数:</label>#}
+{#						<input type="password" name="password"  placeholder="" οnchange="chkpassword()" id="password" style="width: 300px;height: 40px"/><br />#}
+{#						<label for="password" style="font-size: 40px">加工质量:</label>#}
+{#						<input type="password" name="password"  placeholder="" οnchange="chkpassword()" id="password" style="width: 300px;height: 40px"/><br />#}
+{#					</div>#}
+{#					<div class="anniu" style="margin-top: 200px;margin-left: 60%;">#}
+{#						<button type="button" οnclick="check()" >导入</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >预测</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >导出</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#}
+{#						<button type="button" οnclick="check()" >返回</button>#}
+{#					</div>#}
+{#					<div class="biaoge" style="float: left;margin-top: 240px;margin-left: 3.7%;">#}
+{#						<h3 class='y' href='';  style="font-size: 40px">加工质量预测表</h2>#}
+{#						<table class="" border="1" >#}
+{#							<tr>#}
+{#								<th>  </th>#}
+{#								<th  style="font-size: 40px">加工产品</th>#}
+{#								<th  style="font-size: 40px">加工工序</th>#}
+{#								<th width=""  style="font-size: 40px">加工设备</th>#}
+{#								<th width=""  style="font-size: 40px">操作员</th>#}
+{#								<th width="260px"  style="font-size: 40px">工艺参数</th>#}
+{#								<th width="120px"  style="font-size: 40px">加工质量</th>#}
+{#							</tr>#}
+{#							<tr>#}
+{#								<th  style="font-size: 40px">1</th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#							</tr>#}
+{#							<tr>#}
+{#								<th  style="font-size: 40px">2</th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#							</tr>#}
+{#							<tr>#}
+{#								<th style="font-size: 40px">3</th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#								<th></th>#}
+{#							</tr>#}
+{#						</table>#}
+{#					</div>#}
+{#				</form>#}
+{#</div>#}
+<!--数据库备份页面-->
+<div id='inputbox9' class="box" style="width: 600px;height: 500px;margin-left: 15%;">
+				<h2 class='y' href=''; style="font-size: 45px">数据库备份</h2>
+		        <a class='x' href=''; onclick="msgbox(0); return false;" style="position: absolute;right: 1px;top: 1px;">关闭</a>
+				<form action="index.html" method="post">
+				    <div class="form-group">
+				        <label for="username" style="font-size: 45px">请输入备份输出后的路径和文件名:</label><br />
+				        <input type="text" name="username" placeholder="" οnchange="chkname()" id="username" style="height: 40px"/><br />
+				        <p id="tip"class="tip"></p>
+				    </div>
+					<div class="anniu" style="margin-top: 40px;">
+						<button type="button" οnclick="check()" >备份</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button type="button" οnclick="check()" >退出</button>
+					</div>
+				</form>
+</div>
+<!--数据库恢复页面-->
+<div id='inputbox10' class="box" style="width: 600px;height: 500px;margin-left: 15%;">
+				<h2 class='y' href=''; style="position: absolute;right: 1px;top: 1px;">数据库恢复</h2>
+		        <a class='x' href=''; onclick="msgbox(0); return false;">关闭</a>
+				<form action="index.html" method="post">
+				    <div class="form-group">
+				        <label for="username" style="font-size: 45px">选择导入文件:</label><br />
+				        <input type="text" name="username" placeholder="" οnchange="chkname()" id="username" style="height: 40px"/><br />
+				        <p id="tip"class="tip"></p>
+				    </div>
+					<div class="anniu" style="margin-top: 40px;">
+						<button type="button" οnclick="check()" >恢复</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button type="button" οnclick="check()" >退出</button>
+					</div>
+				</form>
+</div>
+<div class="container" style="background-color: #102E24" >
+	<img class="zsj1" src="../static/img/激光切割1.png" width="1200" height="900" >
+	<h1 style="position:absolute;top:3%;left:6%;font-size: 40px; color: red;font-family:'微软雅黑 Light'">What 	We 	Do</h1>
+	<h2 style="position:absolute;top:10%;left:40%;font-family: '微软雅黑 Light';font-size: 60px;color: white">快速加工</h2>
+	<h3 style="position:absolute;top:15%;left:40.5%;font-family: '微软雅黑 Light';font-size: 30px;color: white">
+	Rapid processing
+	</h3>
+	<div class="divposreadmore" style="font-size: 30px;color: white">
+		<img src="../static/img/了解更多.png" width="200">
+	</div>
+	<div class="divposreadmore1" >
+        <a href="http://765950.texindex.com.cn/product/detail64805.html"
+           style="font-size: 30px;color: white;font-family: '微软雅黑 Light';font-weight: bold">Read More></a>
+	</div>
+	<h4 style="position:absolute;top:85%;left:38.7%;font-family: '微软雅黑 Light';font-size: 45px;color:red">
+	</h4>
+	<div  style="font-size: 70px;color:white ;position: absolute;top: 83%;left:28%">
+		效率
+	</div>
+	<div style="font-size: 70px;color: white;position: absolute;top: 83%;left: 58%">
+		精准
+	</div>
+<div class="container1" style="background-color:whitesmoke">
+	<img class="zsj1" src="../static/img/布线.png" width="1200" height="900">
+	<h1 style="position:absolute;top:3%;left:6%;font-size: 40px; color: red;font-family:'微软雅黑 Light'">We Do More</h1>
+	<h2 style="position:absolute;top:10%;left:40%;font-family: '微软雅黑 Light';font-size: 60px;color: black">实时采集</h2>
+	<h3 style="position:absolute;top:15%;left:40.5%;font-family: '微软雅黑 Light';font-size: 30px;color: black">
+		Rapid processing
+	</h3>
+	<div class="divposreadmore" style="font-size: 30px;color: white">
+	<img src="../static/img/了解更多.png" width="200">
+	</div>
+	<div class="divposreadmore1" >
+        <a style="font-size: 30px;color: white;font-family: '微软雅黑 Light';font-weight: bold" href="http://www.sdlckj.com/product/321.html">Read More></a>
+	</div>
+	<div  style="font-size: 70px;color:black ;position: absolute;top: 83%;left:28%">
+		从简
+	</div>
+	<div  style="font-size: 70px;color:black ;position: absolute;top: 83%;left:58%">
+		便利
+	</div>
+</div>
+<div class="container2" style="background-color:LightCyan">
+	<img class="zsj1" src="../static/img/数据分析.png" width="1200" height="900">
+	<h1 style="position:absolute;top:3%;left:6%;font-size: 40px; color: red;font-family:'微软雅黑 Light'">And More More</h1>
+	<h2 style="position:absolute;top:10%;left:40%;font-family: '微软雅黑 Light';font-size: 60px;color: black">数据分析</h2>
+	<h3 style="position:absolute;top:15%;left:42%;font-family: '微软雅黑 Light';font-size: 30px;color: black">
+		Data analysis
+	</h3>
+	<div class="divposreadmore" style="font-size: 30px;color: white">
+	<img src="../static/img/了解更多.png" width="200">
+	</div>
+	<div class="divposreadmore1" style="font-size: 30px;color: white;font-family: '微软雅黑 Light';font-weight: bold">
+        <a style="font-size: 30px;color: white;font-family: '微软雅黑 Light';font-weight: bold" href="http://localhost:5000/templates/mechine_skc1.html">Read More></a>
+
+	</div>
+	<div  style="font-size: 70px;color:black ;position: absolute;top: 83%;left:28%">
+		可靠
+	</div>
+	<div  style="font-size: 70px;color:black ;position: absolute;top: 83%;left:58%">
+		实用
+	</div>
+<div class="container3" style="background-color:black">
+
+	<img class="zsj2" src="../static/img/詹姆斯.png" width="200">
+	<img class="zsj3" src="../static/img/詹姆斯.png" width="200">
+	<img class="zsj4" src="../static/img/詹姆斯.png" width="200">
+	<img class="zsj5" src="../static/img/詹姆斯.png" width="200">
+	<img class="zsj6" src="../static/img/詹姆斯.png" width="200">
+	<h1 style="position:absolute;top:3%;left:35%;font-size: 40px; color: red;font-family:'微软雅黑 Light'">Our Technicians</h1>
+	<h2 style="position:absolute;top:10%;left:36%;font-family: '微软雅黑 Light';font-size: 65px;color: white">团队成员</h2>
+	<h3 style="position: absolute;top: 60%;left: 10%;color: white;font-size: 40px">
+		Contact info
+	</h3>
+	<h4 style="position: absolute;top:68%;left: 15%;color: grey;font-size: 25px">
+		Phone:+86 12345678
+	</h4>
+	<h5 style="position: absolute;top:74%;left: 15%;color: grey;font-size: 25px">
+		email:info@12345678.com
+	</h5>
+	<h6 style="position: absolute;top:80%;left: 15%;color: grey;font-size: 25px">
+		Adress:福州闽侯县上街镇福州地区大学新区
+	</h6>
+</div>
+</div>
+</div>
+   <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

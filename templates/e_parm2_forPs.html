@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/nav.css" />
+    <script type="text/javascript" src="../static/js/e_parm2.js"></script>
+    <script type="text/javascript" src="../static/js/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" href="../static/css/NavigationBar.css" />
+    <link rel="stylesheet" href="../static/css/e_parm2.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+    <link rel="stylesheet" href="../static/css/nav.css" />
+
+</head>
+<body style="padding: 0;margin: 0;">
+<div style="height:100%;width:100%; position: absolute;">
+    <div class="NavigationBar">
+        <ul>
+            <li><a href="../templates/index.html">首页</a></li>
+            <li><a href="../templates/3Dtest.html">车间</a></li>
+            <li><a href="../templates/order.html">订单</a></li>
+            <li><a href="../templates/test.html">故障/报警</a></li>
+            <li><a href="../login/denglu.html">退出</a></li>
+        </ul>
+    </div>
+    <div class="nav">
+        <ul class="category-list">
+            <li class="list-item"><a class="title" id="U" href="/e2">三相电压</a>
+
+            </li>
+            <li class="list-item"><a class="title" id="I" href="/e2/I">三相电流</a>
+            </li>
+            <li class="list-item"><a class="title" id="Ph" href="/e2/P">三相有功功率</a>
+            <li class="list-item"><a class="title" id="Ps">三相视在功率</a>
+
+            </li>
+            <li class="list-item"><a class="title" id="S" href="/e2/S">三相功率因素</a>
+
+            </li>
+        </ul>
+    </div>
+
+    <div id="e_charts">
+        <script>showPs()</script>
+    </div>
+
+    <table id="table-8">
+        <thead>
+        <th style="background: #ccc;border-color: #ccc;"></th>
+        <th>A相</th>
+        <th>B相</th>
+        <th>C相</th>
+        </thead>
+
+    </table>
+
+    <table id="table-7"> <!-- Replace "table-1" with any of the design numbers -->
+
+        <thead>
+        <th></th>
+        <th>max</th>
+        <th>min</th>
+        <th>ave</th>
+        <th>max</th>
+        <th>min</th>
+        <th>ave</th>
+        <th>max</th>
+        <th>min</th>
+        <th>ave</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>电压</td>
+            <td>230</td>
+            <td>220</td>
+            <td>226</td>
+            <td>230</td>
+            <td>220</td>
+            <td>226</td>
+            <td>230</td>
+            <td>220</td>
+            <td>225</td>
+        </tr>
+        <tr>
+            <td>电流</td>
+            <td>1.1</td>
+            <td>1</td>
+            <td>1.05</td>
+            <td>1.1</td>
+            <td>1</td>
+            <td>1.05</td>
+            <td>1.1</td>
+            <td>1</td>
+            <td>1.05</td>
+        </tr>
+        <tr>
+            <td>有功功率</td>
+            <td>500</td>
+            <td>0</td>
+            <td>134</td>
+            <td>500</td>
+            <td>0</td>
+            <td>150</td>
+            <td>500</td>
+            <td>0</td>
+            <td>190</td>
+        </tr>
+        <tr>
+            <td>视在功率</td>
+            <td>1000</td>
+            <td>0</td>
+            <td>333</td>
+            <td>1000</td>
+            <td>0</td>
+            <td>356</td>
+            <td>1000</td>
+            <td>0</td>
+            <td>350</td>
+        </tr>
+        <tr>
+            <td>功率因素</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0.5</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0.5</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0.5</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</div>
+
+</body>
+</html>

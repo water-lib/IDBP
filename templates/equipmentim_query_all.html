@@ -1,0 +1,29 @@
+{% extends "basequery.html" %}
+
+{% block title %}首页{% endblock %}
+{% block styles %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block page_content %}
+    <table class="table table-bordered">
+    <tr>
+        <th>设备ID</th>
+        <th>设备名称</th>
+        <th>设备型号</th>
+        <th>额定电压</th>
+        <th>厂商联系方式</th>
+        <th>设备引入日期</th>
+    </tr>
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

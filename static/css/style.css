@@ -1,0 +1,227 @@
+/**
+ * 开源代码, 有兴趣的可以在保留声明的前提下免费使用.
+ *********** 声明开始 ***********
+ * @author ideawu@163.com
+ * @link http://www.ideawu.net
+ *********** 声明结束 ***********
+ *
+ */
+body{
+	margin: 4px;
+	padding: 0;
+	font-size: 12px;
+	font-family: tahoma, arial;
+	background: #fff;
+}
+
+a, a:link, a:visited{
+	color: #03c;
+	text-decoration: none;
+}
+
+a:hover{
+	color: #c00;
+}
+
+p{
+	margin: 10px 0;
+	padding: 0;
+}
+
+pre{
+	padding: 4px;
+	border: 1px solid #99c;
+	background: #eee;
+}
+
+h1{
+	margin: 18px 12px;
+	font-size: 25px;
+}
+
+table{
+	border-collapse: collapse;
+}
+th, td{
+	padding: 3px;
+	border: 1px solid #999;
+}
+
+.textbox{
+	padding: 1px;
+	border: 1px solid #bbb;
+}
+
+.datagrid_meta input{
+	border: 1px solid #ccc;
+}
+
+.title2{
+	margin: 12px 0;
+	padding: 0 6px;
+	font-size: 15px;
+	border-left: 5px solid #333;
+}
+
+.title3{
+	margin: 8px 0;
+	padding: 0;
+	font-size: 13px;
+}
+
+#footer{
+	clear: both;
+	margin-top: 16px;
+	padding: 6px;
+	text-align: center;
+	border-top: 2px solid #3af;
+}
+
+#main{
+	width: 840px;
+	margin: 0;
+	padding: 0;
+}
+
+#menu{
+	float: left;
+	clear: both;
+	width: 100%;
+	border-bottom: 4px solid #3af;
+	margin-bottom: 10px;
+	font-family: arial;
+}
+
+#menu ul{
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0 6px;
+}
+
+#menu li{
+	float: left;
+	margin: 0 2px;
+	font-size: 14px;
+	line-height: 16px;
+	border-right: 2px solid #cdd;
+}
+
+#menu li a{
+	float: left;
+	padding: 8px 4px;
+	color: #36f;
+	font-weight: bold;
+	text-decoration: none;
+	border-top: 1px solid #666;
+	border-right: 1px solid #666;
+	border-left: 1px solid #666;
+	background: #fff;
+}
+#menu li a.on{
+	color: #333;
+	background: #3af;
+}
+#menu li a:hover{
+	color: #fff;
+	background: #3af;
+}
+
+#sel_div{
+	margin: 6px 2px;
+	padding: 4px;
+	border: 1px solid #999;
+}
+#sel_div td{
+	border: none;
+}
+
+/************* PagerView **************/
+.PagerView{
+	font-size: 12px;
+	font-family: tahoma, arial;
+	color: #333;
+	text-align: center;
+	padding: 8px;
+	line-height: 100%;
+}
+.PagerView span{
+	color: #999;
+	margin: 0 1px;
+	padding: 3px 6px;
+	border: 1px solid #ccc;
+}
+.PagerView span.on{
+	color: #fff;
+	font-weight: bold;
+	border: 1px solid #666;
+	background: #39f;
+}
+.PagerView a{
+	color: #00f;
+	text-decoration: none;
+}
+.PagerView a span{
+	color: #33f;
+	border: 1px solid #66c;
+}
+
+/************* TableView **************/
+.TableView .datagrid_meta{
+	line-height: 22px;
+}
+.TableView .datagrid_meta .title{
+	font-size: 13px;
+	font-weight: bold;
+}
+.TableView .datagrid_meta .filter input{
+	margin: 0 4px;
+	padding: 1px;
+	border: 1px solid #ccc;
+}
+.TableView table{
+	font-size: 12px;
+	border-collapse: collapse;
+}
+.TableView div.datagrid_div{
+	border: 1px solid #999;
+}
+.TableView table.datagrid{
+	border-collapse: separate;
+	width: 100%;
+}
+.TableView table.datagrid th{
+	text-align: left;
+	background: #ddd;
+	padding: 1px;
+	border: none;
+}
+.TableView table.datagrid td{
+	padding: 2px;
+	border: none;
+}
+.TableView table.datagrid tr.odd{
+    background: #fff;
+}
+.TableView table.datagrid tr.even{
+    background: #eee;
+}
+.TableView table.datagrid tr.marked{
+    background: #ee9;
+}
+.TableView table.datagrid tr:hover,
+.TableView table.datagrid tr.hover{
+    background: #9cf;
+}
+
+/************* SelectorView **************/
+.SelectorView .selector_table{
+	width: 100%;
+}
+.SelectorView .selector_table .src,
+.SelectorView .selector_table .dst{
+	width: 50%;
+}
+.TableView a, .TableView a:link, .TableView a:visited{
+	color: #36f;
+}

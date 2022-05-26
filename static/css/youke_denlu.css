@@ -1,0 +1,25 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.qt{
+	width: 400px;
+	height: 300px;
+	background-color: aqua;
+	padding: 2px;
+	margin-top: 5%;
+	margin-left: 40%;
+}
+.top{
+	margin-top: 20px;
+	text-align: center;
+	font-size: large;
+}
+.card{
+	margin-top: 60px;
+	margin-left: 25%;
+}
+.anniu{
+	margin-top: 20%;
+	margin-left: 20%;
+}

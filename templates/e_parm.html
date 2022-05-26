@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电参数</title>
+    <link rel="stylesheet" href="/static/css/e_parm.css" />
+    <link rel="stylesheet" href="/static/css/NavigationBar.css" />
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/e_parm.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+</head>
+<body>
+
+<!--导航条-->
+<navigation>
+<ul>
+    <li><a href="./index.html">首页</a></li>
+    <li><a href="./3Dtest.html">电量</a></li>
+    <li><a href="./order.html">订单</a></li>
+    <li><a href="./test.html">合格率</a></li>
+    <li><a href="./login.html">退出</a></li>
+</ul>
+</navigation>
+<div id="I" style="height: 30%"></div>
+<script type="text/javascript">
+//调用showI，showI函数在eparm.js里定义
+    showI()
+</script>
+
+<div id="U" style="height: 30%"></div>
+<script type="text/javascript">
+//调用showU，showU函数在eparm.js里定义
+    showU()
+</script>
+
+<div id="Ps" style="height: 30%"></div>
+<script type="text/javascript">
+//调用showPs，showPs函数在eparm.js里定义
+    showPs()
+</script>
+
+<div id="Ph" style="height: 30%"></div>
+<script type="text/javascript">
+//调用showPh，showPh函数在eparm.js里定义
+    showPh()
+</script>
+
+<!--表格-->
+<table class="hovertable" id="table IU">
+    <tr>
+        <th>电参数</th><th>min</th><th>max</th><th>ave</th>
+    </tr>
+    <tr οnmοuseοver="this.style.backgroundColor='#ffff66';" οnmοuseοut="this.style.backgroundColor='#d4e3e5';">
+        <td>I</td><td>0</td><td>1</td><td>0.5</td>
+    </tr>
+    <tr οnmοuseοver="this.style.backgroundColor='#ffff66';" οnmοuseοut="this.style.backgroundColor='#d4e3e5';">
+        <td>U</td><td>0</td><td>270</td><td>260</td>
+    </tr>
+</table>
+
+<!--表格-->
+<table class="hovertable" id="table P">
+    <tr>
+        <th>电参数</th><th>min</th><th>max</th><th>ave</th>
+    </tr>
+    <tr οnmοuseοver="this.style.backgroundColor='#ffff66';" οnmοuseοut="this.style.backgroundColor='#d4e3e5';">
+        <td>Ph</td><td>0</td><td>300</td><td>150</td>
+    </tr>
+    <tr οnmοuseοver="this.style.backgroundColor='#ffff66';" οnmοuseοut="this.style.backgroundColor='#d4e3e5';">
+        <td>S</td><td>0</td><td>270</td><td>150</td>
+    </tr>
+</table>
+
+<!--表格-->
+<tbody>
+<table class="hovertable" id="table warm">
+    <tr>
+        <th>报警时间</th><th>功率</th><th>振动</th><th>电流</th><th>电压</th>
+    </tr>
+    <tr οnmοuseοver="this.style.backgroundColor='#ffff66';" οnmοuseοut="this.style.backgroundColor='#d4e3e5';">
+        <td>2019/4/1 1:1:1</td><td>10000</td><td>10000</td><td>10000</td><td>10000</td>
+    </tr>
+    <tr οnmοuseοver="this.style.backgroundColor='#ffff66';" οnmοuseοut="this.style.backgroundColor='#d4e3e5';">
+        <td>2019/4/1 2:1:1</td><td>10000</td><td>10000</td><td>10000</td><td>10000</td>
+    </tr>
+    <tr οnmοuseοver="this.style.backgroundColor='#ffff66';" οnmοuseοut="this.style.backgroundColor='#d4e3e5';">
+        <td>2019/4/1 2:1:1</td><td>10000</td><td>10000</td><td>10000</td><td>10000</td>
+    </tr>
+    <tr οnmοuseοver="this.style.backgroundColor='#ffff66';" οnmοuseοut="this.style.backgroundColor='#d4e3e5';">
+        <td>2019/4/1 2:1:1</td><td>10000</td><td>10000</td><td>10000</td><td>10000</td>
+    </tr>
+    <tr οnmοuseοver="this.style.backgroundColor='#ffff66';" οnmοuseοut="this.style.backgroundColor='#d4e3e5';">
+        <td>2019/4/1 2:1:1</td><td>10000</td><td>10000</td><td>10000</td><td>10000</td>
+    </tr>
+</table>
+</tbody>
+
+</body>
+</html>

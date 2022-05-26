@@ -1,0 +1,25 @@
+#table-7{width: 30%;margin-left: 1%;float: right;top: 10%;margin-right: 1%}
+
+#table-7 td {
+    color: #000;
+
+}
+
+#table-7 th{
+    background-color: rgb(81, 130, 187);
+}
+/* Heading and Column Style */
+#table-7 tr, #table-7 th {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(81, 130, 187);
+
+}
+
+/* Padding and font style */
+#table-7 td, #table-7 th {
+    padding: 5px 10px;
+    font-size: 12px;
+    font-family: Verdana;
+    font-weight: bold;
+}

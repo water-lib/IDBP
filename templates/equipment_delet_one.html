@@ -1,0 +1,20 @@
+{% extends "basequi.html"%}
+{% import "wtf.html" as wtf %}
+{% block styles %}
+    <link href="../static/css/com_have_backgound.css" rel='stylesheet' type='text/css' media="screen and (min-width: 480px)">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/phone_no_background.css" rel='stylesheet' type='text/css' media="screen and (max-width: 479px)">
+{% endblock %}
+{% block title %} Equipment Information Manage {% endblock title %}
+{% block page_content %}
+<body>
+<div class="page-header">
+    <h1>请删除设备信息</h1>
+</div>
+<div class="col-md-4">
+    {{ wtf.quick_form(form)}}
+</div>
+<div id="atten">
+    注意：请谨慎删除，非必要情况下请使用修改设备信息功能，删除后，ID号不会自增。
+</div>
+{% endblock %}

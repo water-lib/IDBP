@@ -1,0 +1,30 @@
+{% extends "baseinfo.html" %}
+{% block title %}Welcome,{{ user.username }}{% endblock %}
+{% block page_content %}
+    <div class="page-header">
+        <h1>你好,{{ user.username }}</h1>
+    {% if user.name or user.location %}
+        <p>
+            {% if user.username %}{{ user.username }}{% endif %}
+            {% if user.location %}
+                    所在地 <a href="http://map.baidu.com/?={{ user.location }}">
+                        {{ user.location }}
+                    </a>
+            {% endif %}
+        </p>
+    {% endif %}
+    {% if  user.phonenumber %}
+        <p>电话号码:<a href="https://cx.shouji.360.cn/?number={{ user.phonenumber }}">{{ user.phonenumber }}</a></p>
+    {% endif %}
+    {% if user.introduce %}
+        <p>自我介绍:{{ user.introduce }}</p>
+    {% endif %}
+    {% if user.role_s %}
+        <p>您的用户权限是:{{ user.role_s }}</p>
+    {% endif %}
+        <p>
+        注册时间 {{ moment(user.member_since).format('L') }}
+        登录时间{{ moment(current_time).fromNow(refresh=True) }}
+        </p>
+    </div>
+{% endblock %}

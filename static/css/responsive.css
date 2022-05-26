@@ -1,0 +1,1061 @@
+@media only screen and (max-width: 767px) {
+  /* Reset CSS */
+  body {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 35px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  .ptb-50 {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  .ptb-100 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .pt-100 {
+    padding-top: 50px;
+  }
+  .pb-100 {
+    padding-bottom: 50px;
+  }
+  .ptb-70 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .pt-70 {
+    padding-top: 20px;
+  }
+  .pb-70 {
+    padding-bottom: 20px;
+  }
+  .no-wrap {
+    -ms-flex-wrap: wrap !important;
+        flex-wrap: wrap !important;
+  }
+  p {
+    font-size: 14px;
+  }
+  .primary-btn {
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+  .btn-text {
+    font-size: 14px;
+  }
+  .top-content .title {
+    margin-bottom: 12px;
+  }
+  .top-content .primary-btn {
+    margin-top: 27px;
+    margin-bottom: 0;
+  }
+  .top-content p {
+    max-width: 435px;
+  }
+  /* section-title */
+  .section-title {
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .section-title h2:after {
+    bottom: -16px;
+  }
+  /* -----------------------------------------
+	Header CSS
+	----------------------------------------- */
+  .header-area .header-top .quick-links .nav-item {
+    margin-right: 0;
+    position: relative;
+  }
+  .header-area .header-top .quick-links .nav-item::after {
+    left: -8px;
+  }
+  .header-area .header-top .header-right .side-option .item .language .menu {
+    right: 0;
+    left: unset;
+  }
+  /* -----------------------------------------
+	Banner CSS
+	----------------------------------------- */
+  .home-banner-area .banner-content {
+    text-align: center;
+    margin: auto;
+    max-width: 512px;
+    padding: 70px 0 220px;
+  }
+  .home-banner-area .banner-content h1 {
+    font-size: 32px;
+    margin-top: -8px;
+    margin-bottom: 15px;
+  }
+  .home-banner-area .banner-content p {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  .home-banner-area::after {
+    background: rgba(6, 18, 28, 0.6);
+  }
+  .home-banner-area.home-banner-two .banner-content {
+    padding: 70px 0 180px;
+  }
+  .home-banner-area.home-banner-two .banner-content h1 {
+    margin-bottom: 20px;
+  }
+  .home-banner-area.home-banner-three .banner-content {
+    padding: 200px 0 90px;
+  }
+  .home-banner-area.home-banner-three .banner-content h1 {
+    margin-bottom: 20px;
+  }
+  .home-banner-area.home-banner-three .banner-content .sub-title {
+    margin-bottom: 20px;
+  }
+  .home-banner-area.home-banner-three .promo {
+    position: static;
+  }
+  .home-banner-area.home-banner-three .promo .item-single {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 20px 0;
+  }
+  .home-banner-area.home-banner-three .promo .item-single i {
+    font-size: 25px;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+  .home-banner-area.home-banner-three .promo .item-single h3 {
+    font-size: 10px;
+    font-weight: bold;
+  }
+  /* -----------------------------------------
+	Promo CSS
+	----------------------------------------- */
+  .promo-section .item-single {
+    padding: 25px 30px;
+  }
+  /* -----------------------------------------
+	About CSS
+	----------------------------------------- */
+  .about-section {
+    margin-top: -148px;
+  }
+  .about-section .sub-title {
+    margin-top: -5px;
+  }
+  .about-section .blockquote {
+    padding-bottom: 25px;
+  }
+  .about-section-two {
+    margin-top: -60px;
+  }
+  .about-section-two .about-image {
+    padding: 10px;
+  }
+  .about-section-two .about-image .overlay-img img {
+    position: static;
+    max-width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+  }
+  .about-section-two .blockquote {
+    padding: 20px;
+  }
+  .about-section-two .blockquote p {
+    margin-bottom: 5px;
+  }
+  .about-section-three .blockquote {
+    display: block;
+  }
+  .about-section-three .blockquote .content {
+    padding: 20px;
+  }
+  .about-section-three .blockquote p {
+    margin-bottom: 5px;
+  }
+  .about-section-three .blockquote .image img {
+    width: 100%;
+  }
+  /* -----------------------------------------
+	Projects CSS
+	----------------------------------------- */
+  .projects-section .projects-wrapper {
+    padding: 10px 10px 0;
+  }
+  .projects-section .item-single {
+    margin-bottom: 10px;
+  }
+  .projects-section-two .content {
+    text-align: center;
+  }
+  .projects-section-two .content h2 {
+    margin-top: -5px;
+  }
+  .projects-section-two .content p {
+    max-width: 545px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+  }
+  .projects-section-three .filter-group .filter-control li {
+    margin-top: 5px;
+  }
+  /* -----------------------------------------
+	Services CSS
+	----------------------------------------- */
+  .services-section .item-single .content h3 {
+    margin-bottom: 8px;
+  }
+  .services-section .item-single .content p {
+    margin-bottom: 8px;
+  }
+  .services-section .owl-carousel .owl-stage-outer {
+    overflow: hidden;
+  }
+  .service-section-two .item-single {
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  .service-section-two .content {
+    text-align: center;
+  }
+  .service-section-two .content h2 {
+    margin-top: -5px;
+  }
+  .service-section-two .content .primary-btn {
+    margin-bottom: 20px;
+  }
+  .service-section-two .content p {
+    max-width: 545px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+  }
+  .service-section-three .bg-image {
+    height: 25%;
+  }
+  /* -----------------------------------------
+	Testimonial CSS
+	----------------------------------------- */
+  .testimonials-section-two .image {
+    padding: 10px;
+  }
+  .testimonials-section-two .content .quote {
+    font-size: 50px;
+  }
+  .testimonials-section-three .testimonial-slider-three .slider-item {
+    padding: 0;
+  }
+  .newsletter-area {
+    bottom: -50px;
+  }
+  .newsletter-area .wrapper {
+    padding: 40px 20px 20px;
+  }
+  .blog-section-two [class*='col-']:last-child .item-single {
+    margin-bottom: 0;
+  }
+  /* -----------------------------------------
+	Footer CSS
+	----------------------------------------- */
+  .footer-area h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .footer-area .footer-links li {
+    margin-bottom: 12px;
+  }
+  .footer-area .copy-right-area .copy-right-content .info-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer-area .copy-right-area .copy-right-content .info-list .content {
+    margin-right: 0;
+  }
+  .footer-area .pt-170 {
+    padding-top: 100px;
+  }
+  .footer-area .bg-image {
+    display: none;
+  }
+  .go-top {
+    bottom: 1%;
+    padding: 4px 9px;
+  }
+  .go-top i {
+    vertical-align: -1px;
+  }
+  /* -----------------------------------------
+	Footer CSS
+	----------------------------------------- */
+  .footer-area.footer-area-two .footer-top .bg-image {
+    display: block;
+    background-size: cover;
+  }
+  /* -----------------------------------------
+	Page Title CSS CSS
+	----------------------------------------- */
+  .page-title-area .page-title-content h1 {
+    margin-top: -5px;
+    margin-bottom: 5px;
+  }
+  /* -----------------------------------------
+	About Single CSS
+	----------------------------------------- */
+  .about-single-area .promo-area .promo-inner {
+    margin-bottom: 30px;
+  }
+  .about-single-area .promo-area .promo-inner .content {
+    padding: 20px;
+  }
+  .about-single-area .promo-area .promo-inner .content h2 {
+    font-size: 25px;
+  }
+  .about-single-area .promo-area .promo-inner .content p {
+    font-size: 16px;
+  }
+  .about-single-area .blockquote {
+    margin-top: 0;
+    padding-bottom: 20px;
+  }
+  .about-single-area .about-section.about-section-single {
+    padding-bottom: 20px;
+  }
+  .about-single-area .about-section.about-section-single .image-content .count {
+    padding: 5px 10px;
+    margin-left: -10px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(30% + 10px);
+            flex: 0 0 calc(30% + 10px);
+    max-width: calc(30% + 10px);
+  }
+  .about-single-area .about-section.about-section-single .image-content .count h2 {
+    font-size: 50px;
+  }
+  .about-single-area .about-section.about-section-single .image-content .img2 {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 70%;
+            flex: 0 0 70%;
+    max-width: 70%;
+    padding-top: 9px;
+    padding-right: 10px;
+  }
+  /* -----------------------------------------
+	Project Details CSS
+	----------------------------------------- */
+  .project-details-area .project-details-desc .project-details-slider {
+    margin-bottom: 15px;
+  }
+  .project-details-area .project-details-desc .project-details-slider .owl-nav button[class*=owl-] {
+    width: 30px;
+    height: 30px;
+  }
+  .project-details-area .project-details-desc .project-details-slider .owl-nav button[class*=owl-]:first-child {
+    left: 5px;
+  }
+  .project-details-area .project-details-desc .project-details-slider .owl-nav button[class*=owl-]:last-child {
+    right: 5px;
+  }
+  .project-details-area .project-details-desc .project-details-slider .owl-nav button[class*=owl-] i {
+    font-size: 18px;
+  }
+  .project-details-area .blockquote {
+    display: block;
+  }
+  .project-details-area .blockquote .content {
+    padding: 0;
+  }
+  .project-details-area .blockquote p {
+    margin-bottom: 5px;
+  }
+  .project-details-area .blockquote .img img {
+    width: 100%;
+  }
+  .pagination {
+    margin-top: 20px;
+  }
+  .help-block ul li {
+    width: 60%;
+  }
+  /* -----------------------------------------
+	Service Details CSS
+	----------------------------------------- */
+  .service-details-area .service-details-desc .service-details-slider {
+    margin-bottom: 15px;
+  }
+  .service-details-area .service-details-desc .service-details-slider .owl-nav button[class*=owl-] {
+    width: 30px;
+    height: 30px;
+  }
+  .service-details-area .service-details-desc .service-details-slider .owl-nav button[class*=owl-]:first-child {
+    left: 5px;
+  }
+  .service-details-area .service-details-desc .service-details-slider .owl-nav button[class*=owl-]:last-child {
+    right: 5px;
+  }
+  .service-details-area .service-details-desc .service-details-slider .owl-nav button[class*=owl-] i {
+    font-size: 18px;
+  }
+  /* -----------------------------------------
+	Blog Details CSS
+	----------------------------------------- */
+  .blog-details-section .blog-details-desc .item-single .item-content {
+    padding: 20px 15px;
+  }
+  .blog-details-section .blog-details-desc .item-single .content h2 {
+    margin-bottom: 10px;
+  }
+  .blog-details-section .blog-details-desc .item-single .list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .blog-details-section .blog-details-desc .item-single hr {
+    margin: 0;
+  }
+  .blog-details-section .blog-details-desc .comments-area .comment-body {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .blog-details-section .blog-details-desc .comments-area .comment-body .comment-author {
+    margin-top: 6px;
+  }
+  .blog-details-section .blog-details-desc .comments-area .comment:last-child .comment-body .comment-content {
+    margin-bottom: 0;
+  }
+  .blog-details-section .blog-details-desc .comment:last-child {
+    margin-bottom: 0;
+  }
+  .blog-details-section .widget-area .widget-category {
+    padding: 20px 15px;
+  }
+  .blog-details-section .widget-area .widget-article .article-item .content h3 {
+    font-size: 16px;
+  }
+  .blog-details-section .widget-area .widget {
+    margin-bottom: 20px;
+  }
+  /* -----------------------------------------
+	Career CSS
+	----------------------------------------- */
+  .career-single-area .career-section form {
+    padding: 0;
+    width: 100%;
+  }
+  .career-single-area .career-section form .primary-btn {
+    width: 100%;
+  }
+  .career-single-area .career-section form input {
+    margin-bottom: 10px;
+  }
+  .career-single-area .content-area {
+    padding-bottom: 0;
+  }
+  .career-single-area .content-area .content h2 {
+    margin-top: -5px;
+    margin-bottom: 10px;
+  }
+  .career-single-area .content-area .content .primary-btn {
+    margin-top: 12px;
+  }
+  .career-single-area .top-content .title {
+    margin-bottom: 25px;
+  }
+  /* -----------------------------------------
+	Help CSS
+	----------------------------------------- */
+  .help-area .sub-title {
+    margin-top: -5px;
+  }
+  /* -----------------------------------------
+	Error CSS
+	----------------------------------------- */
+  .error-area .error-content .error-text {
+    width: 150px;
+    height: 150px;
+  }
+  .error-area .error-content .error-text h1 {
+    font-size: 50px;
+  }
+  .error-area .error-content h3 {
+    font-size: 30px;
+  }
+  .error-area .error-content p {
+    max-width: 445px;
+  }
+  /* -----------------------------------------
+	Coming Soon CSS
+	----------------------------------------- */
+  .coming-soon-section .coming-soon-box .title-box h1 {
+    margin-bottom: 30px;
+  }
+  .coming-soon-section .coming-soon-box .social-link {
+    margin-top: 20px;
+  }
+  .coming-soon-section .coming-soon-box #timer .h1 {
+    width: 80px;
+    height: 80px;
+  }
+  .coming-soon-section .coming-soon-box #timer span {
+    font-size: 18px;
+  }
+  /* -----------------------------------------
+	Authentication CSS
+	----------------------------------------- */
+  .authentication-section form {
+    max-width: 445px;
+  }
+  .authentication-section .content h3 {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: -5px;
+  }
+  .authentication-section .content p {
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .authentication-section .checkbox label {
+    font-size: 12px;
+  }
+  .authentication-section .link a {
+    font-size: 12px;
+  }
+  .authentication-section .form-group .form-control {
+    padding-left: 0;
+  }
+  /* -----------------------------------------
+	Privacy & Terms CSS
+	----------------------------------------- */
+  .privacy-area .item-single h3,
+  .terms-area .item-single h3 {
+    margin-top: -5px;
+  }
+  .contact-section .top-content .info-list {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .contact-section .top-content .info-list a {
+    font-size: 16px;
+  }
+  .contact-section .top-content .info-list li i {
+    vertical-align: -1px;
+  }
+  .emergency-area .sub-title {
+    margin-bottom: 5px;
+  }
+  .team-single-area .director-section .item-single .content {
+    text-align: center;
+  }
+  .team-single-area .director-section .item-single .content p {
+    max-width: 435px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .top-content p {
+    max-width: 476px;
+  }
+  .top-content .info-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .top-content .info-list li {
+    margin-right: 12px;
+  }
+  /* -----------------------------------------
+	Banner CSS
+	----------------------------------------- */
+  .home-banner-area .banner-content p {
+    max-width: 476px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home-banner-area.home-banner-three {
+    z-index: 5;
+  }
+  .home-banner-area.home-banner-three .promo > div {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .home-banner-area.home-banner-three .promo .item-single {
+    padding: 25px 10px;
+  }
+  .home-banner-area.home-banner-three .promo .item-single h3 {
+    font-size: 17px;
+  }
+  .home-banner-area.home-banner-three .promo .item-single:hover {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+  .blog-section-two [class*='col-']:last-child .item-single {
+    margin-bottom: 20px;
+  }
+  .newsletter-area {
+    bottom: -40px;
+  }
+  /* -----------------------------------------
+	Footer CSS
+	----------------------------------------- */
+  .footer-area h3 {
+    margin-top: 8px;
+    margin-bottom: 25px;
+  }
+  /* -----------------------------------------
+	Blog Details CSS
+	----------------------------------------- */
+  .blog-details-section .widget-area .widget-article {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .blog-details-section .widget-area .widget-article h3 {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+  .blog-details-section .widget-area .widget-article .article-item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 48%;
+            flex: 0 0 48%;
+    margin-right: 2%;
+  }
+  .blog-details-section .widget-area .widget-article .article-item .content h3 {
+    font-size: 14px;
+  }
+  .blog-details-section .widget-area .widget-article .article-item .content span {
+    font-size: 12px;
+  }
+  /* -----------------------------------------
+	Coming Soon CSS
+	----------------------------------------- */
+  .coming-soon-section .coming-soon-box #timer .h1 {
+    width: 110px;
+    height: 110px;
+  }
+  .team-single-area .director-section .item-single .content {
+    text-align: center;
+  }
+  .team-single-area .director-section .item-single .content p {
+    max-width: 435px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* Reset CSS */
+  body {
+    font-size: 15px;
+  }
+  h2 {
+    font-size: 35px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  .ptb-50 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .ptb-100 {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+  .pt-100 {
+    padding-top: 90px;
+  }
+  .pb-100 {
+    padding-bottom: 90px;
+  }
+  .ptb-70 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .pt-70 {
+    padding-top: 60px;
+  }
+  .pb-70 {
+    padding-bottom: 60px;
+  }
+  .no-wrap {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  p {
+    font-size: 15px;
+  }
+  .top-content {
+    padding-bottom: 40px;
+  }
+  .top-content .title {
+    margin-bottom: 12px;
+  }
+  .top-content .primary-btn {
+    margin-top: 27px;
+    margin-bottom: 0;
+  }
+  /* -----------------------------------------
+	Banner CSS
+	----------------------------------------- */
+  .home-banner-area .banner-content {
+    text-align: center;
+    margin: auto;
+    max-width: 696px;
+    padding: 150px 0 300px;
+  }
+  .home-banner-area .banner-content p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 545px;
+  }
+  .home-banner-area::after {
+    background: rgba(6, 18, 28, 0.6);
+  }
+  .top-content p {
+    max-width: 476px;
+  }
+  .top-content .info-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .top-content .info-list li {
+    margin-right: 12px;
+  }
+  /* -----------------------------------------
+	About CSS
+	----------------------------------------- */
+  .about-section-two {
+    padding-bottom: 0;
+  }
+  .about-section-two .about-image .overlay-img .img1 {
+    left: 0;
+  }
+  .about-section-two .about-content {
+    padding-top: 100px;
+  }
+  /* -----------------------------------------
+	Service CSS
+	----------------------------------------- */
+  .service-section-two .content {
+    text-align: center;
+  }
+  .service-section-two .content .primary-btn {
+    margin-bottom: 20px;
+  }
+  .service-section-two .content p {
+    max-width: 545px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+  }
+  .service-section-three .bg-image {
+    height: 35%;
+  }
+  /* -----------------------------------------
+	Project CSS
+	----------------------------------------- */
+  .projects-section-two .content {
+    text-align: center;
+  }
+  .projects-section-two .content p {
+    max-width: 545px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+  }
+  /* -----------------------------------------
+	Testimonial CSS
+	----------------------------------------- */
+  .testimonials-section-two .image img {
+    width: 100%;
+  }
+  .testimonials-section-two .content {
+    text-align: center;
+  }
+  .testimonials-section-two .content h2 {
+    margin-top: -5px;
+  }
+  .testimonials-section-two .testimonial-slider-two .slider-item .client {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .testimonials-section-two .testimonial-slider-two .slider-item .content p {
+    max-width: 545px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .testimonials-section-two .testimonial-slider-two .owl-nav {
+    text-align: center;
+  }
+  /* -----------------------------------------
+	Footer CSS
+	----------------------------------------- */
+  .footer-area.footer-area-two .footer-top .bg-image {
+    background-size: cover;
+  }
+  /* -----------------------------------------
+	About Single CSS
+	----------------------------------------- */
+  .about-single-area .promo-area .promo-inner {
+    margin-bottom: 30px;
+  }
+  .about-single-area .promo-area .promo-inner .image img {
+    width: 100%;
+  }
+  .about-single-area .blockquote {
+    margin-top: 0;
+    padding-bottom: 25px;
+  }
+  /* -----------------------------------------
+	Project Details CSS
+	----------------------------------------- */
+  .project-details-area .project-details-desc .content h2 {
+    font-size: 28px;
+  }
+  /* -----------------------------------------
+	Blog Details CSS
+	----------------------------------------- */
+  .blog-details-section .blog-details-desc .item-single .content h2 {
+    margin-bottom: 10px;
+  }
+  .blog-details-section .blog-details-desc .comments-area .comment-body {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+  }
+  .blog-details-section .blog-details-desc .comments-area .comment-body .comment-author {
+    margin-top: 6px;
+  }
+  .blog-details-section .blog-details-desc .comments-area .comment:last-child .comment-body .comment-content {
+    margin-bottom: 0;
+  }
+  .blog-details-section .blog-details-desc .comment:last-child {
+    margin-bottom: 0;
+  }
+  .blog-details-section .widget-area .widget-article {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .blog-details-section .widget-area .widget-article h3 {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+  .blog-details-section .widget-area .widget-article .article-item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 48%;
+            flex: 0 0 48%;
+    margin-right: 2%;
+  }
+  .blog-details-section .widget-area .widget-article .article-item .content h3 {
+    font-size: 17px;
+  }
+  .blog-details-section .widget-area .widget-article .article-item .content span {
+    font-size: 12px;
+  }
+  .blog-details-section .widget-area .widget {
+    margin-bottom: 20px;
+  }
+  /* -----------------------------------------
+	Career CSS
+	----------------------------------------- */
+  .career-single-area .career-section form {
+    padding: 0;
+    width: 100%;
+  }
+  .career-single-area .career-section form .primary-btn {
+    width: 100%;
+  }
+  .career-single-area .content-area {
+    padding-bottom: 0;
+  }
+  .career-single-area .content-area .content h2 {
+    margin-top: -5px;
+    margin-bottom: 10px;
+  }
+  .career-single-area .content-area .content .primary-btn {
+    margin-top: 12px;
+  }
+  .career-single-area .top-content .title {
+    margin-bottom: 25px;
+  }
+  .contact-section .top-content .info-list {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* Reset CSS */
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  .sub-title {
+    font-size: 16px;
+  }
+  .top-content p {
+    max-width: 430px;
+  }
+  /* -----------------------------------------
+	Banner CSS
+	----------------------------------------- */
+  .home-banner-area .banner-content {
+    padding: 160px 0 310px;
+  }
+  .home-banner-area .banner-content h1 {
+    font-size: 55px;
+  }
+  .home-banner-area .banner-content p {
+    font-size: 15px;
+  }
+  /* -----------------------------------------
+	About CSS
+	----------------------------------------- */
+  .about-section .about-content .content-list {
+    margin-bottom: 10px;
+  }
+  .about-section-two {
+    padding-bottom: 50px;
+  }
+  .about-section-two .about-image .overlay-img img {
+    max-width: 220px;
+  }
+  .about-section-two .about-image .overlay-img .img1 {
+    left: -40px;
+  }
+  .about-section-two .about-image .overlay-img .img2 {
+    right: 30px;
+  }
+  .about-section-two .blockquote {
+    padding: 20px;
+  }
+  /* -----------------------------------------
+	Testimonial CSS
+	----------------------------------------- */
+  .testimonials-section-two .image {
+    padding: 10px;
+  }
+  /* -----------------------------------------
+	Contact CSS
+	----------------------------------------- */
+  .contact-section .form-control {
+    height: 45px;
+  }
+  .contact-section textarea.form-control {
+    height: auto;
+    max-height: 150px;
+  }
+  /* -----------------------------------------
+	Service CSS
+	----------------------------------------- */
+  .service-section-three .bg-image {
+    height: 50%;
+  }
+  .promo-service-section-two .item-single {
+    padding: 25px 18px;
+  }
+  .service-details-area .service-details-desc .content h2 {
+    font-size: 30px;
+  }
+  /* -----------------------------------------
+	Project Details CSS
+	----------------------------------------- */
+  .project-details-area .project-details-desc .content h2 {
+    font-size: 30px;
+  }
+  .project-details-area .blockquote .content p {
+    font-size: 16px;
+  }
+  .help-block ul li {
+    width: 60%;
+  }
+  /* -----------------------------------------
+	Blog Details CSS
+	----------------------------------------- */
+  .blog-details-section .widget-area .widget-article .article-item .content h3 {
+    font-size: 16px;
+  }
+  /* -----------------------------------------
+	Career CSS
+	----------------------------------------- */
+  .career-single-area .image img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  /* -----------------------------------------
+	Help CSS
+	----------------------------------------- */
+  .help-area .image img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  /* -----------------------------------------
+	Privacy & Terms CSS
+	----------------------------------------- */
+  .privacy-area img,
+  .terms-area img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */

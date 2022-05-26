@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$" libraries="{ace-builds, babel-polyfill, bootstrap, bootstrap-datepicker, bootstrap-datepicker.standalone, bootstrap-datepicker.zh-CN, bootstrap-datetimepicker, bootstrap-icons, dat.gui, echarts, echarts-en.common, echarts-gl, echarts-stat, html5shiv, jquery, jquery-3.1.1, jquery-3.3.1.slim, jquery.filterizr, jquery.nice-select, moment-with-locales, nice-select, owl.carousel, polyfill, popper.js, respond.js, script}" />
+  </component>
+</project>

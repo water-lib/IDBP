@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %} flasky {% endblock title %}
+
+{% block navbar %}
+    <div class="nav navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                        data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/templates/index_new.html">工件信息管理</a>  <!--返回的是app.route中的‘/**地址’>
+                <-->
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li style="flood-color: white"><a href="../templates/workpieceim_main_add.html">增加工件信息</a></li>
+                    <li style="flood-color: white"><a href="../templates/workpieceim_change_one.html">修改工件信息</a></li>
+                    <li style="flood-color: white"><a href="../templates/workpieceim_delete_one.html">删除工件信息</a></li>
+                    <li style="flood-color: white"><a href="../templates/workpieceim_query_all.html">查询当前工件信息</a></li>
+                    <li style="flood-color: white"><a href="../templates/index_new.html">返回首页</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="container">
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{message }}
+        </div>
+    {% endfor %}
+        {% block page_content %}{% endblock %}
+    </div>
+{% block scripts %}
+    {{ super()}}
+    {{ moment.include_moment() }}
+{% endblock %}
+{% endblock %}

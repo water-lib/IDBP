@@ -1,0 +1,15 @@
+#textp{
+    position:absolute;top:150px;left: 50px;height: 100px;font-size: 14px
+}
+#panel{
+    position: absolute;top:180px;left: 10px;z-index: -100;
+}
+#radaimg{
+    height: 280px;width: 400px;position: absolute;top:670px;left: -20px
+}
+#gauge{
+    height:300px;width:400px;left: 1px;top: 970px;position: absolute
+}
+#scores{
+    height: 400px;width: 390px;position: absolute;top:1250px;left:1px
+}

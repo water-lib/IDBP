@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>工件质量实时预测</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link href="../static/css/predict_for_xiaochechuang_com.css" rel='stylesheet' type='text/css' media="screen and (min-width: 480px)">
+<link href="../static/css/predict_for_xiaochechuang_phone.css" rel='stylesheet' type='text/css' media="screen and (max-width: 479px)">
+
+</head>
+<body>
+    <div class="nav navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                        data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../templates/predict_workpiece_index.html">数据分析</a>  <!--返回的是app.route中的‘/**地址’>
+                <-->
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li style="flood-color: white"><a href="../templates/index_new.html">主页</a></li>
+                    <li style="flood-color: white"><a href="../templates/predict_for_computer.html">工件质量预测</a></li>
+                     <li style="flood-color: white"><a href="../templates/warnning_workpiece_index.html">设备实时报警</a></li>
+                    <li style="flood-color: white"><a href="../templates/opti_workpiece_index.html">工件质量优化</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="textp">功率图</div>
+    <canvas id="imgP" height="350px"  width="600px"
+            style="">
+    </canvas>
+    <div id="texti" style="">电流图</div>
+    <canvas id="imgI" height="350px"  width="600px"
+            style="">
+    </canvas>
+    <div id="textu" style="">电压图</div>
+    <canvas id="imgU" height="350px"  width="600px"
+            style="">
+    </canvas>
+{# <div class="login">#}
+{#	<h1>工件质量实时预测</h1>#}
+{#     <h3> 请输入框内所示的机床参数完成工件质量实时预测</h3>#}
+{##}
+{#     <!-- Main Input For Receiving Query to our ML -->#}
+{#    <input type="text" name="平均电压" placeholder="平均电压" required="required" />#}
+{#    <input type="text" name="平均电流" placeholder="平均电流" required="required" />#}
+{#    <input type="text" name="总有功功率" placeholder="总有功功率" required="required" />#}
+{#    <input type="text" name="总有功因素" placeholder="总有功因素" required="required" />#}
+{#<button id="btnj" type="button" class="btn" style="position: absolute;top: 700px;left: 900px">判断</button>#}
+{##}
+    <div id="Pintime" style="">
+        功率：<input id="Pintimeinput" >
+    </div>
+    <div id="Iintime" style="">
+        电流：<input id="Iintimeinput" >
+    </div>
+    <div id="Uintime" style="">
+        电压：<input id="Uintimeinput" >
+    </div>
+        <div id="Pintime1" style="">
+        合格件表面粗糙度均值:<input id="Qintimeinput" >
+    </div>
+    <div id="Iintime1" style="">
+        合格件切缝宽度均值:<input id="Bintimeinput" >
+    </div>
+    <div id="Uintime1" style="">
+        合格件热影响区均值:<input id="Rintimeinput" >
+    </div>
+    <div id="Pintime2" style="">
+        表面粗糙度判断值:<input id="QBintimeinput" >
+    </div>
+    <div id="Iintime2" style="">
+        切缝宽度判断值:<input id="BBintimeinput" >
+    </div>
+    <div id="Uintime2" style="">
+        热影响区判断值:<input id="RBintimeinput" >
+    </div>
+    <div id="workstatus" style="position:absolute;top:620px;left: 800px">
+        加工状态判断:<input id="workstatusdes">
+    </div>
+{#    <div id="restworktime" style="position:absolute;top:720px;left: 800px">#}
+{#        当前加工时间:<input id="worktimeshow">#}
+{#    </div>#}
+{#    <div id="completetime" style="position:absolute;top:820px;left: 800px">#}
+{#        预计完成时间:<input id="worktimecomplete">#}
+{#    </div>#}
+    <div id="workpiecescore" style=""></div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/Chart.js/1.1.0/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.12/src-min-noconflict/ace.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dat.gui@0.6.5/build/dat.gui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples/js/example-bundle.js?_v_=4ed28896a8"></script>
+<script type="text/javascript">
+    function sleep(numberMillis) {
+            var now = new Date();
+            var exitTime = now.getTime() + numberMillis;
+            while (true) {
+            now = new Date();
+            if (now.getTime() > exitTime)
+            return;
+                        }
+                                }
+    //定义变量获取屏幕视口宽度
+    var windowWidth = $(window).width();
+    if(windowWidth >= 480){
+        // do something
+        imgua = document.getElementById('imgU')
+        imgia = document.getElementById('imgI')
+        imgp = document.getElementById('imgP')
+        imgua.width =550
+        imgua.height = 250
+        imgia.width =550
+        imgia.height = 250
+        imgp.width =550
+        imgp.height = 250
+        $(function () {
+         var int = setInterval(function () {
+         var ajax1 = $.ajax({
+                    url:"/pre_jieduan_chechuang/",
+                    type:"GET",
+                    success:function (chechuang) {
+                        jieduan = chechuang["data1"]
+                    }
+                });
+            var ajax2 = $.ajax({
+                   url:"/setDatanilongqiou/",
+                   type:"GET",
+                success:function (output1) {
+                       yuandu = output1["data1"]
+                       Rz = output1["data2"]
+                       tuple = output1["data3"]
+
+                    }
+            });
+            $.when(ajax1,ajax2).done(function () {
+                if (Math.abs(jieduan)===2){
+                 var dom = document.getElementById("workpiecescore")
+                 var myChart2  = echarts.init(dom)
+                 var option2
+                 var option2 = {
+                    series: [{
+                        type: 'gauge',
+                        startAngle: 180,
+                        endAngle: 0,
+                        min: 0,
+                        max: 1,
+                        splitNumber: 8,
+                        axisLine: {
+                            lineStyle: {
+                                width: 6,
+                                color: [
+                                    [0.25, '#FF6E76'],
+                                    [0.5, '#FDDD60'],
+                                    [0.75, '#58D9F9'],
+                                    [1, '#7CFFB2']
+                                ]
+                            }
+                        },
+                        pointer: {
+                            icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
+                            length: '12%',
+                            width: 20,
+                            offsetCenter: [0, '-50%'],
+                            itemStyle: {
+                                color: 'auto'
+                            }
+                        },
+                        axisTick: {
+                            length: 12,
+                            lineStyle: {
+                                color: 'auto',
+                                width: 2
+                            }
+                        },
+                        splitLine: {
+                            length: 20,
+                            lineStyle: {
+                                color: 'auto',
+                                width: 5
+                            }
+                        },
+                        axisLabel: {
+                            color: '#FFFFFF',
+                            fontSize: 20,
+                            distance: -60,
+                            formatter: function (value) {
+                                if (value === 0.875) {
+                                    return '优';
+                                } else if (value === 0.625) {
+                                    return '良';
+                                } else if (value === 0.375) {
+                                    return '中';
+                                } else if (value === 0.125) {
+                                    return '差';
+                                }
+                            }
+                        },
+                        title: {
+                            offsetCenter: [0, '-20%'],
+                            fontSize: 30,
+                            color: '#FFFFFF',
+
+                        },
+                        detail: {
+                            fontSize: 50,
+                            offsetCenter: [0, '10%'],
+                            valueAnimation: true,
+                            formatter:setInterval(function (value) {
+                                return Math.round(Math.random()*10 + value*100) + '分'
+                                {#        if (20<value<=30){#}
+                                {#            return Math.round(2.5*Math.round(value)) +'分'#}
+                                {#        }#}
+                                {#        if (30<value<=40){#}
+                                {#            return Math.round(2.4*Math.round(value)) +'分'#}
+                                {#        }#}
+                                {#        if (40<value<=50){#}
+                                {#            return Math.round(1.8*Math.round(value)) +'分'#}
+                                {#        }#}
+                                {#        if (50<value<=60){#}
+                                {#            return Math.round(1.5*Math.round(value)) +'分'#}
+                                {#        }#}
+                                {#        if (60<value<=70){#}
+                                {#            return Math.round(1.4*Math.round(value)) +'分'#}
+                                {#        }#}
+                                {#        if (70<value<=80){#}
+                                {#            return Math.round(1.2*Math.round(value)) +'分'#}
+                                {#        }#}
+                                {#        if (80<value<=90){#}
+                                {#            return Math.round(Math.round(value)) +'分'#}
+                                {#        }#}
+                                {#        if (100>=value>90){#}
+                                {#            return Math.round(0.9*Math.round(value)) +'分'#}
+                                {#        }#}
+                                {#        if (100<value){#}
+                                {#            return Math.round(0.01*Math.round(value)) +'分'#}
+                                {#        }#}
+                                {#    },#}
+                            },5000),
+                        color: 'auto'
+                        },
+                        data: [{
+                            value:Math.round(yuandu)*10+Math.round(Rz*1.8)+Math.round(tuple*5.4),
+                            {#value: Math.round(Math.random()*10 + 0.9*100),#}
+                            name: '工件质量评分'
+                        }]
+                    }]
+                };
+                    option2 && myChart2.setOption(option2)
+                    {#sleep(3000)#}
+               }
+                else{
+                    var dom = document.getElementById("workpiecescore")
+                    dom.style.color="red";
+                }
+            })
+        },1000)
+    })
+    }
+    if(windowWidth < 480){
+        // do something
+        imgu = document.getElementById('imgU')
+        imgia = document.getElementById('imgI')
+        imgp = document.getElementById('imgP')
+        imgu.width =360
+        imgu.height = 250
+        imgia.width =360
+        imgia.height = 250
+        imgp.width =360
+        imgp.height = 250
+
+        $(function () {
+        var dom = document.getElementById("workpiecescore")
+         var myChart2  = echarts.init(dom)
+         var option2
+           var int = setInterval(function () {
+            $.ajax({
+                    url:"/setDataP/", //从setData函数中获取数据
+                   type:"get",
+                   data:"",
+                success:function (data1) {
+                        var option2 = {
+            series: [{
+                type: 'gauge',
+                startAngle: 180,
+                endAngle: 0,
+                min: 0,
+                max: 1,
+                splitNumber: 8,
+                axisLine: {
+                    lineStyle: {
+                        width: 6,
+                        color: [
+                            [0.25, '#FF6E76'],
+                            [0.5, '#FDDD60'],
+                            [0.75, '#58D9F9'],
+                            [1, '#7CFFB2']
+                        ]
+                    }
+                },
+                pointer: {
+                    icon: 'path://M12.8,0.7l12,40.1H0.7L12.8,0.7z',
+                    length: '12%',
+                    width: 20,
+                    offsetCenter: [0, '-50%'],
+                    itemStyle: {
+                        color: 'auto'
+                    }
+                },
+                axisTick: {
+                    length: 12,
+                    lineStyle: {
+                        color: 'auto',
+                        width: 2
+                    }
+                },
+                splitLine: {
+                    length: 20,
+                    lineStyle: {
+                        color: 'auto',
+                        width: 5
+                    }
+                },
+                axisLabel: {
+                    color: '#000000',
+                    fontSize: 20,
+                    distance: -60,
+                    formatter: function (value) {
+                        if (value === 0.875) {
+                            return '优';
+                        } else if (value === 0.625) {
+                            return '良';
+                        } else if (value === 0.375) {
+                            return '中';
+                        } else if (value === 0.125) {
+                            return '差';
+                        }
+                    }
+                },
+                title: {
+                    offsetCenter: [0, '-20%'],
+                    fontSize: 30,
+                    color: '#000000',
+
+                },
+                detail: {
+                    fontSize: 50,
+                    offsetCenter: [0, '10%'],
+                    valueAnimation: true,
+                    formatter:setInterval(function (value) {
+                        return Math.round(Math.random()*10 + value*100) + '分'
+                        {#        if (20<value<=30){#}
+                        {#            return Math.round(2.5*Math.round(value)) +'分'#}
+                        {#        }#}
+                        {#        if (30<value<=40){#}
+                        {#            return Math.round(2.4*Math.round(value)) +'分'#}
+                        {#        }#}
+                        {#        if (40<value<=50){#}
+                        {#            return Math.round(1.8*Math.round(value)) +'分'#}
+                        {#        }#}
+                        {#        if (50<value<=60){#}
+                        {#            return Math.round(1.5*Math.round(value)) +'分'#}
+                        {#        }#}
+                        {#        if (60<value<=70){#}
+                        {#            return Math.round(1.4*Math.round(value)) +'分'#}
+                        {#        }#}
+                        {#        if (70<value<=80){#}
+                        {#            return Math.round(1.2*Math.round(value)) +'分'#}
+                        {#        }#}
+                        {#        if (80<value<=90){#}
+                        {#            return Math.round(Math.round(value)) +'分'#}
+                        {#        }#}
+                        {#        if (100>=value>90){#}
+                        {#            return Math.round(0.9*Math.round(value)) +'分'#}
+                        {#        }#}
+                        {#        if (100<value){#}
+                        {#            return Math.round(0.01*Math.round(value)) +'分'#}
+                        {#        }#}
+                        {#    },#}
+                    },300000),
+                color: 'auto'
+                },
+                data: [{
+                    value: Math.round(Math.random()*10 + 0.9*100),
+                    name: '工件质量评分'
+                }]
+            }]
+        };
+          option2 && myChart2.setOption(option2);
+                    }
+            })
+        },300000)
+    })
+    }
+</script>
+    <script>
+        var int = setInterval(function () {
+            $.ajax({
+                url:"/setDatachechuang/",
+                type:'GET',
+                success:function (data1) {
+                    if (data1["data3"]===0){
+                        $("#workstatusdes").val("机床关机")
+                    }
+                    if (data1["data3"]===5){
+                        $("#workstatusdes").val("机床主轴空转待机")
+                    }
+                    if(45>=data1["data3"] && data1["data3"]> 5){
+                        $("#workstatusdes").val("机床车削零件完成")
+                    }
+                    if (data1["data3"]>45){
+                        $("#workstatusdes").val("机床正在车削")
+                    }
+                }
+            });
+        },1000)
+
+        {#var int = setInterval(function () {#}
+        {#    $.ajax({#}
+        {#        url: "/setDatachechuang/",#}
+        {#        type: 'GET',#}
+        {#        success: function (data1) {#}
+        {#            var now = new Date();#}
+        {#            var daytime = now.getTime()#}
+        {#            var nowtime = now.toLocaleString('chinese',{hour12:false})#}
+        {#            var mytime = now.toLocaleTimeString()#}
+        {#            var time = nowtime.substring(10,20)#}
+        {#            if (data1["data3"] >= 60) {#}
+        {#                    $("#worktimeshow").val(time)#}
+        {#            }#}
+        {#            else {#}
+        {#                $("#worktimeshow").val("非加工时间")#}
+        {#            }#}
+        {#        }#}
+        {#    })#}
+        {# },990)#}
+
+        var int = setInterval(function () {//设置定时器
+            $.ajax({
+                url: "/setDatachechuang/",
+                type: 'GET',
+                success: function (data1) {
+                    $("#Pintimeinput").val(data1["data3"]);
+                }
+            });
+        },1000)
+                var int = setInterval(function () {//设置定时器
+            $.ajax({
+                url: "/setDatachechuang/",
+                type: 'GET',
+                success: function (data1) {
+                    $("#Iintimeinput").val(data1["data2"]);
+                }
+            });
+        },1000)
+
+                var int = setInterval(function () {//设置定时器
+            $.ajax({
+                url: "/setDatachechuang/",
+                type: 'GET',
+                success: function (data1) {
+                    $("#Uintimeinput").val(data1["data1"]);
+                }
+            });
+        },1000)
+
+                var int = setInterval(function () {//设置定时器
+            $.ajax({
+                url: "/setDataP/",
+                type: 'GET',
+                success: function (data1) {
+                    $("#Qintimeinput").val(0.35);
+                }
+            });
+        },1000)
+
+                var int = setInterval(function () {//设置定时器
+            $.ajax({
+                url: "/setDataP/",
+                type: 'GET',
+                success: function (data1) {
+                    $("#Bintimeinput").val(12);
+                }
+            });
+        },1000)
+                var int = setInterval(function () {//设置定时器
+            $.ajax({
+                url: "/setDataP/",
+                type: 'GET',
+                success: function (data1) {
+                    $("#Rintimeinput").val(14.5);
+                }
+            });
+        },1000)
+            var  int = setInterval(function () {//设置定时器
+            ajax1 = $.ajax({
+                url: "/pre_jieduan_chechuang/",
+                type: 'GET',
+                success: function (chechuang) {
+                    jieduan = chechuang["data1"]
+                }
+            });
+            ajax2 = $.ajax({
+                url: "/setDatanilongqiou/",
+                type: 'GET',
+                success: function (output1) {
+                    panduan = output1["data1"]
+
+                }
+                });
+            $.when(ajax1,ajax2).done(function () {
+                        if (Math.abs(jieduan)===2) {
+                            $("#QBintimeinput").val((Math.round(panduan * 10000) / 10000))
+                        }
+                        {#else if (Math.abs(jieduan)===0){#}
+                        {#    $("#QBintimeinput").val("0")#}
+                        {# }#}
+                        {#else if (Math.abs(jieduan)===1){#}
+                        {#    $("#QBintimeinput").val("0")#}
+                        {# }#}
+                        {#else{#}
+                        {#    $("#QBintimeinput").val("0")#}
+                        {# }#}
+
+            })
+           },1000)
+
+        var  int = setInterval(function () {//设置定时器
+            ajax1 = $.ajax({
+                url: "/pre_jieduan_chechuang/",
+                type: 'GET',
+                success: function (chechuang) {
+                    jieduan = chechuang["data1"]
+                    }
+            });
+            ajax2 = $.ajax({
+                url:"/setDatanilongqiou/",
+                type:"GET",
+                success:function (output1) {
+                    panduan = output1["data2"]
+                }
+            })
+            $.when(ajax1,ajax2).done(function () {
+                    if(Math.abs(jieduan)===2){
+                        $("#BBintimeinput").val(Math.round(panduan*1000)/1000)
+                    }
+                    {#else if (Math.abs(jieduan)===0){#}
+                    {#        $("#BBintimeinput").val("关机中")#}
+                    {#    }#}
+                    {#    else if (Math.abs(jieduan)===1){#}
+                    {#        $("#BBintimeinput").val("待机中")#}
+                    {#     }#}
+                    {#    else{#}
+                    {#        $("#BBintimeinput").val("等待加工结束")#}
+                    {#     }#}
+            })
+           },1000)
+            var int = setInterval(function () {
+                    ajax1 = $.ajax({
+                        url:"/pre_jieduan_chechuang/",
+                        type:"GET",
+                        success:function (chechuang) {
+                            jieduan = chechuang["data1"]
+                        }
+                    });
+                    ajax2 = $.ajax({
+                        url:"/setDatanilongqiou/",
+                        type:"GET",
+                        success:function (output1) {
+                                panduan = output1["data3"]
+                        }
+                    })
+                $.when(ajax1,ajax2).done(function () {
+                        if (Math.abs(jieduan)===2){
+                            $("#RBintimeinput").val(Math.round(panduan*1000)/1000)
+                        }
+                        {#else if (Math.abs(jieduan)===0){#}
+                        {#    $("#RBintimeinput").val("关机中")#}
+                        {# }#}
+                        {#else if (Math.abs(jieduan)===1){#}
+                        {#    $("#RBintimeinput").val("待机中")#}
+                        {# }#}
+                        {#else{#}
+                        {#    $("#RBintimeinput").val("等待加工结束")#}
+                        {# }#}
+                })
+            },1000)
+        {#var  int = setInterval(function () {//设置定时器#}
+        {#    $.ajax({#}
+        {#        url: "/setDatanilongqiou/",#}
+        {#        type: 'GET',#}
+        {#        success: function (output1) {#}
+        {#            $("#RBintimeinput").val((Math.round(output1["data3"]*10000)/10000));#}
+        {#        }#}
+        {#    });#}
+        {#   },1000)#}
+
+   $(function () {
+        var can = $('#imgP').get(0).getContext('2d');
+        var option={
+            datasetStrokeWidth : 2,
+            datasetStroke : true,
+            pointDotRadius : 4,
+
+        }
+        var canData = {
+            labels: ["0"], /*初始x轴数据*/
+            datasets: [
+                {
+                    //折线的填充颜色
+                    fillColor: "rgba(150,0,255,0.1)",
+                    //线条颜色：
+                    strokeColor: "rgba(0,0,255,1)",
+                    //y轴初始数据：
+                    data: [0],
+                    legend: {
+                        data:['功率变化']
+                    },
+                    scale:{
+                        xAxis:[{
+                            scaleLable:{
+                                display:true,
+                                labelString:'时间'
+                            }
+                        }],
+                        yAxes:[{
+                            scaleLable:{
+                                display:true,
+                                labelString:'功率P'
+                            }
+                        }]
+
+                    }
+                }
+
+            ]
+        };
+        var line = new Chart(can).Line(canData,option);
+
+        var int = setInterval(function () {//设置定时器
+           $.ajax(
+               {
+                   url:"/setDatachechuang/", //从setData函数中获取数据
+                   type:"get",
+                   data:"",
+                   success:function (data1) {
+                       if ([data1["data3"]] >188){
+                         alert("警告！")
+                       }
+                           line.addData(
+                           [data1["data3"]], //y轴，因为同一个x轴可以有多个折线
+                           data1["time"]  //x轴
+                       );
+                       //保持x轴只有8个数据，要不随着时间推移x轴会越来越长
+                       var len = line.datasets[0].points.length;
+                       if(len>9){
+                           line.removeData()
+                       }
+                   }
+               }
+           )
+
+        },1000)
+
+    })
+        $(function () {
+        var can = $('#imgU').get(0).getContext('2d');
+
+        var canData = {
+            labels: ["0"], /*初始x轴数据*/
+            datasets: [
+
+                {
+                    //折线的填充颜色
+                    fillColor: "rgba(255,204,0,0.1)",
+                    //线条颜色：
+                    strokeColor: "rgba(255,204,0,1)",
+                    //y轴初始数据：
+                    data: [200],
+                    legend: {
+                        data:['功率变化']
+                    },
+                    scale:{
+                        xAxis:[{
+                            scaleLable:{
+                                display:true,
+                            }
+                        }],
+                        yAxes:[{
+                            scaleLable:{
+                                display:true,
+                                labelString:'功率P'
+                            }
+                        }]
+
+                    }
+                }
+
+            ]
+        };
+        var line = new Chart(can).Line(canData);
+
+        var int = setInterval(function () {//设置定时器
+           $.ajax(
+               {
+                   url:"/setDatachechuang/", //从setData函数中获取数据
+                   type:"get",
+                   data:"",
+                   success:function (data1) {
+                       if ([data1["data1"]] >500){
+                         alert("警告！")
+                       }
+                           line.addData(
+                           [data1["data1"]], //y轴，因为同一个x轴可以有多个折线
+                           data1["time"]  //x轴
+                       );
+                       //保持x轴只有8个数据，要不随着时间推移x轴会越来越长
+                       var len = line.datasets[0].points.length;
+                       if(len>9){
+                           line.removeData()
+                       }
+                   }
+               }
+           )
+
+        },1000)
+
+    })
+        $(function () {
+        var can = $('#imgI').get(0).getContext('2d');
+
+        var canData = {
+            labels: ["0"], /*初始x轴数据*/
+            datasets: [
+                {
+                    //折线的填充颜色
+                    fillColor: "rgba(0,200,0,0.1)",
+                    //线条颜色：
+                    strokeColor: "rgba(0,200,0,1)",
+                    //y轴初始数据：
+                    data: [0],
+                    legend: {
+                        data:['功率变化']
+                    },
+                    scale:{
+                        xAxis:[{
+                            scaleLable:{
+                                display:true,
+                                labelString:'时间'
+                            }
+                        }],
+                        yAxes:[{
+                            scaleLable:{
+                                display:true,
+                                labelString:'功率P'
+                            }
+                        }]
+
+                    }
+                }
+
+            ]
+        };
+        var line = new Chart(can).Line(canData);
+
+        var int = setInterval(function () {//设置定时器
+           $.ajax(
+               {
+                   url:"/setDatachechuang/", //从setData函数中获取数据
+                   type:"get",
+                   data:"",
+                   success:function (data1) {
+                       if ([data1["data2"]] >188){
+                         alert("警告！")
+                       }
+                           line.addData(
+                           [data1["data2"]], //y轴，因 为同一个x轴可以有多个折线
+                           data1["time"]  //x轴
+                       );
+                       //保持x轴只有8个数据，要不随着时间推移3x轴会越来越长
+                       var len = line.datasets[0].points.length;
+                       if(len>9){
+                           line.removeData()
+                       }
+                   }
+               }
+           )
+
+        },1000)
+
+    })
+           </script>
+</body>
+</html>

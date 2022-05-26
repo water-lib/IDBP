@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福州大学大数据分析平台</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>立式加工中心VMC850E</h1>
+        <div class="showTime" id="time" >当前时间：<span></span></div>
+    </header>
+    <section class="mainbox">
+        <div class="column">
+            <div class="panel bar">
+                <h2>
+                    刀具加工时间
+                </h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel line">
+                <h2>刀具后刀面磨损</h2>
+                <div class="chart"></div>
+                <div class="panel-footers"></div>
+            </div>
+            <div class="panel pie">
+                <h2>刀具寿命</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="no">
+                <div class="no-hd">
+                    <ul id="name">
+                        <li>凸模</li>
+                        <li>0</li>
+                    </ul>
+                    <script>
+                    var name1 = document.getElementById("name").getElementsByTagName("li");
+                    name1[0].innerHTML="凸模";
+                    var shuliang = 0;
+                    setInterval(function () {
+                        if (shuliang < 10000){
+                            shuliang++;
+                            name1[1].innerHTML = shuliang;
+                        }
+                        else {
+                            shuliang = 0;
+                            name1[1].innerHTML = 0;
+                            name1[0].innerHTML="圆盘";
+                        }
+                    },60000);
+                </script>
+                </div>
+                <div class="no-bd">
+                    <ul>
+                        <li>加工零件名称</li>
+                        <li>已加工数量</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel1 line1">
+                <h2>机床功耗振动情况</h2>
+                <div class="chart"></div>
+
+            </div>
+
+        </div>
+        <div class="column">
+            <div class="panel bar1">
+                <h2>机床时间分布和维修情况</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel bar4">
+                <h2>加工工件合格情况</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel bar5">
+                <h2>周合格率</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../static/js/flexible.js"></script>
+    <script src="../static/js/echarts.min.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script src="../static/js/china.js"></script>
+
+    <script>
+        (function (fn) {
+            fn();
+            setInterval(fn, 1000);
+        })(function () {
+            var dt = new Date();
+            document.querySelector(".showTime span").innerHTML =
+            dt.getFullYear() + "年-"+
+            (dt.getMonth()+1) + "月" +
+              dt.getDate() + "日-" +
+              dt.getHours() + "时" +
+              dt.getMinutes() + "分" +
+              dt.getSeconds() + "秒";
+        });
+    </script>
+</body>
+
+</html>

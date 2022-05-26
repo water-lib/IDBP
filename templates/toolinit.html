@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tool1</title>
+    <link rel="stylesheet" href="../static/css/header.css" />
+    <script type="text/javascript" src="../static/js/line-simple.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts-en.common.js" rel="external nofollow"  rel="external nofollow"  rel="external nofollow" ></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/Chart.js/1.1.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.12/src-min-noconflict/ace.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dat.gui@0.6.5/build/dat.gui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples/js/example-bundle.js?_v_=4ed28896a8"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/Chart.js/1.1.0/Chart.min.js"></script>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+</head>
+<body>
+    <header>
+        <div id="backheader" >
+            <h id="meacheine_name">刀具磨损监控</h>
+                        <div id="datetime">
+                <script>
+                    setInterval("document.getElementById('datetime').innerHTML=new Date().toLocaleString();", 1000);
+                </script>
+            </div>
+        </div>
+    </header>
+
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<!--X向参数-->
+  <div id="X" style="width: 800px;height:400px;position:absolute;left:50px;top:100px"></div>
+  <div id="Y" style="width: 800px;height:400px;position:absolute;left:950px;top:100px"></div>
+  <div id="Z" style="width: 800px;height:400px;position:absolute;left:50px;top:500px"></div>
+
+      <script type="text/javascript">
+       var myChart10 = echarts.init(document.getElementById('X'));
+       var myChart11 = echarts.init(document.getElementById('Y'));
+       var myChart12 = echarts.init(document.getElementById('Z'));
+       var option10
+        require.config({
+            paths: {
+                echarts: "../static/js/echart2.js"
+                {#http://echarts.baidu.com/build/dist/echarts.js#}
+            }
+        });
+        // 使用
+        require
+            (
+            [
+                'echarts',
+                'echarts/chart/line' ,
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function ()
+            {
+                // 基于准备好的dom，初始化echarts图表
+
+                 option10 = {
+                    title: {
+                        text: 'X向参数',
+                        subtext: '力/振动'
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['X维力', 'X维振动']
+                    },
+                    toolbox: {
+                        show: true,
+                        feature: {
+                            mark: {show: true},
+                            dataView: {show: true, readOnly: false},
+                            magicType: {show: true, type: ['line', 'bar']},
+                            restore: {show: true},
+                            saveAsImage: {show: true}
+                        }
+                    },
+                    dataZoom: {
+                        show: false,
+                        start: 0,
+                        end: 100
+                    },
+
+                    xAxis: [
+                        {
+                            type: 'category',
+                            boundaryGap: true,
+                            data: (function () {
+                                var now = new Date();
+                                var res = [];
+                                var len = 15;
+                                while (len--) {
+                                    res.unshift(now.toLocaleTimeString().replace(/^\D*/, ''));
+                                    now = new Date(now - 2000);
+                                }
+                                return res;
+                            })()
+                        },
+                        {
+                            type: 'category',
+                            boundaryGap: true,
+                            show: false,
+                            data: (function () {
+                                var res = [];
+                                var len = 15;
+                                while (len--) {
+                                    res.push(len + 1);
+                                }
+                                return res;
+                            })()
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            scale: true,
+                            name: '力',
+                            boundaryGap: [0.2, 0.2]
+                        },
+                        {
+                            type: 'value',
+                            scale: true,
+                            name: '震动',
+                            boundaryGap: [0.2, 0.2]
+                        }
+                    ],
+                    series: [
+                        {
+                            name: 'X维力',
+                            type: 'bar',
+                            xAxisIndex: 1,
+                            yAxisIndex: 1,
+                            data: (function () {
+                                var res = [];
+                                var len = 15;
+                                while (len--) {
+                                    res.push(Math.round(Math.random() * 1000));
+                                }
+                                return res;
+                            })()
+                        },
+                        {
+                            name: 'X维振动',
+                            type: 'line',
+
+                            data: (function () {
+                                var res = [];
+                                var len = 15;
+                                while (len--) {
+                                    res.push((Math.random() * 10 + 5).toFixed(1) - 0);
+                                }
+                                return res;
+                            })()
+                        }
+                    ]
+                };
+    myChart10.setOption(option10);
+
+    var lastData = 11;
+    var axisData;
+    var timeTicket;
+    clearInterval(timeTicket);
+    timeTicket = setInterval(function (){
+    lastData += Math.random() * ((Math.round(Math.random() * 10) % 2) == 0 ? 1 : -1);
+    lastData = lastData.toFixed(1) - 0;
+    axisData = (new Date()).toLocaleTimeString().replace(/^\D*/,'');
+    // 动态数据接口 addData
+    myChart10.addData([
+        [
+            0,        // 系列索引
+            Math.round(Math.random() * 1000), // 新增数据
+            false,     // 新增数据是否从队列头部插入
+            false     // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+        ],
+        [
+            1,        // 系列索引
+            lastData, // 新增数据
+            false,    // 新增数据是否从队列头部插入
+            false,    // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+            axisData  // 坐标轴标签
+        ]
+    ]);
+}, 2100);
+            }
+        );
+
+<!--Y轴向的参数-->
+        {#require.config({#}
+        {#    paths: {#}
+        {#        echarts: 'http://echarts.baidu.com/build/dist'#}
+        {#    }#}
+        {#// 使用#}
+        {#require#}
+        {#    (#}
+        {#    [#}
+        {#        'echarts',#}
+        {#        'echarts/chart/line' ,#}
+        {#        'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载#}
+        {#    ],#}
+            $(function ()
+            {
+                // 基于准备好的dom，初始化echarts图表
+
+            var option = {
+                title : {
+                    text: 'Y向参数',
+                    subtext: '力/振动'
+                },
+                tooltip : {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['Y维力', 'Y维振动']
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {show: true, type: ['line', 'bar']},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                dataZoom : {
+                    show : false,
+                    start : 0,
+                    end : 100
+                },
+
+                xAxis : [
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+                        data : (function (){
+                            var now = new Date();
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+                                now = new Date(now - 2000);
+                            }
+                            return res;
+                        })()
+                    },
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+                        show:false,
+                        data : (function (){
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.push(len + 1);
+                            }
+                            return res;
+                        })()
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        scale: true,
+                        name : '力',
+                        boundaryGap: [0.2, 0.2]
+                    },
+                    {
+                        type : 'value',
+                        scale: true,
+                        name : '震动',
+                        boundaryGap: [0.2, 0.2]
+                    }
+                ],
+                series : [
+                    {
+                        name:'Y维力',
+                        type:'bar',
+                        xAxisIndex: 1,
+                        yAxisIndex: 1,
+                        data:(function (){
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.push(Math.round(Math.random() * 1000));
+                            }
+                            return res;
+                        })()
+                    },
+                    {
+                        name:'Y维振动',
+                        type:'line',
+
+                        data:(function (){
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.push((Math.random()*10 + 5).toFixed(1) - 0);
+                            }
+                            return res;
+                        })()
+            }
+        ]
+    };
+                myChart11.setOption(option);
+
+
+    var lastData = 11;
+    var axisData;
+    var timeTicket;
+    clearInterval(timeTicket);
+    timeTicket = setInterval(function (){
+    lastData += Math.random() * ((Math.round(Math.random() * 10) % 2) == 0 ? 1 : -1);
+    lastData = lastData.toFixed(1) - 0;
+    axisData = (new Date()).toLocaleTimeString().replace(/^\D*/,'');
+
+    // 动态数据接口 addData
+    myChart11.addData([
+        [
+            0,        // 系列索引
+            Math.round(Math.random() * 1000), // 新增数据
+            false,     // 新增数据是否从队列头部插入
+            false     // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+        ],
+        [
+            1,        // 系列索引
+            lastData, // 新增数据
+            false,    // 新增数据是否从队列头部插入
+            false,    // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+            axisData  // 坐标轴标签
+        ]
+    ]);
+}, 2100);
+            }
+        );
+<!--Z轴向的参数-->
+        {#require.config({#}
+        {#    paths: {#}
+        {#        echarts: 'http://echarts.baidu.com/build/dist'#}
+        {#    }#}
+        {#// 使用#}
+        {#require#}
+        {#    (#}
+        {#    [#}
+        {#        'echarts',#}
+        {#        'echarts/chart/line' ,#}
+        {#        'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载#}
+        {#    ],#}
+            $(function ()
+            {
+                // 基于准备好的dom，初始化echarts图表
+            var myChart = echarts.init(document.getElementById('Z'));
+            var option = {
+                title : {
+                    text: 'Z向参数',
+                    subtext: '力/振动'
+                },
+                tooltip : {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['Z维力', 'Z维振动']
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {show: true, type: ['line', 'bar']},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                dataZoom : {
+                    show : false,
+                    start : 0,
+                    end : 100
+                },
+
+                xAxis : [
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+
+                        data : (function (){
+                            var now = new Date();
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+                                now = new Date(now - 2000);
+                            }
+                            return res;
+                        })()
+                    },
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+                        show:false,
+                        data : (function (){
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.push(len + 1);
+                            }
+                            return res;
+                        })()
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        scale: true,
+                        name : '力',
+                        boundaryGap: [0.2, 0.2]
+                    },
+                    {
+                        type : 'value',
+                        scale: true,
+                        name : '震动',
+                        boundaryGap: [0.2, 0.2]
+                    }
+                ],
+                series : [
+                    {
+                        name:'Z维力',
+                        type:'bar',
+                        xAxisIndex: 1,
+                        yAxisIndex: 1,
+                        data:(function (){
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.push(Math.round(Math.random() * 1000));
+                            }
+                            return res;
+                        })()
+                    },
+                    {
+                        name:'Z维振动',
+                        type:'line',
+
+                        data:(function (){
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.push((Math.random()*10 + 5).toFixed(1) - 0);
+                            }
+                            return res;
+                        })()
+            }
+        ]
+    };
+                myChart.setOption(option);
+
+
+    var lastData = 11;
+    var axisData;
+    var timeTicket;
+    clearInterval(timeTicket);
+    timeTicket = setInterval(function (){
+    lastData += Math.random() * ((Math.round(Math.random() * 10) % 2) == 0 ? 1 : -1);
+    lastData = lastData.toFixed(1) - 0;
+    axisData = (new Date()).toLocaleTimeString().replace(/^\D*/,'');
+
+    // 动态数据接口 addData
+    myChart.addData([
+        [
+            0,        // 系列索引
+            Math.round(Math.random() * 1000), // 新增数据
+            false,     // 新增数据是否从队列头部插入
+            false     // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+        ],
+        [
+            1,        // 系列索引
+            lastData, // 新增数据
+            false,    // 新增数据是否从队列头部插入
+            false,    // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+            axisData  // 坐标轴标签
+        ]
+    ]);
+}, 2100);
+            }
+        );
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+</head>
+<body>
+<div id="list0" style="width:2000px; height:500px"></div>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('list0'));   // 初始化
+    var dispute,traffice,criminal,fire,public_sercurity;     //纠纷，交通，犯罪，火情，公共安全
+    var receive = [];
+    const conn = new ActiveXObject("ADODB.Connection");
+    var rs = new ActiveXObject("ADODB.Recordset");
+     try {
+            var connectionstring = "DRIVER={MySQL ODBC 5.1 Driver};OPTION=3;SERVER=127.0.0.1;User ID=root;Password=123456;Database=threephase;Port=3306";
+            conn.open(connectionstring);
+             var sql = " SELECT P FROM test_computer_yangxu ";
+             rf = conn.execute(sql);
+                        }
+             finally{
+                    //
+                            }
+    function getCategoryPolice(u){
+       $.ajax({
+           type:"GET",
+           url:"/setData/",
+           dataType:'json',
+           async:true,
+            beforeSend: function(){
+    //                     alert("loading....");
+                        }, //加载执行方法
+
+            error: function(){
+                        alert("error");
+                   },  //错误执行方法
+
+            success: function(u){
+                    alert("纠纷："+u[0]);
+                    // 这里弹出某几项验证一下是否获取到了数据或者正确与否
+                    /*
+
+                    alert("交通:"+CategoryCon.list[0].traffice);
+                    alert("刑事:"+CategoryCon.list[0].criminal);
+                    alert("火情:"+CategoryCon.list[0].fire);
+                    alert("治安:"+CategoryCon.list[0].public_sercurity);
+                    */
+                    // 解析数据并赋值给事先声明好的变量
+
+
+                        dispute = u[0];
+                        traffice = u[1];
+                        criminal = u[2];
+                        fire = u[3];
+                        public_sercurity = u[4];
+
+                        receive = [];
+                        // 将使用的数组置空，因为我做demo时在声明数组时有实际测试的数据
+                        // 也可以这样置空数组:receive.splice(0，receive.length);
+                        // 将解析好的json数据push到数组中，当然你也可以使用其他办法，我们这里为了简单明了，是写的直接push的方法。
+                        receive.push(parseInt(dispute));
+                        receive.push(parseInt(traffice));
+                        receive.push(parseInt(criminal));
+                        receive.push(parseInt(fire));
+                        receive.push(parseInt(public_sercurity));
+
+                        receive.push(parseInt(dispute));
+                        receive.push(parseInt(dispute));
+                        console.log(receive); //此处可以打印数组
+
+                       //myChart.hideLoading();    //隐藏加载动画
+                        myChart.setOption(
+                            {
+                                backgroundColor: "rgb(7,14,45)",     //背景色
+                                title: {
+                                text: 'police',
+                                // 标题样式
+                                textStyle: {
+                                    color: '#fff'
+                                }
+                            },
+                                tooltip: {},
+                                legend: {
+                                    data:['人数',"sex"],
+                                    textStyle: {
+                                        color: '#fff'     // legend字体颜色
+                                        }
+                                },
+                    xAxis: {
+                        data: ["罗湖","福田","南山","盐田","宝安","龙华","龙岗"],
+                        axisLabel: {                      // x轴的字体样式
+                                    show: true,
+                                    textStyle: {
+                                    fontSize:12,          // xAxis fontSize
+                                        color: '#fff'
+                                    }
+                                },
+                        // x轴的颜色和宽度
+                        axisLine:{
+                            lineStyle:{
+                                color:'#fff',
+                                  width:1,                  //这里是坐标轴的宽度
+                            }
+                        }
+                    },
+
+
+                    yAxis: {
+                        // y轴的字体样式
+                        axisLabel: {
+                                    show: true,
+                                    textStyle: {
+                                        color: '#fff'
+                                    }
+                               },
+                        // y轴的颜色和宽度
+                        axisLine:{
+                            lineStyle:{
+                                color:'#fff',
+                                  width:1,                  //这里是坐标轴的宽度
+                            }
+                        }
+                    },
+                    series: [{
+                        name: '人数',
+                        type: 'bar',
+                        data: receive             // 需要更新的数据在这里
+                    }]
+                }
+
+           );  // setOption
+
+         } //成功执行方法
+       }) //ajax
+      } // ajax外面的方法
+
+// setInterval(function(){getCategoryPolice()}, 6*1000);    // 间歇执行
+   getCategoryPolice();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+body{
+    background-size: 100% 400%;
+    background: url("/static/img/创客整体1.png");
+}
+#atten{
+    font-size: 16px;position: absolute;top:800px;left: 400px;color: grey
+}
+#ribao{
+    font-size: 26px;position: absolute;top:450px;left:750px
+}

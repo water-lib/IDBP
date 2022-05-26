@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tool1</title>
+    <link rel="stylesheet" href="../static/css/header.css" />
+    <script type="text/javascript" src="../static/js/line-simple.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts-en.common.js" rel="external nofollow"  rel="external nofollow"  rel="external nofollow" ></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/Chart.js/1.1.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.4.12/src-min-noconflict/ace.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dat.gui@0.6.uild/dat.gui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/examples/js/example-bundle.js?_v_=4ed28896a8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/Chart.js/1.1.0/Chart.min.js"></script>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+
+</head>
+<body>
+    <header>
+        <div id="backheader" >
+            <h id="meacheine_name">刀具磨损监控</h>
+                        <div id="datetime">
+                <script>
+                    setInterval("document.getElementById('datetime').innerHTML=new Date().toLocaleString();", 1000);
+                </script>
+            </div>
+        </div>
+    </header>
+
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<!--X向参数-->
+  <div id="A" style="width: 800px;height:400px;position:absolute;left:50px;top:120px"></div>
+
+     <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+      <script type="text/javascript">
+        {#require.config({#}
+        {#    paths: {#}
+        {#        echarts: 'http://echarts.baidu.com/build/dist'#}
+        {#    }#}
+        {#// 使用#}
+        {#require#}
+        {#    (#}
+        {#    [#}
+        {#        'echarts',#}
+        {#        'echarts/chart/line' ,#}
+        {#        'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载#}
+        {#    ],#}
+        // 基于准备好的dom，初始化echarts图表
+            var myChart = echarts.init(document.getElementById('A'));
+            var ydata1 = [538.24,540.541,531.361,525.5,522.325,510.009,504.736,521.408,544.493,504.435,540.729,531.312,507.923,501.274,542.073];
+var ydata2 = [0.04,0,-0.045,-0.034,-0.011,-0.031,0.05,0.046,0.074,0.061,0,-0.013,0.015,0.009,-0.014];
+var xdata = [];
+var now = new Date();
+var i = 15;
+while (i--){
+    xdata.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+    now = new Date(now - 2000);
+}
+
+var option = {
+    title : {
+        text: 'A相参数',
+        subtext: '振动/功率'
+    },
+    tooltip : {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['A相功率', 'X维振动']
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    dataZoom : {
+        show : false,
+        start : 0,
+        end : 100
+    },
+
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : true,
+            data : xdata
+        },
+        {
+            type : 'category',
+            boundaryGap : true,
+            show:false,
+            data : xdata
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+            scale: true,
+            name : '震动(mm)',
+            boundaryGap: [0.2, 0.2]
+        },
+        {
+            type : 'value',
+            scale: true,
+            name : '功率(w)',
+            boundaryGap: [0.2, 0.2]
+        }
+    ],
+    series : [
+        {
+            name:'A相功率',
+            type:'bar',
+            xAxisIndex: 1,
+            yAxisIndex: 1,
+            data:ydata1
+        },
+        {
+            name:'X维振动',
+            type:'line',
+
+            data:ydata2
+    }
+    ]
+    };
+
+
+
+    var Xzhendong = [0.102,0.015,0.033,-0.048,0.011,0.066,0.022,0.038,-0.01,-0.051,0,0.021,0.038,0.041,-0.021,0.031,0.011,-0.012,0.031,0.015];
+    var Apower    = [522.423,528.754,542,525.427,512.686,528.185,545.567,527.199,511.224,528.65,    536.109,517.966,504.428,525.799,537.583,529.089,505.098,511.169,525.451,544.097,    528.215,520.07,512.773,542.654,524.47,500.488,523.121,527.401,501.229,528.026,  544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958]
+    var j = 0;
+    var k = 0;
+    var l = 0;
+    setInterval(function (){
+    if (j<Apower.length){
+        ydata1.shift();
+        ydata1.push(Apower[j]);
+        j++;
+    }
+    else{
+        ydata1.shift();
+        ydata1.push(Apower[0]);
+        j=1;
+    }
+
+    if (k<Xzhendong.length){
+        ydata2.shift();
+        ydata2.push(Xzhendong[k]);
+        k++;
+    }
+    else{
+        ydata2.shift();
+        ydata2.push(Xzhendong[0]);
+        k=1;
+    }
+    var shijian = new Date();
+    xdata.shift();
+    xdata.push(shijian.toLocaleTimeString().replace(/^\D*/,''));
+    myChart.setOption(option);
+
+}, 1000);
+            }
+        );
+    </script>
+
+<!--Y轴向的参数-->
+  <div id="B" style="width: 800px;height:400px;position:absolute;left:950px;top:120px"></div>
+
+     <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+      <script type="text/javascript">
+        {#require.config({#}
+        {#    paths: {#}
+        {#        echarts: 'http://echarts.baidu.com/build/dist'#}
+        {#    }#}
+        {#// 使用#}
+        {#require#}
+        {#    (#}
+        {#    [#}
+        {#        'echarts',#}
+        {#        'echarts/chart/line' ,#}
+        {#        'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载#}
+        {#    ],#}
+            $(function ()
+            {
+                // 基于准备好的dom，初始化echarts图表
+            var myChart = echarts.init(document.getElementById('B'));
+            var option = {
+                title : {
+                    text: 'B相参数',
+                    subtext: '振动/功率'
+                },
+                tooltip : {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['B相功率', 'Y维振动']
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {show: true, type: ['line', 'bar']},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                dataZoom : {
+                    show : false,
+                    start : 0,
+                    end : 100
+                },
+
+                xAxis : [
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+                        data : (function (){
+                            var now = new Date();
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+                                now = new Date(now - 2000);
+                            }
+                            return res;
+                        })()
+                    },
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+                        show:false,
+                        data : (function (){
+                            var now = new Date();
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+                                now = new Date(now - 2000);
+                            }
+                            return res;
+                        })()
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        scale: true,
+                        name : '震动(mm)',
+                        boundaryGap: [0.2, 0.2]
+                    },
+                    {
+                        type : 'value',
+                        scale: true,
+                        name : '功率(w)',
+                        boundaryGap: [0.2, 0.2]
+                    }
+                ],
+                series : [
+                    {
+                        name:'B相功率',
+                        type:'bar',
+                        xAxisIndex: 1,
+                        yAxisIndex: 1,
+                        data:[538.24,540.541,531.361,525.5,522.325,510.009,504.736,521.408,544.493,504.435,540.729,531.312,507.923,501.274,542.073]
+                    },
+                    {
+                        name:'Y维振动',
+                        type:'line',
+
+                        data:[0.04,0,-0.045,-0.034,-0.011,-0.031,0.05,0.046,0.074,0.061,0,-0.013,0.015,0.009,-0.014]
+            }
+        ]
+    };
+                myChart.setOption(option);
+
+<!--    设置功率和震动的最后一个刷新数据-->
+    var Yzhendong = [0.015,0.075,0.061,0,0.031,-0.15,-0.031,0.045,0.014,0.031,0.046,-0.012,-0.061,-0.019,0,0.064,0.043,0.018,-0.014,0.013];
+    var Bpower    = [542.952,546.797,535.13,543.039,526.186,511.596,546.422,532.128,525.359,507.129,    544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958,    524.953,502.892,525.894,500.354,521.873,539.84,536.868,542.268,514.335,533.095, 522.952,516.797,535.13,533.039,526.186,501.596,546.422,512.128,525.359,507.129];
+
+    var lastData1;
+    var lastData2;
+    var j = 0;
+    var k = 0;
+    var axisData;
+    var timeTicket;
+    clearInterval(timeTicket);
+    timeTicket = setInterval(function (){
+    if (j<20){
+        lastData1 = Yzhendong[j];
+        j++;
+    }
+    else{
+        lastData1 = Yzhendong[0];
+        j=1;
+    }
+
+    if (k<Bpower.length){
+        lastData2 = Bpower[k];
+        k++;
+    }
+    else{
+        lastData2 = Bpower[0];
+        k=1;
+    }
+
+    axisData = (new Date()).toLocaleTimeString().replace(/^\D*/,'');
+
+    // 动态数据接口 addData
+    myChart.addData([
+        [
+            0,        // 系列索引
+            lastData2, // 新增数据
+            false,     // 新增数据是否从队列头部插入
+            false     // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+        ],
+        [
+            1,        // 系列索引
+            lastData1, // 新增数据
+            false,    // 新增数据是否从队列头部插入
+            false,    // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+            axisData  // 坐标轴标签
+        ]
+    ]);
+}, 2100);
+            }
+        );
+    </script>
+<!--Z轴向的参数-->
+  <div id="C" style="width: 800px;height:400px;position:absolute;left:50px;top:520px"></div>
+
+     <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+      <script type="text/javascript">
+        {#require.config({#}
+        {#    paths: {#}
+        {#        echarts: 'http://echarts.baidu.com/build/dist'#}
+        {#    }#}
+        {#// 使用#}
+        {#require#}
+        {#    (#}
+        {#    [#}
+        {#        'echarts',#}
+        {#        'echarts/chart/line' ,#}
+        {#        'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载#}
+        {#    ],#}
+            $(function ()
+            {
+                // 基于准备好的dom，初始化echarts图表
+            var myChart = echarts.init(document.getElementById('C'));
+            var option = {
+                title : {
+                    text: 'C相参数',
+                    subtext: '振动/功率'
+                },
+                tooltip : {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['C相功率', 'Z维振动']
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {show: true, type: ['line', 'bar']},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                dataZoom : {
+                    show : false,
+                    start : 0,
+                    end : 100
+                },
+
+                xAxis : [
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+
+                        data : (function (){
+                            var now = new Date();
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+                                now = new Date(now - 2000);
+                            }
+                            return res;
+                        })()
+                    },
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+                        show:false,
+                        data : (function (){
+                            var now = new Date();
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+                                now = new Date(now - 2000);
+                            }
+                            return res;
+                        })()
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        name : '震动(mm)',
+                        boundaryGap: [0.2, 0.2]
+                    },
+                    {
+                        type : 'value',
+                        scale: true,
+                        name : '功率(w)',
+                        boundaryGap: [0.2, 0.2]
+                    }
+                ],
+                series : [
+                    {
+                        name:'C相功率',
+                        type:'bar',
+                        xAxisIndex: 1,
+                        yAxisIndex: 1,
+                        data:[509.504,518.881,530.184,520.314,515.231,537.226,523.808,546.587,505.734,500.41,525.086,549.201,544.794,515.454,515.547]
+                    },
+                    {
+                        name:'Z维振动',
+                        type:'line',
+
+                        data:[0.014,0.056,0.046,-0.031,0.014,0.031,-0.061,-0.019,-0.019,0.064,  -0.125,0.045,-0.012,0.043,0.018]
+            }
+        ]
+    };
+                myChart.setOption(option);
+
+<!--    设置功率和震动的最后一个刷新数据-->
+    var Zzhendong = [0.015,0.075,0.061,0,-0.019,0,0.064,0.031,-0.015,0.046,-0.012,-0.061,-0.031,0.045,0.014,0.031,0.043,0.018,-0.014,0.013];
+    var Cpower    = [522.952,516.797,535.13,533.039,526.186,501.596,546.422,512.128,525.359,507.129,    544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958,    524.953,505.119,525.083,500.539,549.464,516.124,516.803,519.073,544.1,543.9,    524.728,545.346,543.158,534.319,537.477,511.029,512.492,547.772,502.563,516.836];
+
+    var lastData1;
+    var lastData2;
+    var j = 0;
+    var k = 0;
+    var axisData;
+    var timeTicket;
+    clearInterval(timeTicket);
+    timeTicket = setInterval(function (){
+    axisData = (new Date()).toLocaleTimeString().replace(/^\D*/,'');
+    if (j<20){
+        lastData1 = Zzhendong[j];
+        j++;
+    }
+    else{
+        lastData1 = Zzhendong[0];
+        j=1;
+    }
+
+    if (k<40){
+        lastData2 = Cpower[k];
+        k++;
+    }
+    else{
+        lastData2 = Cpower[0];
+        k=1;
+    }
+    // 动态数据接口 addData
+    myChart.addData([
+        [
+            0,        // 系列索引
+            lastData2, // 新增数据
+            false,     // 新增数据是否从队列头部插入
+            false     // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+        ],
+        [
+            1,        // 系列索引
+            lastData1, // 新增数据
+            false,    // 新增数据是否从队列头部插入
+            false,    // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+            axisData  // 坐标轴标签
+        ]
+    ]);
+}, 2100);
+            }
+        );
+    </script>
+<!--合力的参数-->
+  <div id="F" style="width: 800px;height:400px;position:absolute;left:950px;top:520px"></div>
+
+     <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+      <script type="text/javascript">
+        {#require.config({#}
+        {#    paths: {#}
+        {#        echarts: 'http://echarts.baidu.com/build/dist'#}
+        {#    }#}
+        {#// 使用#}
+        {#require#}
+        {#    (#}
+        {#    [#}
+        {#        'echarts',#}
+        {#        'echarts/chart/line' ,#}
+        {#        'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载#}
+        {#    ],#}
+            $(function ()
+            {
+                // 基于准备好的dom，初始化echarts图表
+            var myChart = echarts.init(document.getElementById('F'));
+
+            var option = {
+                title : {
+                    text: '总参数',
+                    subtext: '振动/功率'
+                },
+                tooltip : {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['功率', '振动']
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {show: true, type: ['line', 'bar']},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                dataZoom : {
+                    show : false,
+                    start : 0,
+                    end : 100
+                },
+
+                xAxis : [
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+
+                        data : (function (){
+                            var now = new Date();
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+                                now = new Date(now - 2000);
+                            }
+                            return res;
+                        })()
+                    },
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+                        show:false,
+                        data : (function (){
+                            var now = new Date();
+                            var res = [];
+                            var len = 15;
+                            while (len--) {
+                                res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+                                now = new Date(now - 2000);
+                            }
+                            return res;
+                        })()
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        scale: true,
+                        name : '震动(mm)',
+                        boundaryGap: [0.2, 0.2]
+                    },
+                    {
+                        type : 'value',
+                        scale: true,
+                        name : '功率(w)',
+                        boundaryGap: [0.2, 0.2]
+                    }
+                ],
+                series : [
+                    {
+                        name:'功率',
+                        type:'bar',
+                        xAxisIndex: 1,
+                        yAxisIndex: 1,
+                        data:[515.389,521.223,533.879,548.363,543.013,548.658,517.208,513.597,531.601,520.079,  518.73,515.168,500.767,532.293,547.839]
+                    },
+                    {
+                        name:'振动',
+                        type:'line',
+
+                        data:[0.015,0.075,0.061,0,-0.019,0,0.064,0.031,-0.015,0.046,     -0.012,-0.061,-0.031,0.045,0.014,0.031,0.043,0.018,-0.014,0.013]
+            }
+        ]
+    };
+                myChart.setOption(option);
+
+
+<!--    设置功率和震动的最后一个刷新数据-->
+<!--A相-->
+    var Xzhendong = [0.102,0.015,0.033,-0.048,0.011,0.066,0.022,0.038,-0.01,-0.051,0,0.021,0.038,0.041,-0.021,0.031,0.011,-0.012,0.031,0.015];
+    var Apower    = [522.423,528.754,542,525.427,512.686,528.185,545.567,527.199,511.224,528.65,    536.109,517.966,504.428,525.799,537.583,529.089,505.098,511.169,525.451,544.097,    528.215,520.07,512.773,542.654,524.47,500.488,523.121,527.401,501.229,528.026,  544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958,]
+<!--B相-->
+    var Yzhendong = [0.015,0.075,0.061,0,0.031,-0.15,-0.031,0.045,0.014,0.031,0.046,-0.012,-0.061,-0.019,0,0.064,0.043,0.018,-0.014,0.013];
+    var Bpower    = [542.952,546.797,535.13,543.039,526.186,511.596,546.422,532.128,525.359,507.129,    544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958,    524.953,502.892,525.894,500.354,521.873,539.84,536.868,542.268,514.335,533.095, 522.952,516.797,535.13,533.039,526.186,501.596,546.422,512.128,525.359,507.129];
+<!--C相-->
+    var Zzhendong = [0.015,0.075,0.061,0,-0.019,0,0.064,0.031,-0.015,0.046,     -0.012,-0.061,-0.031,0.045,0.014,0.031,0.043,0.018,-0.014,0.013];
+    var Cpower    = [522.952,516.797,535.13,533.039,526.186,501.596,546.422,512.128,525.359,507.129,    544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958,    524.953,505.119,525.083,500.539,549.464,516.124,516.803,519.073,544.1,543.9,    524.728,545.346,543.158,534.319,537.477,511.029,512.492,547.772,502.563,516.836];
+<!--总参数-->
+
+    var lastData1;
+    var lastData2;
+    var j = 0;
+    var k = 0;
+    var axisData;
+    var timeTicket;
+    clearInterval(timeTicket);
+    timeTicket = setInterval(function (){
+
+
+    if (j<20){
+        lastData1 = (0.3 * Apower[j] + 0.4 * Bpower[j] + 0.3 * Cpower[j]).toFixed(3);
+        j++;
+    }
+    else{
+        lastData1 = (0.3 * Apower[0] + 0.4 * Bpower[0] + 0.3 * Cpower[0]).toFixed(3);
+        j=1;
+    }
+
+    if (k<40){
+        lastData2 = (Math.sqrt(Xzhendong[j] * Xzhendong[j] + Yzhendong[j] * Yzhendong[j] + Zzhendong[j] * Zzhendong[j])).toFixed(3);
+        k++;
+    }
+    else{
+        lastData2 = Math.sqrt(Xzhendong[0] * Xzhendong[0] + Yzhendong[0] * Yzhendong[0] + Zzhendong[0] * Zzhendong[0]);
+        k=1;
+    }
+    // 动态数据接口 addData
+    myChart.addData([
+        [
+            0,        // 系列索引
+            lastData1, // 新增数据
+            false,     // 新增数据是否从队列头部插入
+            false     // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+        ],
+        [
+            1,        // 系列索引
+            lastData2, // 新增数据
+            false,    // 新增数据是否从队列头部插入
+            false,    // 是否增加队列长度，false则自定删除原有数据，队头插入删队尾，队尾插入删队头
+            axisData  // 坐标轴标签
+        ]
+    ]);
+}, 2100);
+            }
+        );
+    </script>
+
+
+</body>
+</html>

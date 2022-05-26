@@ -1,0 +1,24 @@
+{% extends "basepim.html"%}
+{% import "wtf.html" as wtf %}
+{% block title %} Workpiece Information Manage {% endblock title %}
+{% block styles %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block page_content %}
+<link rel="stylesheet" type="text/css" href="../static/css/imgmove.css" />
+<body background="../static/img/创客整体1.png" style="background-size: 100% 180%;
+        background-repeat:no-repeat;">
+<div class="page-header">
+    <h1>请添加工件信息</h1>
+</div>
+<div class="col-md-4">
+    {{ wtf.quick_form(form)}}
+</div>
+    <div id="container" >
+    <div id="photo">
+        <img src="../static/img/工件图1.jpg" />
+        <img src="../static/img/零件图2.jpg" />
+        <img src="../static/img/零件图3.jpg" />
+    </div>
+</div>
+{% endblock %}

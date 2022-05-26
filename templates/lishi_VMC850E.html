@@ -1,0 +1,35 @@
+{% extends "basecount.html" %}
+{% block styles %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block title %}Equipment Information Manage{% endblock %}
+
+{% block page_content %}
+    <table class="table table-bordered">
+    <tr>
+        <th>采集次数</th>
+        <th>采集时间</th>
+        <th>A相电压</th>
+        <th>B相电压</th>
+        <th>C相电压</th>
+        <th>A相电流</th>
+        <th>B相电流</th>
+        <th>C相电流</th>
+        <th>总有功功率</th>
+    </tr>
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6] }}</td>
+                <td>{{ i[7] }}</td>
+                <td>{{ i[8] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

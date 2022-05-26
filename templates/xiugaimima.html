@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+     <!-- Title -->
+    <title>修改密码</title>
+    <!-- Core Stylesheet -->
+   <link rel="stylesheet" href="../static/css/change_password.css">
+
+</head>
+
+ 	<body class="containerr">
+<body>
+  <h1>
+	  	<div class="header">
+		<img width="150" height="60" style="position: absolute; margin-left: 50px" src="../static/img/福州大学校标(已去底)%20(1).png">
+		</div>
+		 	<div id="passwd-change">
+
+						<ul>
+							<span style="position:absolute;left:45%;top:100px">
+							<li>
+								<span class="span-left">
+									操作员代码：
+								</span>
+								 <input type="password" id="pwdpast" name="pwdpast" class="input" onkeyup="myFunctionforPast()">
+								 <span id="pwdpast-text">
+
+								</span>
+							</li>							<li>
+								<span class="span-left">
+									操作员姓名：
+								</span>
+								 <input type="password" id="pwdpast" name="pwdpast" class="input" onkeyup="myFunctionforPast()">
+								 <span id="pwdpast-text">
+
+								</span>
+							</li>
+							<li>
+								<span class="span-left">
+									请输入原密码：
+								</span>
+								 <input type="password" id="pwdpast" name="pwdpast" class="input" onkeyup="myFunctionforPast()">
+								 <span id="pwdpast-text">
+
+								</span>
+							</li>
+							<li>
+								<span class="span-left">
+									请输入新密码：
+								</span>
+								 <input type="password" id="pwd1" name="pwd1" class="input"/onkeyup="checkpw1()" value autocomplete="off">
+								 <span id="newpwd"></span>
+
+							</li>
+							<li id="strength">
+								<span class="span-left">密码强度：</span>
+								<span class="aaa">弱</span>
+								<span class="aaa">中</span>
+								<span class="aaa">强</span>
+							</li>
+							<li>
+								<span class="span-left">
+									请再次输入新密码：
+								</span>
+								<input type="password" id="pwd2" name="pwd2"/ class="input"value autocomplete="off" onkeyup="myFunctionforTwice()"/>
+								<span id="twicepwd">
+
+								</span>
+							</li>
+							<li style="position: absolute;top:100%;left:40%">
+								<button type="button" onclick=tips()>提交修改</button>
+							</li>
+								<li style="position: absolute;top:100%;left: 60%">
+									<button type="button"><a href="index.html" >返回首页</a></button>
+								</li>
+                        </ul>
+					</div>
+	<!--本页的js-->
+	<script src="../static/js/password_test.js">
+	</script>
+	  <script>
+		  function tips() {
+		  	alert("提交成功");
+
+		  }
+	  </script>
+  </h1>>
+</body>
+
+</html>

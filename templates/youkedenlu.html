@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>login</title>
+		<link type="text/css"  rel="stylesheet" href="../static/css/youke_denlu.css" />
+	</head>
+	<script src="../static/js/youkedenlu.js">
+		
+	</script>
+	<body>
+		<div class="qt">
+			<div class="top">
+				<a href="index.html" class="Wel">工业生产运行监测与分析大数据平台</a>
+			</div>
+			<div class="card">
+			    <div class="card_body">
+			        <form action="index.html" method="post">
+			            <div class="form-group">
+			                <label for="username">手机号:</label>
+			                <input type="text" name="username" placeholder="请输入您的手机名" οnchange="chkname()" id="username" /><br />
+			                <p id="tip"class="tip"></p>
+			            </div>
+			            <div class="form-group">
+			                <label for="checkcode">验证码:</label>
+			                <input type="text" name="checkcode" placeholder="验证码" οnchange="chkcode()" id="checkcode"/><br /><br />
+			            </div>
+						<div class="anniu">
+							<button type="button" οnclick="check()" >获取验证码</button>&nbsp;&nbsp;
+							<button type="button" οnclick="check()" >确定</button>&nbsp;&nbsp;
+							<button type="button" οnclick="check()" >退出</button>
+						</div>
+			            
+			        </form>
+			    </div>
+			</div>
+		</div>
+	</body>
+</html>

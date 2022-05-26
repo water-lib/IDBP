@@ -1,0 +1,36 @@
+#I {position: absolute;left:0%;top:10%;width: 30%;}
+#U {position: absolute;left:35%;top:10%;width: 30%;}
+#Ps {position: absolute;left:0%;top:45%;width: 30%;}
+#Ph {position: absolute;left:35%;top:45%;width: 30%;}
+
+#table\ IU {position: absolute;left:70%;top:15%;width: 30%;}
+#table\ P {position: absolute;left:70%;top:55%;width: 30%;}
+#table\ warm {position: absolute;left:40%;top:80%;width: 30%;}
+
+
+table.hovertable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #999999;
+    border-collapse: collapse;
+    position: absolute;
+    left: 35%;
+    top:30%;
+}
+table.hovertable th {
+    background-color:#c3dde0;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+table.hovertable tr {
+    background-color:#d4e3e5;
+}
+table.hovertable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZT-J-6060M</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+
+<body>
+    <header>
+        <h1>ZT-J-6060M</h1>
+        <div class="showTime" style="right: 0">当前时间：<span></span></div>
+    </header>
+    <section class="mainbox">
+        <div class="column">
+            <div class="panel bar">
+                <h2>
+                    辅助气体消耗
+                </h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel line">
+                <h2>
+                    水箱温度
+                </h2>
+                <div class="chart"></div>
+                <div class="panel-footers"></div>
+            </div>
+            <div class="panel pie">
+                <h2>节约能源</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="no">
+                <div class="no-hd">
+                    <ul id="name">
+                        <li></li>
+                        <li>0</li>
+                    </ul>
+                    <script>
+                    var name1 = document.getElementById("name").getElementsByTagName("li");
+                    name1[0].innerHTML="锁片";
+                    var shuliang = 2132;
+                    name1[1].innerHTML=shuliang;
+
+                    setInterval(function () {
+                        if (shuliang < 10000){
+                            shuliang++;
+                            name1[1].innerHTML = shuliang;
+                        }
+                        else {
+                            shuliang = 0;
+                            name1[1].innerHTML = 0;
+                        }
+                    },6000);
+                </script>
+                </div>
+                <div class="no-bd">
+                    <ul>
+                        <li>加工零件名称</li>
+                        <li>已加工数量</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel1 line1">
+                <h2>机床功耗情况</h2>
+                <div class="chart"></div>
+
+            </div>
+
+        </div>
+        <div class="column">
+            <div class="panel bar1">
+                <h2>机床时间分布和维修情况</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel bar4">
+                <h2>加工工件合格情况</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+            <div class="panel bar5">
+                <h2>周合格率</h2>
+                <div class="chart"></div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../static/js/flexible.js"></script>
+    <script src="../static/js/echarts.min.js"></script>
+    <script src="../static/js/jiguang.js"></script>
+    <script src="../static/js/china.js"></script>
+    <script src="../static/js/myMap.js"></script>
+
+    <script>
+        (function (fn) {
+            fn();
+            setInterval(fn, 1000);
+        })(function () {
+            var dt = new Date();
+            document.querySelector(".showTime span").innerHTML =
+              dt.getFullYear()+"年"+
+              (dt.getMonth()+1)+"月"+
+              dt.getDate() + "日-" +
+              dt.getHours() + "时" +
+              dt.getMinutes() + "分" +
+              dt.getSeconds() + "秒";
+        });
+    </script>
+</body>
+
+</html>

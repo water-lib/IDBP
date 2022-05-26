@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="../scripts/TableView.js"></script>
+    <script type="text/javascript" src="../scripts/SortView.js"></script>
+    <script type="text/javascript" src="../scripts/PagerView.js"></script>
+    <script type="text/javascript" src="../scripts/TableView.js"></script>
+    <script type="text/javascript" src="../scripts/SelectorView.js"></script>
+    <script type="text/javascript" src="../scripts/common.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" href="../NavigationBar.css" />
+    <link rel="stylesheet" href="./wrong.css" />
+    <script type="text/javascript" src="./order.js"></script>
+    <link rel="stylesheet" href="../nav.css" />
+</head>
+<body style="padding: 0;margin: 0;">
+<div style="height:100%;width:100%; position: absolute;">
+
+
+    <div class="NavigationBar">
+        <ul>
+            <li><a href="../firstpage/index.html">首页</a></li>
+            <li><a href="../3D/3Dtest.html">车间</a></li>
+            <li><a href="../wrong/order.html">订单</a></li>
+            <li><a href="../wrong/test.html">故障/报警</a></li>
+            <li><a href="../login/denglu.html">退出</a></li>
+        </ul>
+    </div>
+
+    <div id="table_div"></div>
+    <div id="wrong_charts">
+        <script type="text/javascript">
+            show_charts()
+        </script>
+    </div>
+
+<script type="text/javascript">
+
+    var table = new TableView('table_div');
+    table.header = {
+        id			: 'Id',
+        name		: '订单下订时间',
+        name_cn		: '订单需求',
+        text		: '订单数量',
+        input		: '企业'
+    };
+    table.dataKey = 'id';
+    table.display.filter = true;
+    table.display.pager = true;
+    table.pager.size = 8;
+
+    var input_html = '<input type="text" name="a" size="2" class="textbox" />';
+
+    // table.addRange() 可以用来添加数据列表.
+    table.add({id: 0, name: '2019/1/1 12:12:12', name_cn: '八角盘', text: '100', input: ''});
+    table.add({id: 1, name: '2019/3/2 10:10:12', name_cn: '螺栓', text: '50', input: ' '});
+    table.add({id: 2, name: '2019/3/18 12:4:30', name_cn: '螺钉', text: '30', input: ' '});
+    table.add({id: 3, name: '2019/3/20 11:6:40', name_cn: '螺母', text: '40', input: ' '});
+    table.add({id: 4, name: '2019/4/1 9:10:11', name_cn: '', text: '', input: ' '});
+    table.add({id: 5, name: '2019/4/28 14:12:5', name_cn: '', text: '', input: ' '});
+    table.add({id: 6, name: '2019/5/28 14:12:5', name_cn: '', text: '', input: ''});
+    table.add({id: 7, name: '2019/6/1 12:12:12', name_cn: '', text: '', input: ''});
+    table.add({id: 8, name: '2019/6/10 10:10:12', name_cn: '', text: '', input: ' '});
+    table.add({id: 9, name: '2019/6/20 12:4:30', name_cn: '', text: '', input: ' '});
+    table.add({id: 10, name: '2019/7/10 11:6:40', name_cn: '', text: '', input: ' '});
+    table.add({id: 11, name: '2019/7/21 9:10:11', name_cn: '', text: '', input: ' '});
+    table.add({id: 12, name: '2019/8/28 14:12:5', name_cn: '', text: '', input: ' '});
+    table.add({id: 13, name: '2019/8/28 14:12:5', name_cn: '', text: '', input: ''})
+    table.render();
+
+</script>
+<</div>
+</body>
+</html>

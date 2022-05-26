@@ -1,0 +1,36 @@
+#container{
+    z-index: -10;position:absolute;height:350px;width: 700px;top: 50px;left:10px
+}
+#Qfeng{
+    position: absolute;top:100px;left:580px;height: 400px;width: 130px;
+}
+#btn3{
+    position: absolute;top: 400px;left: 300px
+}
+#container1{
+    position:absolute;height:350px;width: 700px;top: 50px;left: 800px
+}
+#Haz{
+    position: absolute;top:100px;left:1370px;height: 400px;width: 130px
+}
+#btn4{
+    position: absolute;top: 400px;left: 1100px
+}
+#container2{
+    position:absolute;height:350px;width: 700px;top: 450px;left: 10px
+}
+#czd{
+    position: absolute;top:500px;left:580px;height: 400px;width: 130px
+}
+#btn5{
+    position: absolute;top: 800px;left: 300px
+}
+#container3{
+    position:absolute;height:350px;width: 700px;top: 450px;left: 800px
+}
+#czd2{
+    position: absolute;top:500px;left:1370px;height: 400px;width: 130px
+}
+#btn6{
+    position: absolute;top: 800px;left: 1100px
+}

@@ -1,0 +1,32 @@
+{% extends "basequeryorder.html" %}
+{% block styles %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block title %}首页{% endblock %}
+
+{% block page_content %}
+    <table class="table table-bordered">
+    <tr>
+        <th>订单ID</th>
+        <th>订单名称</th>
+        <th>订单类型</th>
+        <th>备用工件</th>
+        <th>交货日期</th>
+        <th>订单总量</th>
+        <th>加工状态</th>
+
+    </tr>
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

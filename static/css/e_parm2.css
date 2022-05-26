@@ -1,0 +1,54 @@
+#second_nav{width: 10%;height: 60%;background-color: black}
+#second_nav ul{margin:0%;height: 100%}
+#second_nav ul li{height: 20%;background-color: black;display:block;text-align:center;
+    line-height: 3;font-size:20px;}
+
+
+#e_charts{width: 77%;height: 50%;float: left;margin-left: 3%;}
+
+
+#table-7 thead th {
+    background-color: rgb(81, 130, 187);
+    color: #fff;
+    border-bottom-width: 0;
+
+}
+
+/* Column Style */
+
+#table-7,#table-8{width: 90%;margin-left: 5%}
+
+#table-7 td {
+    color: #000;
+}
+/* Heading and Column Style */
+#table-7 tr, #table-7 th {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(81, 130, 187);
+}
+
+/* Padding and font style */
+#table-7 td, #table-7 th {
+    padding: 5px 10px;
+    font-size: 12px;
+    font-family: Verdana;
+    font-weight: bold;
+}
+
+
+
+#table-8 th {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(81, 130, 187);
+    background: rgb(81, 130, 187);
+}
+#table-8 th {
+    padding: 5px 10px;
+    font-size: 12px;
+    font-family: Verdana;
+    font-weight: bold;
+}
+
+

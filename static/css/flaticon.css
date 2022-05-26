@@ -1,0 +1,333 @@
+@font-face {
+  font-family: 'flaticon';
+  src:  url('../fonts/flaticon.eot');
+  src:  url('../fonts/flaticon.eot#iefix') format('embedded-opentype'),
+    url('../fonts/flaticon.ttf') format('truetype'),
+    url('../fonts/flaticon.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.flaticon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'flaticon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 20px;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-telephone:before {
+  content: "\e900";
+}
+.flaticon-atom:before {
+  content: "\e901";
+}
+.flaticon-salary-1:before {
+  content: "\e902";
+}
+.flaticon-barrel:before {
+  content: "\e903";
+}
+.flaticon-selection-process:before {
+  content: "\e904";
+}
+.flaticon-bio-energy:before {
+  content: "\e905";
+}
+.flaticon-interview-4:before {
+  content: "\e906";
+}
+.flaticon-chemistry:before {
+  content: "\e907";
+}
+.flaticon-women:before {
+  content: "\e908";
+}
+.flaticon-coal:before {
+  content: "\e909";
+}
+.flaticon-company:before {
+  content: "\e90a";
+}
+.flaticon-data:before {
+  content: "\e90b";
+}
+.flaticon-man:before {
+  content: "\e90c";
+}
+.flaticon-distillation:before {
+  content: "\e90d";
+}
+.flaticon-strategy:before {
+  content: "\e90e";
+}
+.flaticon-drilling-rig:before {
+  content: "\e90f";
+}
+.flaticon-position:before {
+  content: "\e910";
+}
+.flaticon-contact:before {
+  content: "\e911";
+}
+.flaticon-engineer:before {
+  content: "\e912";
+}
+.flaticon-extraction:before {
+  content: "\e913";
+}
+.flaticon-salary:before {
+  content: "\e914";
+}
+.flaticon-approved:before {
+  content: "\e915";
+}
+.flaticon-factory:before {
+  content: "\e916";
+}
+.flaticon-faucet:before {
+  content: "\e917";
+}
+.flaticon-skills:before {
+  content: "\e918";
+}
+.flaticon-briefcase:before {
+  content: "\e919";
+}
+.flaticon-flame:before {
+  content: "\e91a";
+}
+.flaticon-fossil-fuels:before {
+  content: "\e91b";
+}
+.flaticon-recruitment-1:before {
+  content: "\e91c";
+}
+.flaticon-gas:before {
+  content: "\e91d";
+}
+.flaticon-interview-3:before {
+  content: "\e91e";
+}
+.flaticon-gas1:before {
+  content: "\e91f";
+}
+.flaticon-job-3:before {
+  content: "\e920";
+}
+.flaticon-clothes:before {
+  content: "\e921";
+}
+.flaticon-gas-station:before {
+  content: "\e922";
+}
+.flaticon-global-warming:before {
+  content: "\e923";
+}
+.flaticon-rating:before {
+  content: "\e924";
+}
+.flaticon-hand-pump:before {
+  content: "\e925";
+}
+.flaticon-handshake:before {
+  content: "\e926";
+}
+.flaticon-jerrycan:before {
+  content: "\e927";
+}
+.flaticon-video-conference-1:before {
+  content: "\e928";
+}
+.flaticon-lab-tool:before {
+  content: "\e929";
+}
+.flaticon-resume-1:before {
+  content: "\e92a";
+}
+.flaticon-maintenance:before {
+  content: "\e92b";
+}
+.flaticon-thinking:before {
+  content: "\e92c";
+}
+.flaticon-job-2:before {
+  content: "\e92d";
+}
+.flaticon-mine:before {
+  content: "\e92e";
+}
+.flaticon-interview-2:before {
+  content: "\e92f";
+}
+.flaticon-molecules:before {
+  content: "\e930";
+}
+.flaticon-natural-gas:before {
+  content: "\e931";
+}
+.flaticon-notification:before {
+  content: "\e932";
+}
+.flaticon-career:before {
+  content: "\e933";
+}
+.flaticon-nuclear-plant:before {
+  content: "\e934";
+}
+.flaticon-dippel-oil:before {
+  content: "\e935";
+}
+.flaticon-microphone:before {
+  content: "\e936";
+}
+.flaticon-oil-platform:before {
+  content: "\e937";
+}
+.flaticon-selection:before {
+  content: "\e938";
+}
+.flaticon-hiring-1:before {
+  content: "\e939";
+}
+.flaticon-oil-pumps:before {
+  content: "\e93a";
+}
+.flaticon-hiring:before {
+  content: "\e93b";
+}
+.flaticon-oil-tanker:before {
+  content: "\e93c";
+}
+.flaticon-job-1:before {
+  content: "\e93d";
+}
+.flaticon-oil-truck:before {
+  content: "\e93e";
+}
+.flaticon-hired:before {
+  content: "\e93f";
+}
+.flaticon-oil-valve:before {
+  content: "\e940";
+}
+.flaticon-oiler:before {
+  content: "\e941";
+}
+.flaticon-time:before {
+  content: "\e942";
+}
+.flaticon-appointment:before {
+  content: "\e943";
+}
+.flaticon-petrol:before {
+  content: "\e944";
+}
+.flaticon-pipeline:before {
+  content: "\e945";
+}
+.flaticon-video-conference:before {
+  content: "\e946";
+}
+.flaticon-check-list:before {
+  content: "\e947";
+}
+.flaticon-power-plant:before {
+  content: "\e948";
+}
+.flaticon-curriculum:before {
+  content: "\e949";
+}
+.flaticon-power-line:before {
+  content: "\e94a";
+}
+.flaticon-certificate:before {
+  content: "\e94b";
+}
+.flaticon-pressure-gauge:before {
+  content: "\e94c";
+}
+.flaticon-contract:before {
+  content: "\e94d";
+}
+.flaticon-refinery:before {
+  content: "\e94e";
+}
+.flaticon-helmet:before {
+  content: "\e94f";
+}
+.flaticon-recruitment:before {
+  content: "\e950";
+}
+.flaticon-graph:before {
+  content: "\e951";
+}
+.flaticon-profiles:before {
+  content: "\e952";
+}
+.flaticon-conversation-1:before {
+  content: "\e953";
+}
+.flaticon-solar-energy:before {
+  content: "\e954";
+}
+.flaticon-approval:before {
+  content: "\e955";
+}
+.flaticon-solar-panel:before {
+  content: "\e956";
+}
+.flaticon-job:before {
+  content: "\e957";
+}
+.flaticon-storage-tank:before {
+  content: "\e958";
+}
+.flaticon-resume:before {
+  content: "\e959";
+}
+.flaticon-toolbox:before {
+  content: "\e95a";
+}
+.flaticon-interview-1:before {
+  content: "\e95b";
+}
+.flaticon-wind-power:before {
+  content: "\e95c";
+}
+.flaticon-interview:before {
+  content: "\e95d";
+}
+.flaticon-conversation:before {
+  content: "\e95e";
+}
+.flaticon-application:before {
+  content: "\e95f";
+}
+.flaticon-personal-profile:before {
+  content: "\e960";
+}
+.flaticon-electricity-tower:before {
+  content: "\e961";
+}
+.flaticon-flask:before {
+  content: "\e962";
+}
+.flaticon-worker:before {
+  content: "\e963";
+}
+.flaticon-world:before {
+  content: "\e964";
+}
+.flaticon-location:before {
+  content: "\e965";
+}

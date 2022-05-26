@@ -1,0 +1,32 @@
+
+#container{position:absolute;left:20%;top:10%;width: 80%;height: 90%}
+
+second ul
+{
+    list-style-type:none;
+    padding:0px;
+    padding-top:6px;
+    padding-bottom:6px;
+    background-color: #ededed;
+    margin: 10% 10px 10px 10px;
+    width: 10%;
+
+
+}
+
+second ul li a:link,second ul li a:visited
+{
+
+    font-family:"宋体";
+    color:black;
+    background-color:#ededed;
+    text-align:center;
+    padding:6px;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+second ul li a:hover,second ul li a:active
+{
+    background-color:white;
+}
+

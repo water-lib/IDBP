@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>历史电量</title>
+    <link rel="stylesheet" href="/static/css/NavigationBar.css" />
+    <link rel="stylesheet" href="/static/css/history_energy.css" />
+    <script type="text/javascript" src="/static/js/echart_for_history_energy.js"></script>
+
+</head>
+<body>
+
+<!--导航条-->
+<navigation>
+    <ul>
+        <li><a href="">首页</a></li>
+        <li><a href="/history_energy_consumption.html">电量</a></li>
+        <li><a href="/order.html">订单</a></li>
+        <li><a href="/qualification_rate.html">合格率</a></li>
+        <li><a href="">退出</a></li>
+    </ul>
+</navigation>
+
+
+<!--导航条2-->
+<second>
+    <ul class="navigation2">
+        <li>电量</li>
+        <li><a href="javascript:NCMill()">数控铣床</a></li>
+        <li><a href="javascript:NCTurn()">数控车床</a></li>
+        <li><a href="javascript:Laser()">激光切割机</a></li>
+        <li><a href="">机床</a></li>
+        <li><a href="">机床</a></li>
+        <li><a href="">机床</a></li>
+        <li><a href="">机床</a></li>
+        <li><a href="">机床</a></li>
+
+    </ul>
+</second>
+
+<!--历史电量图表-->
+    <!--调用echarts图表库-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+
+    <!--定义一个容器存放图表-->
+    <div id="container"></div>
+    <!--图表的js-->
+    <script type="text/javascript">
+        NCMill()
+    </script>
+
+
+
+</body>
+</html>

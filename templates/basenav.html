@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block styles %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"><link href="../static/css/phone_no_background.css" rel='stylesheet' type='text/css' media="screen and (max-width: 479px)">
+{% endblock %}
+{% block title %} flasky {% endblock title %}
+
+{% block navbar %}
+    <div class="nav navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                        data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">欢迎</a>  <!--返回的是app.route中的‘/**地址’>
+                <-->
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li style="flood-color: white"><a href="/">主页</a></li>
+                    <li style="flood-color: white"><a href="/register.html">注册</a></li>
+                     <li style="flood-color: white"><a href="/xiougaimima_modify.html">修改密码</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="container">
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{message }}
+        </div>
+    {% endfor %}
+        {% block page_content %}{% endblock %}
+    </div>
+{% block scripts %}
+    {{ super()}}
+    {{ moment.include_moment() }}
+{% endblock %}
+{% endblock %}

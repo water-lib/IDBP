@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My Test Document</title>
+		<style>
+			/* 整体页面布局 */
+			.containerr{
+
+				width: 980px;
+				position: relative;
+				z-index: 100;
+				background-size:100%;
+				background-attachment: fixed;
+				background-image: url(../static/img/创客整体1.png);
+
+			}
+			.header{
+				position: absolute;
+				width: 100%;
+				height: 50px;
+				color: white;
+				font-size: 25px;
+			}
+			.qt{
+				z-index: 10;
+				margin-left: 10px;
+				position: absolute;
+				width: 980px;
+				height: 1200px;
+
+
+			}
+			.tt{
+				z-index: 10;
+
+
+				width: 980px;
+				height: px;
+				padding-top: 1px;
+				padding-bottom: 1px;
+				margin-left: 25px;
+			}
+			.lf{
+				z-index: 10;
+				line-height: 30px;
+
+				width: 300px;
+				height: 400px;
+				float: left;
+				padding: 5px;
+				text-align: center;
+				margin-left: 20px;
+			}
+			#nav{width:150px; margin-left:30px; margin-top: 1px;font-size:35px}
+			#nav h5{ cursor:pointer; margin-top: 1px; line-height:30px; height:30px;  color:#000000 }
+			#nav a{display:block; line-height:24px;}
+			#nav a:hover{}
+			#nav div{display:none; border:px; }
+			.rh{
+				z-index: 10;
+				width: 400px;
+				height: 400px;
+				float: left;
+				padding: 10px;
+			}
+
+			.bt{
+
+				z-index: 20;
+				width: 980px;
+				height: ;
+				padding-top: 10px;
+				padding-bottom: 20px;
+				clear: both;
+				margin-top： 300px；
+			}
+			/*新增操作员信息页面布局*/
+			.box{
+				z-index: 100;
+				position: relative;
+				background-color: antiquewhite;
+			    width:460px; 
+				margin-top:10px;
+				margin-left: 120px;
+				padding-top:10px;
+				padding-bottom: 28px;
+			    height:460px; 
+				border:1px #111 solid;
+			    display:none;            /* 默认对话框隐藏 */
+			}
+			.box.show{display:block;} 
+			.box h2{margin-top: 10px;margin-left: ;}
+			.box input{width:60%; font-size:18px; margin-top:18px;}
+			.box form{margin-left: 80px;}
+		</style>
+		<script type="text/javascript">
+			function $(id){return document.getElementById(id)}
+			window.onload = function(){
+			 $("nav").onclick = function(e){
+			  var src = e?e.target:event.srcElement;
+			  if(src.tagName == "H5"){
+			   var next = src.nextElementSibling || src.nextSibling;
+			   next.style.display = (next.style.display =="block")?"none":"block";
+			  }
+			 }
+			}
+			function msgbox(n){
+			    document.getElementById('inputbox').style.display=n?'block':'none';     /* 点击按钮打开/关闭 对话框 */
+			}
+		</script>
+	</head>
+	<body class="containerr">
+		<div class="header">
+			<img width="150" height="60" style="position: absolute; margin-left: 50px" src="../static/img/福州大学校标(已去底)%20(1).png">
+			</div>
+	</body>
+	<body >
+
+
+
+		<div class="qt">
+			<div class="tt" style="font-size:35px;margin-top:50px">
+				<a>操作员信息 ,{% if current_user.is_authenticated %} <!--已登录的账户可以用currentuser来表示，currentuser.username或者就可以使用数据库信息-->
+                {{ current_user.username }}
+                {% else %}
+                 Stranger
+			{% endif %}</a>
+
+			</div>
+
+			<div id="nav" class="lf">
+
+<!--				注释掉<h5 id="one" onclick="" style="font-size:35">操作员信息</h5>-->
+				<div style="font-size:35px">
+					<a href="#" >adms</a>
+					<a href="#" >fujun</a>
+					<a href="#" >jy</a>
+					<a href="#" >wwb</a>
+				</div>
+			</div>
+		<div class="header">
+
+		</div>
+			<div class="rh" >
+				<table id="employeeTable" style="font-size:25px;margin-top: 50px" align="center" border="1" cellspacing="0" cellpadding="5" width="400"   >
+					<tr>
+						<th >操作员名称</th>
+						<th>操作岗位</th>
+
+					</tr>
+					<tr>
+						<th>adms</th>
+						<th>管理员</th>
+					</tr>
+					<tr>
+						<th>fujun</th>
+						<th>管理员</th>
+					</tr>
+					<tr>
+						<th>jy</th>
+						<th>操作员</th>
+					</tr>
+					<tr>
+						<th>wwb</th>
+						<th>管理员</th>
+					</tr>
+				</table>
+			</div>
+			<div class="bt">
+				<div style="position: absolute;padding-right:300px">
+				</div>
+				<input type="submit" onClick="msgbox(1)" style="font-size:30px" value="新增">
+				<button type="button" onclick="check()" style="font-size:30px">修改</button>
+				<button type="button" onclick="check()" style="font-size:30px">浏览</button>
+				<button type="button" onclick="check()" style="font-size:30px">删除</button>
+				<button type="button"  style="font-size:30px"><a href="caozuoyuanxinxi.html"> 刷新</a></button>
+				<button type="button"  style="font-size:30px"><a href="index.html"> 退出</a></button>
+			</div>
+			
+		</div>
+		<div>
+			<div id='inputbox' class="box">
+				<h2>新增操作员</h2>
+				<form action="http://localhost:5000/caozuoyuanxinxi" method="post">
+				    <div class="form-group">
+				        <label for="username">操作员姓名:</label>
+				        <input type="text" name="username" placeholder="请输入操作员姓名" onchange="chkname()" id="username" /><br />
+				        <p id="tip"class="tip"></p>
+				    </div>
+				    <div class="form-group">
+				        <label for="password">操作员密码:</label>
+				        <input type="password" name="password"  placeholder="请输入操作员密码" onchange="chkpassword()" id="password" /><br />
+				        <p id="tip2"class="tip"></p>
+				    </div>
+				    <div class="form-group">
+				        <label for="checkcode">确认密码:</label>
+				        <input type="text" name="checkcode" placeholder="请确认密码" onchange="chkcode()" id="checkcode"/><br /><br />
+				    </div>
+					<div class="form-group">
+					    <label for="password">操作岗位:</label>
+					    <input type="password" name="password"  placeholder="请输入操作岗位" onchange="chkpassword()" id="password" /><br />
+					    
+						<p id="tip2"class="tip"></p>
+					</div>
+					<div class="form-group">
+					    <label for="password">职务:</label>
+					    <input type="password" name="password"  placeholder="请输入职务" onchange="chkpassword()" id="password" /><br />
+					    <p id="tip2"class="tip"></p>
+					</div>
+					<div class="form-group">
+					    <label for="password">备注:</label>
+					    <input type="password" name="password"  placeholder="请输入备注" onchange="chkpassword()" id="password" /><br />
+					    <p id="tip2"class="tip"></p>
+					</div>
+					<div>
+						<input type="submit" value="新增" />
+						<button type="button" onclick="check()" >保存</button>
+						<button type="button" onclick="msgbox(0); return false;" >返回</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

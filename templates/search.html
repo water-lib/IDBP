@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/nav.css" />
+    <script type="text/javascript" src="../static/js/e_parm2.js"></script>
+    <script type="text/javascript" src="../static/js/search.js"></script>
+    <script type="text/javascript" src="../static/js/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" href="../NavigationBar.css" />
+    <link rel="stylesheet" href="../static/css/e_parm2.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+
+</head>
+<body style="padding: 0;margin: 0;">
+<div style="height:100%;width:100%; position: absolute;">
+
+    <div class="NavigationBar">
+        <ul>
+            <li><a href="../firstpage/index.html">首页</a></li>
+            <li><a href="../3D/3Dtest.html">车间</a></li>
+            <li><a href="../wrong/order.html">订单</a></li>
+            <li><a href="../wrong/test.html">故障/报警</a></li>
+            <li><a href="../login/denglu.html">退出</a></li>
+        </ul>
+    </div>
+    <form action="/s1" method="POST">
+        <input id="input" type="text" value="">
+        <input id="button" type="button" value="查询" onclick="Search()">
+    </form>
+    <div id="table1" class="table-s"></div>
+</div>
+<style>
+.table-s table,table tr th, table tr td { border:1px solid #000000; }
+.table-s table { width: 200px; min-height: 25px; line-height: 25px; text-align: center; border-collapse: collapse;}
+</style>
+
+</body>
+</html>

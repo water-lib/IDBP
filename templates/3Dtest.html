@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="three.js"></script>
+<!--读取nav.css和3D.css-->
+    <link rel="stylesheet" href="../static/css/nav.css" />
+    <link rel="stylesheet" href="../static/css/3D.css" />
+    <style>
+
+        #3D{margin-top: 5%}
+    </style>
+
+</head>
+<body>
+<div style="height:100%;width:100%; position: absolute;">
+
+    <div class="NavigationBar">
+        <ul>
+<!--导航条-->
+            <li><a href="../templates/index.html">首页</a></li>
+            <li><a href="../templates/3Dtest.html">车间</a></li>
+            <li><a href="../templates/order.html">订单</a></li>
+            <li><a href="../templates/test.html">故障/报警</a></li>
+            <li><a href="../login/denglu.html">退出</a></li>
+        </ul>
+    </div>
+    <div style="margin-top: 1%">
+<!--标题-->
+        <h1 style="margin-left: 30%">工业生产运行监测与分析大数据平台</h1>
+    </div>
+<div id="3D" style="margin-top: 0%;position: relative;height:80%;width: 100%;">
+<!--读取机床图片-->
+    <div style="position: absolute;left:5%;top:1%;z-index: 10"> 
+        <img src="../static/img/workshop.png" alt="" height=95% width=95%>
+    </div>
+    <div style="position: absolute;z-index: 50;right: 55%;bottom: 1%;" title="数控铣床">
+        <a href="../templates/mechine.html" target="_blank"><img src="../static/img/NC_M.png" alt="数控铣床" height=140% width=140%></a>
+    </div>
+    <div style="position: absolute;z-index: 50;right: 27%;bottom: 73%;" title="数控车床">
+        <a href="../templates/mechine_skc1.html" target="_blank"><img src="../static/img/NC_T.png" alt="" height=140% width=140%></a>
+    </div>
+	
+	<div style="position: absolute;z-index: 50;right: 40%;bottom: 82%;" title="数控车床">
+        <a href="../templates/mechine_skc2.html" target="_blank"><img src="../static/img/yaobi.png" alt="" height=140% width=140%></a>
+    </div>
+	
+    <div style="position: absolute;z-index: 50;right: 39%;bottom: 6%;" title="焊接台">
+        <a href="../templates/mechine_hjt.html" target="_blank"><img src="../static/img/fire_cut.png" alt="" height=140% width=140%></a>
+    </div>
+
+
+    <div style="position: absolute;z-index: 50;right: 59%;bottom: 84%;" title="激光切1">
+        <a href="../templates/mechine_jgq1.html" target="_blank"><img src="../static/img/jiguang.png" alt="" height=140% width=140%></a>
+    </div>
+	
+	
+	<div style="position: absolute;z-index: 50;right: 64%;bottom: 3%;" title="激光切2">
+        <a href="../templates/mechine_jgq2 .html" target="_blank"><img src="../static/img/jiguang.png" alt="" height=140% width=140%></a>
+    </div>
+
+    <div style="position: absolute;z-index: 50;right: 75%;bottom: 82%;" title="台钻">
+        <a href="../templates/mechine_tz.html" target="_blank"><img src="../static/img/taizuang.png" alt="" height=140% width=140%></a>
+    </div>
+
+    <div style="position: absolute;z-index: 50;right: 88%;bottom: 1%;" title="检测装配台">
+        <a href="../templates/3Dtest.html" target="_blank"><img src="../static/img/puche.png" alt="" height=140% width=140%></a>
+    </div>
+    <div style="position: absolute;z-index: 50;right: 76.5%;bottom: 1%;" title="清洁站">
+        <a href="../templates/3Dtest.html" target="_blank"><img src="../static/img/qingjiezhan.png" alt="" height=140% width=140%></a>
+    </div>
+    <div style="position: absolute;z-index: 50;right: 87%;bottom: 38%;" title="立体仓库">
+        <a href="../templates/3Dtest.html" target="_blank"><img src="../static/img/kufang.png" alt="" height=140% width=140%></a>
+    </div>
+    <div style="position: absolute;z-index: 50;right: 34%;bottom: 6%;" title="打磨台">
+        <a href="../templates/3Dtest.html" target="_blank"><img src="../static/img/damotai.png" alt="" height=140% width=140%></a>
+    </div>
+    <div style="position: absolute;z-index: 50;right: 27%;bottom: 6%;" title="操作台">
+        <a href="../templates/3Dtest.html" target="_blank"><img src="../static/img/caozuotai.png" alt="" height=140% width=140%></a>
+    </div>
+	<!-- Replace "table-1" with any of the design numbers -->
+	<!--
+    <table id="table-7"> 
+
+        <thead>
+
+        <th>设备</th>
+        <th>状态</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>数控铣床</td>
+            <td>在线</td>
+        </tr>
+        <tr>
+            <td>数控车床</td>
+            <td>在线</td>
+        </tr>
+        <tr>
+            <td>线切割</td>
+            <td>停机</td>
+        </tr>
+        <tr>
+            <td>摇臂钻</td>
+            <td>停机</td>
+        </tr>
+        <tr>
+            <td>激光切割</td>
+            <td>在线</td>
+        </tr>
+        <tr>
+            <td>普车</td>
+            <td>停机</td>
+        </tr>
+        <tr>
+            <td>台钻</td>
+            <td>停机</td>
+        </tr>
+        </tbody>
+    </table>
+
+-->
+
+</div>
+
+
+</div>
+</body>
+</html>

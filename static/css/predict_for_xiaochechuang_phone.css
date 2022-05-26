@@ -1,0 +1,33 @@
+input{
+    width: 100px;
+}
+#workpiecescore{
+    position: absolute;top: 1150px;left: -10px;height:400px;width:390px
+}
+#Iintime{
+    position: absolute;top:920px;left:220px;height: 15px;width: 100px
+}
+#Uintime{
+    position: absolute;top:920px;left:110px;height: 15px;width: 100px
+}
+#Pintime{
+    position: absolute;top:920px;left:1px;height: 15px;width: 100px
+}
+#Pintime1{
+    position: absolute;top:970px;left:1px;height: 30px;width: 180px
+}
+#Iintime1{
+    position: absolute;top:1090px;left:1px;height: 15px;width: 180px
+}
+#Uintime1{
+    position: absolute;top:1030px;left:1px;height: 15px;width: 180px
+}
+#Pintime2{
+    position: absolute;top:1000px;left:1px;height: 15px;width: 180px
+}
+#Iintime2{
+    position: absolute;top:1090px;left:120px;height: 15px;width: 180px
+}
+#Uintime2{
+    position: absolute;top:1060px;left:1px;height: 15px;width: 180px
+}

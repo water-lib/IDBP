@@ -1,0 +1,136 @@
+input{
+	width: 150px;
+}
+#imgua{
+    position: absolute;
+    top: 60px;
+    left: 1px;
+	z-index: -100;
+}
+#imgia{
+    position: absolute;
+    top: 330px;
+    left: 1px;
+	z-index: auto;
+}
+#imgp{
+    position: absolute;
+    top: 620px;
+    left: 1px;
+	z-index: auto;
+}
+#imgpa{
+    position: absolute;
+    top: 920px;
+    left: 1px;
+}
+#imgsa{
+    position: absolute;
+    top: 1220px;
+    left: 1px;
+}
+#imgpfa{
+    position: absolute;
+    top: 1520px;
+    left: 1px;
+}
+#textu{
+	position:absolute;
+	left: 30px
+}
+#texti{
+	position:absolute;
+	top:320px;
+	left: 30px
+}
+#textp{
+	position:absolute;
+	top: 610px;
+	left: 30px
+}
+#textpa{
+	position:absolute;
+	top: 910px;
+	left: 30px
+}
+#textsa{
+	position:absolute;
+	top: 1210px;
+	left: 30px
+}
+#textpfa{
+	position:absolute;
+	top: 1510px;
+	left: 30px
+}
+#uaintime{
+	position: absolute;
+	top:1800px;
+	left:10px;
+	height: 15px;
+	width: 180px
+}
+#iaintime{
+	position: absolute;
+	top:1800px;
+	left:210px;
+	height: 15px;
+	width: 180px
+}
+#pintime{
+	position: absolute;
+	top:1860px;
+	left:10px;
+	height: 15px;
+	width: 180px
+}
+#paintime{
+	position: absolute;
+	top:1860px;
+	left:210px;
+	height: 15px;
+	width: 180px
+}
+#saintime{
+	position: absolute;
+	top:1920px;
+	left:10px;
+	height: 15px;
+	width: 180px
+}
+#pfaintime{
+	position: absolute;
+	top:1920px;
+	left:210px;
+	height: 15px;
+	width: 180px
+}
+#uaintime1{
+	position: absolute;
+	top:1980px;
+	left:10px;
+	height: 15px;
+	width: 180px
+}
+#uaintime2{
+	position: absolute;
+	top:2040px;
+	left:10px;
+	height: 15px;
+	width: 180px
+}
+#uaintime3{
+	position: absolute;top:2100px;left:10px;height: 15px;width: 180px
+}
+#uaintime4{
+	position: absolute;top:1980px;left:210px;height: 15px;width: 180px
+}
+#uaintime5{
+	position: absolute;top:2040px;left:210px;height: 15px;width: 180px
+}
+#uaintime6{
+	position: absolute;top:2100px;left:210px;height: 15px;width: 180px
+}
+#workpiecescore{
+    position: absolute;top: 2160px;left:1px;height:400px;width:380px
+}

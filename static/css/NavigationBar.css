@@ -1,0 +1,28 @@
+navigation ul
+{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    padding-top:6px;
+    padding-bottom:6px;
+    background-color: #ededed;
+}
+navigation li
+{
+    display:inline;
+}
+navigation li a:link,navigation li a:visited
+{
+
+    font-family:"宋体";
+    color:black;
+    background-color:#ededed;
+    text-align:center;
+    padding:6px;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+navigation li a:hover,navigation li a:active
+{
+    background-color:white;
+}

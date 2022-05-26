@@ -1,0 +1,124 @@
+/*绿绿绿绿按钮*/
+.demo{position:absolute;left:5%;top: 61%;width:70px; height:50px;margin:20px auto 0 auto; }
+.button {
+    height: 20px;
+    width: 50px;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 16px/100% 'Microsoft yahei',Arial, Helvetica, sans-serif;
+    padding: .5em 2em .55em;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.small {
+    font-size: 15px;
+    padding: .2em 1em .275em;
+}
+.button:hover {
+    text-decoration: none;
+}
+.button:active {
+    position: relative;
+    top: 1px;
+}
+
+
+.green {
+    color: #e8f0de;
+    border: solid 1px #538312;
+    background: #64991e;
+    background: -webkit-gradient(linear, left top, left bottom, from(#7db72f), to(#4e7d0e));
+    background: -moz-linear-gradient(top, #7db72f, #4e7d0e);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db72f', endColorstr='#4e7d0e');
+}
+.green:hover {
+    background: #538018;
+    background: -webkit-gradient(linear, left top, left bottom, from(#6b9d28), to(#436b0c));
+    background: -moz-linear-gradient(top,  #6b9d28,  #436b0c);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#6b9d28', endColorstr='#436b0c');
+}
+.green:active {
+    color: #a9c08c;
+    background: -webkit-gradient(linear, left top, left bottom, from(#4e7d0e), to(#7db72f));
+    background: -moz-linear-gradient(top,  #4e7d0e,  #7db72f);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#4e7d0e', endColorstr='#7db72f');
+}
+
+
+
+#rem{position:absolute;left:0%;top:0%;width: 4%;height: 100%}
+#meacheine_name{position:absolute;left:45%;top:10%;color: white;font-size: xx-large}
+#datetime{position:absolute;left:75%;top:10%;color: white;font-size: x-large}
+
+
+
+data #leftNav{position:absolute;left:33%;top:38%;width: 30%;height: 5%}
+data div ul li{/*导航样式*/display: inline-block}
+data div ul li a{color: black}
+data #lintable1,#lintable2{position:absolute;left:5%;top:65%;width: 50%;height: 30%}
+
+header #backheader{position: absolute;left:0;top:0;height: 10%;width: 100%;background-color:black}
+
+body #pie{position:absolute;left:30%;top:10%;height: 20%;width: 60%;size: 600px}
+body pie #pie1{position: absolute;left:-20%;top:0%;height:100%;width: 50%;font-size: 30px}
+body pie #pie2{position: absolute;left:50%;top:0%;height: 100%;width: 50%;font-size: 30px}
+
+
+#para{position:absolute;left:75%;top:3%;height: 20%;width: 25%}
+body paramter table{height: 100%;width: 100%;}
+body paramter table td{text-align: center;}
+
+#surf_list{position:absolute;left:60%;top:30%;height: 30%;width:35%}
+#surf_rate{position:absolute;left:60%;top:58%;height: 37%;width: 38%}
+
+#count{position:absolute;left:0%;top:16%;height: 10%;width: 25%}
+
+#timetool{position:absolute;left:5%;top:30%;height: 30%;width: 50%;}
+
+#toolhealth{position:absolute;left:0%;top:100%;height: 35%;width: 100%}
+
+#coumt_txt{position:relative;left:30%;top:60%;font-size:large}
+#count_num{font-size:xx-large;color: #f47a20}
+
+#Navigation_bar{position: absolute;left:0;top:0;height: 10%;width: 100%;background-color:black}
+.item{position:absolute;left:45%;top:10%;color: white;font-size: xx-large}
+
+
+#navigation
+{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    padding-top:20px;
+
+    background-color: black;
+}
+#navigation li
+{
+    display:inline;
+}
+#navigation li a:link,#navigation li a:visited
+{
+
+    font-family:"宋体";
+    color:white;
+    background-color:black;
+    text-align:center;
+    padding:6px;
+    text-decoration:none;
+    text-transform:uppercase;
+}
+#navigation li a:hover,#navigation li a:active
+{
+
+    background-color:#80bed6;
+}
+

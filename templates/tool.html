@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tool1</title>
+    <link rel="stylesheet" href="../static/css/header.css" />
+    <script type="text/javascript" src="../static/js/line-simple.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+<body>
+    <header>
+        <div id="backheader" >
+            <h id="meacheine_name">刀具磨损监控</h>
+                        <div id="datetime">
+                <script>
+                    function time() {
+                    var myDates = new Date();
+                    var nn = myDates.getFullYear();
+                    var yy = myDates.getMonth() + 1;
+                    var rr = myDates.getDate();
+                    var hh = myDates.getHours();
+                    var mm = myDates.getMinutes();
+                    var ss = myDates.getSeconds();
+                    var xDatas =nn +'-' + yy + '-' + rr + '  ' + hh +':' + mm + ':' + ss;
+                    return xDatas;
+                }
+
+                setInterval("document.getElementById('datetime').innerHTML=time();", 1000)
+                </script>
+            </div>
+        </div>
+    </header>
+    //A向参数图表
+    <div id="A" style="width: 45%;height:40%;position:absolute;left:2%;top:15%"></div>
+    <script type="text/javascript">
+        var e = document.body.clientWidth;
+        var myChartA = echarts.init(document.getElementById("A"), null, {renderer:'svg'});
+        var ydata1A = [538.24,540.541,531.361,525.5,522.325,510.009,504.736,521.408,544.493,504.435,540.729,531.312,507.923,501.274,542.073];
+        var ydata2A = [0.04,0,-0.045,-0.034,-0.011,-0.031,0.05,0.046,0.074,0.061,0,-0.013,0.015,0.009,-0.014];
+        var xdataA = [];
+        var myDatesA = new Date();
+        for (var i = 0; i<15;i++){
+            var hh = myDatesA.getHours();
+            var mm = myDatesA.getMinutes();
+            var ss = myDatesA.getSeconds();
+            var xDatas = hh +':' + mm + ':' + ss;
+            xdataA.unshift(xDatas);
+            myDatesA = new Date(myDatesA - 2000);
+        }
+        // var nowA = new Date();
+        // var iA = 15;
+        // while (iA--){
+        //     xdataA.unshift(nowA.toLocaleTimeString().replace(/^\D*/,''));
+        //     nowA = new Date(nowA - 2000);
+        // }
+        var optionA = {
+                title : {
+                    text: 'A相参数',
+                    textStyle:{
+                        fontSize: e/1920*11
+                    }
+                },
+                tooltip : {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data:['A相功率', 'X维振动']
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        magicType : {show: true, type: ['line', 'bar']},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                dataZoom : {
+                    show : false,
+                    start : 0,
+                    end : 100
+                },
+
+                xAxis : [
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+                        data : xdataA
+                    },
+                    {
+                        type : 'category',
+                        boundaryGap : true,
+                        show:false,
+                        data : xdataA
+                    }
+                ],
+                yAxis : [
+                    {
+                        type : 'value',
+                        scale: true,
+                        name : '震动(mm)',
+                        splitLine: { show: false }, //去除网格线
+                        boundaryGap: [0.2, 0.2]
+                    },
+                    {
+                        type : 'value',
+                        scale: true,
+                        name : '功率(w)',
+                        splitLine: { show: false }, //去除网格线
+                        boundaryGap: [0.2, 0.2]
+                    }
+                ],
+                series : [
+                    {
+                        name:'A相功率',
+                        type:'bar',
+                        xAxisIndex: 1,
+                        yAxisIndex: 1,
+                        data:ydata1A
+                    },
+                    {
+                        name:'X维振动',
+                        type:'line',
+
+                        data:ydata2A
+                }
+                ]
+                };
+
+
+
+                var Xzhendong = [0.102,0.015,0.033,-0.048,0.011,0.066,0.022,0.038,-0.01,-0.051,0,0.021,0.038,0.041,-0.021,0.031,0.011,-0.012,0.031,0.015];
+                var Apower    = [522.423,528.754,542,525.427,512.686,528.185,545.567,527.199,511.224,528.65,    536.109,517.966,504.428,525.799,537.583,529.089,505.098,511.169,525.451,544.097,    528.215,520.07,512.773,542.654,524.47,500.488,523.121,527.401,501.229,528.026,  544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958]
+                var jA = 0;
+                var kA = 0;
+                var lA = 0;
+                setInterval(function (){
+                if (jA<Apower.length){
+                    ydata1A.shift();
+                    ydata1A.push(Apower[jA]);
+                    jA++;
+                }
+                else{
+                    ydata1A.shift();
+                    ydata1A.push(Apower[0]);
+                    jA=1;
+                }
+
+                if (kA<Xzhendong.length){
+                    ydata2A.shift();
+                    ydata2A.push(Xzhendong[kA]);
+                    kA++;
+                }
+                else{
+                    ydata2A.shift();
+                    ydata2A.push(Xzhendong[0]);
+                    kA=1;
+                }
+                var myDatesA = new Date();
+                var hh = myDatesA.getHours();
+                var mm = myDatesA.getMinutes();
+                var ss = myDatesA.getSeconds();
+                var xDatas = hh +':' + mm + ':' + ss;
+                xdataA.shift();
+                xdataA.push(xDatas);
+                myChartA.setOption(optionA);
+
+            }, 1000);
+    </script>
+
+    //B相参数
+    <div id="B" style="width:45%;height:40%;position:absolute;left:52%;top:15%"></div>
+    <script type= "text/javascript">
+        var myChartB = echarts.init(document.getElementById("B"), null, {renderer:'svg'});
+        var ydata1B = [538.24,540.541,531.361,525.5,522.325,510.009,504.736,521.408,544.493,504.435,540.729,531.312,507.923,501.274,542.073];
+        var ydata2B = [0.04,0,-0.045,-0.034,-0.011,-0.031,0.05,0.046,0.074,0.061,0,-0.013,0.015,0.009,-0.014];
+        var xdataB = [];
+        var myDatesB = new Date();
+        for (var i = 0; i<15;i++){
+            var hh = myDatesB.getHours();
+            var mm = myDatesB.getMinutes();
+            var ss = myDatesB.getSeconds();
+            var xDatas = hh +':' + mm + ':' + ss;
+            xdataB.unshift(xDatas);
+            myDatesB = new Date(myDatesB - 2000);
+        }
+
+        var optionB = {
+            title : {
+                text: 'B相参数',
+                textStyle: {
+                    fontSize: '2 rem'
+                }
+
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['B相功率', 'Y维振动']
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    mark : {show: true},
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            dataZoom : {
+                show : false,
+                start : 0,
+                end : 100
+            },
+
+            xAxis : [
+                {
+                    type : 'category',
+                    boundaryGap : true,
+                    data : xdataB
+                },
+                {
+                    type : 'category',
+                    boundaryGap : true,
+                    show:false,
+                    data : xdataB
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    scale: true,
+                    name : '震动(mm)',
+                    splitLine: { show: false }, //去除网格线
+                    boundaryGap: [0.2, 0.2]
+                },
+                {
+                    type : 'value',
+                    scale: true,
+                    name : '功率(w)',
+                    splitLine: { show: false }, //去除网格线
+                    boundaryGap: [0.2, 0.2]
+                }
+            ],
+            series : [
+                {
+                    name:'B相功率',
+                    type:'bar',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1,
+                    data:ydata1B
+                },
+                {
+                    name:'Y维振动',
+                    type:'line',
+
+                    data:ydata2B
+            }
+            ]
+            };
+
+
+
+            var Yzhendong = [0.015,0.075,0.061,0,0.031,-0.15,-0.031,0.045,0.014,0.031,0.046,-0.012,-0.061,-0.019,0,0.064,0.043,0.018,-0.014,0.013];
+            var Bpower    = [542.952,546.797,535.13,543.039,526.186,511.596,546.422,532.128,525.359,507.129,    544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958,    524.953,502.892,525.894,500.354,521.873,539.84,536.868,542.268,514.335,533.095, 522.952,516.797,535.13,533.039,526.186,501.596,546.422,512.128,525.359,507.129];
+            var jB = 0;
+            var kB = 0;
+            var lB = 0;
+            setInterval(function (){
+            if (jB<Bpower.length){
+                ydata1B.shift();
+                ydata1B.push(Bpower[jB]);
+                jB++;
+            }
+            else{
+                ydata1B.shift();
+                ydata1B.push(Bpower[0]);
+                jB=1;
+            }
+
+            if (kB<Yzhendong.length){
+                ydata2B.shift();
+                ydata2B.push(Yzhendong[kB]);
+                kB++;
+            }
+            else{
+                ydata2B.shift();
+                ydata2B.push(Yzhendong[0]);
+                kB=1;
+            }
+            var myDatesA = new Date();
+            var hh = myDatesA.getHours();
+            var mm = myDatesA.getMinutes();
+            var ss = myDatesA.getSeconds();
+            var xDatas = hh +':' + mm + ':' + ss;
+            xdataB.shift();
+            xdataB.push(xDatas);
+            myChartB.setOption(optionB);
+
+        }, 1000);
+    </script>
+
+    //C相参数
+    <div id="C" style="width:45%;height:40%;position:absolute;left:2%;top:58%"></div>
+    <script type="text/javascript">
+        var myChartC = echarts.init(document.getElementById("C"), null, {renderer:'svg'});
+        var ydata1C = [515.389,521.223,533.879,548.363,543.013,548.658,517.208,513.597,531.601,520.079,  518.73,515.168,500.767,532.293,547.839];
+        var ydata2C = [0.015,0.075,0.061,0,-0.019,0,0.064,0.031,-0.015,0.046,     -0.012,-0.061,-0.031,0.045,0.014];
+        var xdataC = [];
+        var myDatesC = new Date();
+        for (var i = 0; i<15;i++){
+            var hh = myDatesC.getHours();
+            var mm = myDatesC.getMinutes();
+            var ss = myDatesC.getSeconds();
+            var xDatas = hh +':' + mm + ':' + ss;
+            xdataC.unshift(xDatas);
+            myDatesC = new Date(myDatesC - 2000);
+        }
+
+        var optionC = {
+        title : {
+            text: 'C相参数',
+
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['C相功率', 'Z维振动']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['line', 'bar']},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        dataZoom : {
+            show : false,
+            start : 0,
+            end : 100
+        },
+
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : true,
+                data : xdataC
+            },
+            {
+                type : 'category',
+                boundaryGap : true,
+                show:false,
+                data : xdataC
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                scale: true,
+                name : '震动(mm)',
+                splitLine: { show: false }, //去除网格线
+                boundaryGap: [0.2, 0.2]
+            },
+            {
+                type : 'value',
+                scale: true,
+                name : '功率(w)',
+                splitLine: { show: false }, //去除网格线
+                boundaryGap: [0.2, 0.2]
+            }
+        ],
+        series : [
+            {
+                name:'C相功率',
+                type:'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data:ydata1C
+            },
+            {
+                name:'Z维振动',
+                type:'line',
+
+                data:ydata2C
+        }
+        ]
+        };
+
+
+
+        var Zzhendong = [0.015,0.075,0.061,0,-0.019,0,0.064,0.031,-0.015,0.046,     -0.012,-0.061,-0.031,0.045,0.014,0.031,0.043,0.018,-0.014,0.013];
+        var Cpower    = [522.952,516.797,535.13,533.039,526.186,501.596,546.422,512.128,525.359,507.129,    544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958,    524.953,505.119,525.083,500.539,549.464,516.124,516.803,519.073,544.1,543.9,    524.728,545.346,543.158,534.319,537.477,511.029,512.492,547.772,502.563,516.836];
+        var jC = 0;
+        var kC = 0;
+        var lC = 0;
+        setInterval(function (){
+        if (jC<Cpower.length){
+            ydata1C.shift();
+            ydata1C.push(Cpower[jC]);
+            jC++;
+        }
+        else{
+            ydata1C.shift();
+            ydata1C.push(Cpower[0]);
+            jC=1;
+        }
+
+        if (kC<Zzhendong.length){
+            ydata2C.shift();
+            ydata2C.push(Zzhendong[kC]);
+            kC++;
+        }
+        else{
+            ydata2C.shift();
+            ydata2C.push(Zzhendong[0]);
+            kC=1;
+        }
+        var myDatesA = new Date();
+        var hh = myDatesA.getHours();
+        var mm = myDatesA.getMinutes();
+        var ss = myDatesA.getSeconds();
+        var xDatas = hh +':' + mm + ':' + ss;
+        xdataC.shift();
+        xdataC.push(xDatas);
+        myChartC.setOption(optionC);
+
+        }, 1000);
+
+    </script>
+    //总参数
+    <div id="F" style="width:45%;height:40%;position:absolute;left:52%;top:58%"></div>
+    <script type="text/javascript">
+        var myChartF = echarts.init(document.getElementById("F"), null, {renderer:'svg'});
+        var ydata1F = [515.389,521.223,533.879,548.363,543.013,548.658,517.208,513.597,531.601,520.079,  518.73,515.168,500.767,532.293,547.839];
+        var ydata2F = [0.015,0.075,0.061,0,-0.019,0,0.064,0.031,-0.015,0.046,     -0.012,-0.061,-0.031,0.045,0.014];
+        var xdataF = [];
+        var myDatesF = new Date();
+        for (var i = 0; i<15;i++){
+            var hh = myDatesF.getHours();
+            var mm = myDatesF.getMinutes();
+            var ss = myDatesF.getSeconds();
+            var xDatas = hh +':' + mm + ':' + ss;
+            xdataF.unshift(xDatas);
+            myDatesF = new Date(myDatesF - 2000);
+        }
+
+        var optionF = {
+            title : {
+                text: '总参数',
+
+            },
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['功率', '振动']
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    mark : {show: true},
+                    dataView : {show: true, readOnly: false},
+                    magicType : {show: true, type: ['line', 'bar']},
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            dataZoom : {
+                show : false,
+                start : 0,
+                end : 100
+            },
+
+            xAxis : [
+                {
+                    type : 'category',
+                    boundaryGap : true,
+                    data : xdataF
+                },
+                {
+                    type : 'category',
+                    boundaryGap : true,
+                    show:false,
+                    data : xdataF
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    scale: true,
+                    name : '震动(mm)',
+                    splitLine: { show: false }, //去除网格线
+                    boundaryGap: [0.2, 0.2]
+                },
+                {
+                    type : 'value',
+                    scale: true,
+                    name : '功率(w)',
+                    splitLine: { show: false }, //去除网格线
+                    boundaryGap: [0.2, 0.2]
+                }
+            ],
+            series : [
+                {
+                    name:'功率',
+                    type:'bar',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1,
+                    data:ydata1F
+                },
+                {
+                    name:'振动',
+                    type:'line',
+
+                    data:ydata2F
+            }
+            ]
+            };
+
+        <!--A相-->
+            var XzhendongF = [0.102,0.015,0.033,-0.048,0.011,0.066,0.022,0.038,-0.01,-0.051,0,0.021,0.038,0.041,-0.021,0.031,0.011,-0.012,0.031,0.015];
+            var ApowerF    = [522.423,528.754,542,525.427,512.686,528.185,545.567,527.199,511.224,528.65,    536.109,517.966,504.428,525.799,537.583,529.089,505.098,511.169,525.451,544.097,    528.215,520.07,512.773,542.654,524.47,500.488,523.121,527.401,501.229,528.026,  544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958,]
+        <!--B相-->
+            var YzhendongF = [0.015,0.075,0.061,0,0.031,-0.15,-0.031,0.045,0.014,0.031,0.046,-0.012,-0.061,-0.019,0,0.064,0.043,0.018,-0.014,0.013];
+            var BpowerF    = [542.952,546.797,535.13,543.039,526.186,511.596,546.422,532.128,525.359,507.129,    544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958,    524.953,502.892,525.894,500.354,521.873,539.84,536.868,542.268,514.335,533.095, 522.952,516.797,535.13,533.039,526.186,501.596,546.422,512.128,525.359,507.129];
+        <!--C相-->
+            var ZzhendongF = [0.015,0.075,0.061,0,-0.019,0,0.064,0.031,-0.015,0.046,     -0.012,-0.061,-0.031,0.045,0.014,0.031,0.043,0.018,-0.014,0.013];
+            var CpowerF    = [522.952,516.797,535.13,533.039,526.186,501.596,546.422,512.128,525.359,507.129,    544.896,531.461,528.004,528.978,548.094,513.395,503.058,520.141,532.782,509.958,    524.953,505.119,525.083,500.539,549.464,516.124,516.803,519.073,544.1,543.9,    524.728,545.346,543.158,534.319,537.477,511.029,512.492,547.772,502.563,516.836];
+            var jF = 0;
+            var kF = 0;
+            var lF = 0;
+            setInterval(function (){
+            if (jF<CpowerF.length){
+                ydata1F.shift();
+                ydata1F.push((0.3 * ApowerF[jF] + 0.4 * BpowerF[jF] + 0.3 * CpowerF[jF]).toFixed(3));
+                jF++;
+            }
+            else{
+                ydata1F.shift();
+                ydata1F.push((0.3 * ApowerF[0] + 0.4 * BpowerF[0] + 0.3 * CpowerF[0]).toFixed(3));
+                jF=1;
+            }
+
+            if (kF<ZzhendongF.length){
+                ydata2F.shift();
+                ydata2F.push((Math.sqrt(XzhendongF[kF] * XzhendongF[kF] + YzhendongF[kF] * YzhendongF[kF] + ZzhendongF[kF] * ZzhendongF[kF])).toFixed(3));
+                kF++;
+            }
+            else{
+                ydata2F.shift();
+                ydata2F.push((Math.sqrt(XzhendongF[0] * XzhendongF[0] + YzhendongF[0] * YzhendongF[0] + ZzhendongF[0] * ZzhendongF[0])).toFixed(3));
+                kF=1;
+            }
+            var myDates = new Date();
+            var hh = myDates.getHours();
+            var mm = myDates.getMinutes();
+            var ss = myDates.getSeconds();
+            var xData = hh +':' + mm + ':' + ss;
+            xdataF.shift();
+            xdataF.push(xData);
+            myChartF.setOption(optionF);
+        }, 1000);
+    window.addEventListener("resize", function() {
+        // 让我们的图表调用 resize这个方法
+        myChartA.resize();
+        myChartB.resize();//若有多个图表变动，可多写
+        myChartC.resize();
+        myChartF.resize();
+
+    });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends "basequi.html"%}
+{% import "wtf.html" as wtf %}
+{% block title %} Equipment Information Manage {% endblock title %}
+{% block styles %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block page_content %}
+<link rel="stylesheet" type="text/css" href="../static/css/imgmove.css" />
+<body background="../static/img/创客整体1.png" style="background-size: 100% 220%;
+        background-repeat:no-repeat;">
+<div class="page-header">
+    <h1>请添加设备信息</h1>
+</div>
+<div class="col-md-4">
+    {{ wtf.quick_form(form)}}
+</div>
+{#    图片轮播效果 手机端无！#}
+<div id="container">
+    <div id="photo">
+        <img src="../static/img/设备图1.png" />
+        <img src="../static/img/设备图2.png" />
+        <img src="../static/img/设备图3.png" />
+    </div>
+</div>
+{% endblock %}
