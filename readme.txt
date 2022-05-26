@@ -1,4 +1,0 @@
-helloword helloword helloword helloword
-
-hellowordhelloword
-hellowordhelloword
