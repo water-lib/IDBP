@@ -1,10 +1,8 @@
-from flask import Flask, render_template, request, jsonify
-import ReadDate
-import time
-import json
+from flask import request, jsonify
+from jinja2_python import ReadDate
 from datetime import timedelta
 import os
-from flask import Flask, render_template, session, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, flash
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_wtf import FlaskForm
@@ -209,9 +207,6 @@ def threeD():
     return render_template('3Dtest.html')
 
 
-@app.route('/templates/order.html')
-def oee():
-    return render_template('order.html')
 
 
 @app.route('/templates/test.html')

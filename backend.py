@@ -2,7 +2,6 @@ import os
 import pickle
 # import winsound
 from datetime import timedelta, datetime
-import datetime as ada
 import numpy as np
 import pandas as pd
 import pymysql
@@ -19,28 +18,28 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import StringField, SubmitField, PasswordField, BooleanField
 from wtforms.validators import DataRequired
 
-import ReadDate
-from alter_password import ChangedPwd
-from equipment_add import Equipmentaddform
-from equipment_change import Equipment_change
-from equipment_delete import Equipment_delete
-from equipment_history_query import Equipment_history_query
-from equipment_unusualcount_query import Equipment_unusualcount_query
-from gangweixinxi import Gangweixinxi
-from opti_workpiece_index import Opti_workpiece_index
-from orders_add import Orders_add
-from orders_change import Orders_change
-from ordersim_delete import Ordersim_delete
-from predict_workpiece_index import Predict_workpiece_index
-from register_form import RegistrationForm
-from warnning_workpiece import Warnning_workpiece_index
-from workpiece_add import Workpieceaddform
-from workpiece_change import Workpiece_change
-from workpiece_delte import Workpiece_delte
-from workpiece_unusualcount import Workpiece_unusual_count
+from jinja2_python import ReadDate
+from jinja2_python.alter_password import ChangedPwd
+from jinja2_python.equipment_add import Equipmentaddform
+from jinja2_python.equipment_change import Equipment_change
+from jinja2_python.equipment_delete import Equipment_delete
+from jinja2_python.equipment_history_query import Equipment_history_query
+from jinja2_python.equipment_unusualcount_query import Equipment_unusualcount_query
+from jinja2_python.gangweixinxi import Gangweixinxi
+from jinja2_python.opti_workpiece_index import Opti_workpiece_index
+from jinja2_python.orders_add import Orders_add
+from jinja2_python.orders_change import Orders_change
+from jinja2_python.ordersim_delete import Ordersim_delete
+from jinja2_python.predict_workpiece_index import Predict_workpiece_index
+from jinja2_python.register_form import RegistrationForm
+from jinja2_python.warnning_workpiece import Warnning_workpiece_index
+from jinja2_python.workpiece_add import Workpieceaddform
+from jinja2_python.workpiece_change import Workpiece_change
+from jinja2_python.workpiece_delte import Workpiece_delte
+from jinja2_python.workpiece_unusualcount import Workpiece_unusual_count
 from tensorflow.keras.models import load_model
 
-from yichangshujudaochu import Yichangshujudaochu
+from jinja2_python.yichangshujudaochu import Yichangshujudaochu
 
 pymysql.install_as_MySQLdb()
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -49,14 +48,12 @@ app = Flask(__name__)
 login = LoginManager(app)
 bootstrap = Bootstrap(app)
 # 以下在window上测试使用
-model_computer = pickle.load(open('D:/2021-1-23/大数据项目/BigData_Phone1/BigData_Phone - 比赛副本/model1.pkl', 'rb'))
-model2_lasercutting_q1 = pickle.load(open('D:/2021-1-23/大数据项目/BigData_Phone1/BigData_Phone - 比赛副本/'
-                                          'model_lasercutting.pkl', 'rb'))
-model2_lasercutting_q2 = pickle.load(open('D:/2021-1-23/大数据项目/BigData_Phone1/BigData_Phone - 比赛副本/'
-                                          'model_lasercutting1.pkl', 'rb'))
-model_BP = load_model('D:/2021-1-23/大数据项目/BigData_Phone1/BigData_Phone - 比赛副本/BP_model.h5')
-model_BP2 = load_model('D:/2021-1-23/大数据项目/BigData_Phone1/BigData_Phone - 比赛副本/BP_model2.h5')
-KNN = pickle.load(open('D:/2021-1-23/大数据项目/BigData_Phone1/BigData_Phone - 比赛副本/KNN_jieduan.pkl', 'rb'))
+model_computer = pickle.load(open('/ML_model/model1.pkl', 'rb'))
+model2_lasercutting_q1 = pickle.load(open('/ML_model/model_lasercutting.pkl', 'rb'))
+model2_lasercutting_q2 = pickle.load(open('/ML_model/model_lasercutting1.pkl', 'rb'))
+model_BP = load_model('/ML_model/BP_model.h5')
+model_BP2 = load_model('/ML_model/BP_model2.h5')
+KNN = pickle.load(open('/ML_model/KNN_jieduan.pkl', 'rb'))
 # 以下上传云端使用
 # model_computer = pickle.load(open('/home/nzw/BigDataFlask2/model1.pkl', 'rb'))
 # model2_lasercutting_q1 = pickle.load(open('/home/nzw/BigDataFlask2/'
@@ -366,7 +363,7 @@ def mima():
             db.session.commit()
             flash('修改成功,请返回登录')
             return redirect(url_for('login'))
-    return render_template('xiougaimima_modify.html', form=form)
+    return render_template('./xiougaimima_modify.html', form=form)
 
 
 @app.route('/templates/Login_modify.html', methods=['GET', 'POST'])
@@ -852,10 +849,6 @@ def gangweiquanxianNO():
 def threeD():
     return render_template('3Dtest.html')
 
-
-@app.route('/templates/order.html')
-def oee():
-    return render_template('order.html')
 
 
 @app.route('/templates/test.html')

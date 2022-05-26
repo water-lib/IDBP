@@ -5,8 +5,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.cluster import KMeans
 import pickle
-file = pd.read_csv("test2.csv", encoding='gb2312')
-file1 = pd.read_csv("test2_test.csv", encoding='gb2312')
+file = pd.read_csv("../test2.csv", encoding='gb2312')
+file1 = pd.read_csv("../test2_test.csv", encoding='gb2312')
 xtrain = file["功率"].values.reshape(-1, 1)
 # print(xtrain)
 ytrain = file["加工阶段"]
@@ -18,8 +18,8 @@ ytest = file1["加工阶段"]
 # print(pre1)
 KNN = KNeighborsClassifier(n_neighbors=1)
 KNN.fit(xtrain, ytrain)
-pickle.dump(KNN,open('KNN_jieduan.pkl','wb'))
-model = pickle.load(open('KNN_jieduan.pkl','rb'))
+pickle.dump(KNN, open('KNN_jieduan.pkl', 'wb'))
+model = pickle.load(open('KNN_jieduan.pkl', 'rb'))
 pre = model.predict(xtest)
 print(pre)
 # pre = KNN.predict(xtest)
